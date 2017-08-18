@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.Gui", "AspIT.NorthwindApp.Gui\AspIT.NorthwindApp.Gui.csproj", "{F5351CA6-0152-477B-899E-36B70AADBD3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.Entities", "AspIT.NorthwindApp.Entities\AspIT.NorthwindApp.Entities.csproj", "{C7EF5A8A-2AE8-49F8-9449-71CE63DA66C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.Entities", "AspIT.Northwind.Entities\AspIT.NorthwindApp.Entities.csproj", "{6C10C8D3-E522-49E4-B803-1FCBCA87FC89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.DataAccess", "AspIT.NorthwindApp.DataAccess\AspIT.NorthwindApp.DataAccess.csproj", "{AD8FCBB4-5F3C-4FA2-AFD7-83486C5BE10B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.DataAccess", "AspIT.Northwind.DataAccess\AspIT.NorthwindApp.DataAccess.csproj", "{569A8806-9032-4486-8898-3DA518A8DD88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{F5351CA6-0152-477B-899E-36B70AADBD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5351CA6-0152-477B-899E-36B70AADBD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5351CA6-0152-477B-899E-36B70AADBD3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7EF5A8A-2AE8-49F8-9449-71CE63DA66C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7EF5A8A-2AE8-49F8-9449-71CE63DA66C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7EF5A8A-2AE8-49F8-9449-71CE63DA66C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7EF5A8A-2AE8-49F8-9449-71CE63DA66C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD8FCBB4-5F3C-4FA2-AFD7-83486C5BE10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD8FCBB4-5F3C-4FA2-AFD7-83486C5BE10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD8FCBB4-5F3C-4FA2-AFD7-83486C5BE10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD8FCBB4-5F3C-4FA2-AFD7-83486C5BE10B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C10C8D3-E522-49E4-B803-1FCBCA87FC89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C10C8D3-E522-49E4-B803-1FCBCA87FC89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C10C8D3-E522-49E4-B803-1FCBCA87FC89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C10C8D3-E522-49E4-B803-1FCBCA87FC89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{569A8806-9032-4486-8898-3DA518A8DD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{569A8806-9032-4486-8898-3DA518A8DD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{569A8806-9032-4486-8898-3DA518A8DD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{569A8806-9032-4486-8898-3DA518A8DD88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
