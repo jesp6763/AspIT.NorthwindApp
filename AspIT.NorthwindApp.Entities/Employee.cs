@@ -90,6 +90,8 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Gets or sets the first name
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when value is greater than 10</exception>
+        /// <exception cref="ArgumentException">Thrown when the value is empty, null or has special characters, or numbers</exception>
         public string FirstName
         {
             get => firstName;
