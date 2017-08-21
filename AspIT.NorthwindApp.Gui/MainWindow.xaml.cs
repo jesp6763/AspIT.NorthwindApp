@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AspIT.NorthwindApp.Entities;
 
 namespace AspIT.NorthwindApp.Gui
 {
@@ -23,6 +24,14 @@ namespace AspIT.NorthwindApp.Gui
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            /*Test - Start*/
+            Employee item = new Employee() { TitleOfCourtesy = "Hr", FirstName = "Johnson", LastName = "McDonald", PhotoPath = @"C:\Users\jesp6763\Pictures\Flaming Skull very small.png" };
+            employeeList.Items.Add(item);
+            /*Test - End*/
         }
     }
 }

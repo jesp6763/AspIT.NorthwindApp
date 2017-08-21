@@ -6,12 +6,15 @@
         xmlns:local="clr-namespace:AspIT.NorthwindApp.Gui"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="350"
-        Width="525"
+        Height="504"
+        Width="819.5"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Background="White">
-    <DockPanel>
+        Background="White"
+        FontFamily="Calibri"
+        FontSize="14"
+        Loaded="Window_Loaded">
+    <Grid>
         <StatusBar VerticalAlignment="Bottom"
                    DockPanel.Dock="Bottom"
                    Height="21"
@@ -20,7 +23,129 @@
             <StatusBarItem x:Name="statusLbl"
                            Content="Status:" />
             <StatusBarItem x:Name="statusValue_Text"
-                           Content="idle" />
+                           Content="" />
         </StatusBar>
-    </DockPanel>
+        <ListView x:Name="employeeList"
+                  Margin="0,37,199,21">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="64">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Photo}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- PHOTO -->
+                    <GridViewColumn Header="Høflig tiltaleform"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding TitleOfCourtesy}" />
+                    <GridViewColumn Header="Fornavn"
+                                    Width="100"
+                                    DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Header="Efternavn"
+                                    Width="100"
+                                    DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Header="Titel"
+                                    Width="100"
+                                    DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Fødselsdato"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding BirthDate}" />
+                    <GridViewColumn Header="Ansættelsesdato"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding HireDate}" />
+                    <GridViewColumn Header="Addresse"
+                                    Width="135"
+                                    DisplayMemberBinding="{Binding Address}" />
+                    <GridViewColumn Header="By"
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding City}" />
+                    <GridViewColumn Header="Region"
+                                    Width="100"
+                                    DisplayMemberBinding="{Binding Region}" />
+                    <GridViewColumn Header="Postal code"
+                                    Width="70"
+                                    DisplayMemberBinding="{Binding PostalCode}" />
+                    <GridViewColumn Header="Land"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding Country}" />
+                    <GridViewColumn Header="Hjemme nummer"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding HomePhone}" />
+                    <GridViewColumn Header="Afdeling"
+                                    Width="80"
+                                    DisplayMemberBinding="{Binding Extension}" />
+                    <GridViewColumn Header="Noter"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding Notes}" />
+                    <GridViewColumn Header="Reportere til"
+                                    Width="150"
+                                    DisplayMemberBinding="{Binding ReportsTo}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <GroupBox Header="Filtre"
+                  Height="164"
+                  VerticalAlignment="Top"
+                  Margin="0,37,0,0"
+                  HorizontalAlignment="Right"
+                  Width="194">
+            <Grid>
+                <Button x:Name="searchBtn"
+                        Content="Søg"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Width="52"
+                        BorderThickness="0"
+                        Background="#FF62A6DE"
+                        Foreground="White"
+                        Height="23" />
+                <TextBox Height="23"
+                         Margin="0,0,52,0"
+                         TextWrapping="Wrap"
+                         VerticalAlignment="Bottom"
+                         BorderThickness="1,1,0,1"
+                         ToolTip="Søg med navn" />
+            </Grid>
+        </GroupBox>
+        <Button x:Name="deleteBtn"
+                Content="Slet"
+                HorizontalAlignment="Left"
+                Margin="90,5,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                BorderThickness="0"
+                Background="#FF62A6DE"
+                Foreground="White"
+                Height="27" />
+        <Label Content="Tilstand"
+               HorizontalAlignment="Right"
+               Margin="0,5,132,0"
+               VerticalAlignment="Top"
+               VerticalContentAlignment="Center"
+               HorizontalContentAlignment="Right"
+               Width="62" />
+        <ComboBox HorizontalAlignment="Right"
+                  Margin="0,9,7,0"
+                  VerticalAlignment="Top"
+                  Width="120"
+                  SelectedIndex="1">
+            <ComboBoxItem Content="Læse"
+                          ToolTip="I læse tilstand kan du ikke redigere. Du kan kun tilføje og læse"
+                          IsSelected="True" />
+            <ComboBoxItem Content="Redigere"
+                          ToolTip="I redigerings tilstand kan du redigere, slet og læse" />
+        </ComboBox>
+        <Button x:Name="addNewBtn"
+                Content="Tilføj ny..."
+                HorizontalAlignment="Left"
+                Margin="10,5,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                BorderThickness="0"
+                Background="#FF62A6DE"
+                Foreground="White"
+                Height="27" />
+    </Grid>
 </Window>

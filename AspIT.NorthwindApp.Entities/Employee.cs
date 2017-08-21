@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.IO;
-using System.Drawing;
 
 namespace AspIT.NorthwindApp.Entities
 {
@@ -65,7 +64,7 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// The photo of the employee
         /// </summary>
-        private Image photo;
+        private Uri photo;
         /// <summary>
         /// The notes of the employee
         /// </summary>
@@ -435,20 +434,18 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Gets or sets the photo
         /// </summary>
-        public Image Photo
+        public Uri Photo
         {
             get
             {
                 if(photo == null)
                 {
-                    Photo = Image.FromFile(PhotoPath);
+                    photo = new Uri(PhotoPath);
                 }
-
                 return photo;
             }
             set
             {
-                photo?.Dispose();
                 photo = value;
             }
         }
