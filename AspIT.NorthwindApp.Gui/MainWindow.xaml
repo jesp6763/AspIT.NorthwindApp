@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AspIT.NorthwindApp.Gui"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow"
+        Height="350"
+        Width="525"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Background="White">
+    <DockPanel>
+        <StatusBar VerticalAlignment="Bottom"
+                   DockPanel.Dock="Bottom"
+                   Height="21"
+                   Foreground="White"
+                   Background="#FF71ADE0">
+            <StatusBarItem x:Name="statusLbl"
+                           Content="Status:" />
+            <StatusBarItem x:Name="statusValue_Text"
+                           Content="idle" />
+        </StatusBar>
+    </DockPanel>
 </Window>
