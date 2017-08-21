@@ -81,9 +81,9 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Initializes a new instance of this class
         /// </summary>
-        public Employee()
+        public Employee(string photoPath)
         {
-
+            PhotoPath = photoPath;
         }
 
         /// <summary>
@@ -440,7 +440,7 @@ namespace AspIT.NorthwindApp.Entities
             {
                 if(photo == null)
                 {
-                    photo = new Uri(PhotoPath);
+                    photo = new Uri(PhotoPath, UriKind.RelativeOrAbsolute);
                 }
                 return photo;
             }
@@ -483,13 +483,12 @@ namespace AspIT.NorthwindApp.Entities
         /// Gets or sets the photo path
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when value is greater than 255</exception>
-        /// <exception cref="ArgumentException">Thrown when the value is empty, null, or file does not exist</exception>
         public string PhotoPath
         {
             get => photoPath;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && File.Exists(value))
+                if(!string.IsNullOrEmpty(value) || File.Exists(value))
                 {
                     if(value.Length <= 255)
                     {
@@ -502,7 +501,7 @@ namespace AspIT.NorthwindApp.Entities
                 }
                 else
                 {
-                    throw new ArgumentException();
+                    photoPath = "/Images/IngenPhoto.png";
                 }
             }
         }

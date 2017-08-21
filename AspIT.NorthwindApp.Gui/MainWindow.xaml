@@ -13,7 +13,9 @@
         Background="White"
         FontFamily="Calibri"
         FontSize="14"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        MinWidth="819.5"
+        MinHeight="504">
     <Grid>
         <StatusBar VerticalAlignment="Bottom"
                    DockPanel.Dock="Bottom"
@@ -26,7 +28,8 @@
                            Content="" />
         </StatusBar>
         <ListView x:Name="employeeList"
-                  Margin="0,37,199,21">
+                  Margin="0,37,199,21"
+                  SelectionChanged="EmployeeList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="64">
@@ -51,10 +54,11 @@
                                     DisplayMemberBinding="{Binding Title}" />
                     <GridViewColumn Header="Fødselsdato"
                                     Width="150"
-                                    DisplayMemberBinding="{Binding BirthDate}" />
+                                    DisplayMemberBinding="{Binding BirthDate, StringFormat='dd. MMMM yyyy'}"
+                                    HeaderStringFormat="" />
                     <GridViewColumn Header="Ansættelsesdato"
                                     Width="150"
-                                    DisplayMemberBinding="{Binding HireDate}" />
+                                    DisplayMemberBinding="{Binding HireDate, StringFormat='dd. MMMM yyyy'}" />
                     <GridViewColumn Header="Addresse"
                                     Width="135"
                                     DisplayMemberBinding="{Binding Address}" />
@@ -109,10 +113,10 @@
                          ToolTip="Søg med navn" />
             </Grid>
         </GroupBox>
-        <Button x:Name="deleteBtn"
+        <Button x:Name="deleteEmployeeBtn"
                 Content="Slet"
                 HorizontalAlignment="Left"
-                Margin="90,5,0,0"
+                Margin="170,5,0,0"
                 VerticalAlignment="Top"
                 Width="75"
                 BorderThickness="0"
@@ -126,14 +130,14 @@
                VerticalContentAlignment="Center"
                HorizontalContentAlignment="Right"
                Width="62" />
-        <ComboBox HorizontalAlignment="Right"
+        <ComboBox x:Name="tilstandCB"
+                  HorizontalAlignment="Right"
                   Margin="0,9,7,0"
                   VerticalAlignment="Top"
                   Width="120"
-                  SelectedIndex="1">
+                  SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="Læse"
-                          ToolTip="I læse tilstand kan du ikke redigere. Du kan kun tilføje og læse"
-                          IsSelected="True" />
+                          ToolTip="I læse tilstand kan du ikke redigere. Du kan kun tilføje og læse" />
             <ComboBoxItem Content="Redigere"
                           ToolTip="I redigerings tilstand kan du redigere, slet og læse" />
         </ComboBox>
@@ -141,6 +145,16 @@
                 Content="Tilføj ny..."
                 HorizontalAlignment="Left"
                 Margin="10,5,0,0"
+                VerticalAlignment="Top"
+                Width="75"
+                BorderThickness="0"
+                Background="#FF62A6DE"
+                Foreground="White"
+                Height="27" />
+        <Button x:Name="editEmployeeBtn"
+                Content="Redigere..."
+                HorizontalAlignment="Left"
+                Margin="90,5,0,0"
                 VerticalAlignment="Top"
                 Width="75"
                 BorderThickness="0"
