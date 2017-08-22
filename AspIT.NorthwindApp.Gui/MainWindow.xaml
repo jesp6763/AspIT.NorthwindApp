@@ -6,17 +6,18 @@
         xmlns:local="clr-namespace:AspIT.NorthwindApp.Gui"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="504"
-        Width="819.5"
+        Height="384"
+        Width="721"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         Background="White"
         FontFamily="Calibri"
         FontSize="14"
         Loaded="Window_Loaded"
-        MinWidth="819.5"
+        MinWidth="721"
         MinHeight="504">
     <DockPanel>
+
         <Menu x:Name="menu" Height="22" DockPanel.Dock="Top">
             <MenuItem Header="Fil"/>
         </Menu>
@@ -30,9 +31,28 @@
             <StatusBarItem x:Name="statusValue_Text"
                            Content="" />
         </StatusBar>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Width="161" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TextBox Height="23"
+                     Margin="0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     BorderThickness="1,1,0,1"
+                     ToolTip="Søg med navn" Width="110" />
+            <Button x:Name="searchBtn"
+                    Content="Søg"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Width="52"
+                    BorderThickness="0"
+                    Background="#FF62A6DE"
+                    Foreground="White"
+                    Height="23" Margin="0" />
+        </StackPanel>
         <ListView x:Name="employeeList"
-                  Margin="0,62,199,0"
-                  SelectionChanged="EmployeeList_SelectionChanged" Width="552">
+                  Margin="0"
+                  SelectionChanged="EmployeeList_SelectionChanged"
+                  Width="552"
+                  DockPanel.Dock="Left">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="64">
@@ -92,20 +112,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="searchBtn"
-                        Content="Søg"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Bottom"
-                        Width="52"
-                        BorderThickness="0"
-                        Background="#FF62A6DE"
-                        Foreground="White"
-                        Height="23" Margin="0,0,10,388" />
-        <TextBox Height="23"
-                         Margin="620,0,62,388"
-                         TextWrapping="Wrap"
-                         VerticalAlignment="Bottom"
-                         BorderThickness="1,1,0,1"
-                         ToolTip="Søg med navn" />
     </DockPanel>
 </Window>
