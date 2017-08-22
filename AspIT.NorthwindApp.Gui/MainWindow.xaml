@@ -31,14 +31,8 @@
             <StatusBarItem x:Name="statusValue_Text"
                            Content="" />
         </StatusBar>
-        <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Width="161" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="23">
-                <TextBox Height="23"
-                         Margin="0"
-                         TextWrapping="Wrap"
-                         VerticalAlignment="Top"
-                         BorderThickness="1,1,0,1"
-                         ToolTip="Søg med navn" Width="110" />
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top" HorizontalAlignment="Left" Width="198">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="23">
                 <Button x:Name="searchBtn"
                         Content="Søg"
                         HorizontalAlignment="Right"
@@ -48,16 +42,14 @@
                         Background="#FF62A6DE"
                         Foreground="White"
                         Height="23" Margin="0" />
+                <TextBox Height="23"
+                         Margin="0"
+                         TextWrapping="Wrap"
+                         BorderThickness="1"
+                         ToolTip="Søg med navn" Width="146" />
             </StackPanel>
-            <ListView x:Name="listView" Width="160" Margin="0,2,0,0" Height="405">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Width="172" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="430">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" Width="172" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="407">
             <Button x:Name="addBtn"
                     Content="Tilføj ny"
                     HorizontalAlignment="Right"
@@ -87,10 +79,8 @@
                     Height="23" Margin="2,0,0,0" />
         </StackPanel>
         <ListView x:Name="employeeList"
-                  Margin="0"
-                  SelectionChanged="EmployeeList_SelectionChanged"
-                  Width="513"
-                  DockPanel.Dock="Left" HorizontalAlignment="Left">
+                  Margin="0,0,3,0"
+                  SelectionChanged="EmployeeList_SelectionChanged" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="64">
