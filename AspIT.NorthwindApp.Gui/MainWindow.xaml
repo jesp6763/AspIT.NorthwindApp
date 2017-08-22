@@ -61,10 +61,10 @@
                         Foreground="White"
                         Height="23" Margin="0" />
                 <Button x:Name="editBtn"
-                        Content="Redigere"
+                        Content="Gem ændringer"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
-                        Width="64"
+                        Width="135"
                         BorderThickness="0"
                         Background="#FF62A6DE"
                         Foreground="White"
