@@ -16,20 +16,23 @@
         Loaded="Window_Loaded"
         MinWidth="819.5"
         MinHeight="504">
-    <Grid>
+    <DockPanel>
+        <Menu x:Name="menu" Height="22" DockPanel.Dock="Top">
+            <MenuItem Header="Fil"/>
+        </Menu>
         <StatusBar VerticalAlignment="Bottom"
                    DockPanel.Dock="Bottom"
                    Height="21"
                    Foreground="White"
-                   Background="#FF71ADE0">
+                   Background="#4169e1">
             <StatusBarItem x:Name="statusLbl"
                            Content="Status:" />
             <StatusBarItem x:Name="statusValue_Text"
                            Content="" />
         </StatusBar>
         <ListView x:Name="employeeList"
-                  Margin="0,37,199,21"
-                  SelectionChanged="EmployeeList_SelectionChanged">
+                  Margin="0,62,199,0"
+                  SelectionChanged="EmployeeList_SelectionChanged" Width="552">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="64">
@@ -89,14 +92,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <GroupBox Header="Filtre"
-                  Height="164"
-                  VerticalAlignment="Top"
-                  Margin="0,37,0,0"
-                  HorizontalAlignment="Right"
-                  Width="194">
-            <Grid>
-                <Button x:Name="searchBtn"
+        <Button x:Name="searchBtn"
                         Content="Søg"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
@@ -104,62 +100,12 @@
                         BorderThickness="0"
                         Background="#FF62A6DE"
                         Foreground="White"
-                        Height="23" />
-                <TextBox Height="23"
-                         Margin="0,0,52,0"
+                        Height="23" Margin="0,0,10,388" />
+        <TextBox Height="23"
+                         Margin="620,0,62,388"
                          TextWrapping="Wrap"
                          VerticalAlignment="Bottom"
                          BorderThickness="1,1,0,1"
                          ToolTip="Søg med navn" />
-            </Grid>
-        </GroupBox>
-        <Button x:Name="deleteEmployeeBtn"
-                Content="Slet"
-                HorizontalAlignment="Left"
-                Margin="170,5,0,0"
-                VerticalAlignment="Top"
-                Width="75"
-                BorderThickness="0"
-                Background="#FF62A6DE"
-                Foreground="White"
-                Height="27" />
-        <Label Content="Tilstand"
-               HorizontalAlignment="Right"
-               Margin="0,5,132,0"
-               VerticalAlignment="Top"
-               VerticalContentAlignment="Center"
-               HorizontalContentAlignment="Right"
-               Width="62" />
-        <ComboBox x:Name="tilstandCB"
-                  HorizontalAlignment="Right"
-                  Margin="0,9,7,0"
-                  VerticalAlignment="Top"
-                  Width="120"
-                  SelectionChanged="ComboBox_SelectionChanged">
-            <ComboBoxItem Content="Læse"
-                          ToolTip="I læse tilstand kan du ikke redigere. Du kan kun tilføje og læse" />
-            <ComboBoxItem Content="Redigere"
-                          ToolTip="I redigerings tilstand kan du redigere, slet og læse" />
-        </ComboBox>
-        <Button x:Name="addNewBtn"
-                Content="Tilføj ny..."
-                HorizontalAlignment="Left"
-                Margin="10,5,0,0"
-                VerticalAlignment="Top"
-                Width="75"
-                BorderThickness="0"
-                Background="#FF62A6DE"
-                Foreground="White"
-                Height="27" />
-        <Button x:Name="editEmployeeBtn"
-                Content="Redigere..."
-                HorizontalAlignment="Left"
-                Margin="90,5,0,0"
-                VerticalAlignment="Top"
-                Width="75"
-                BorderThickness="0"
-                Background="#FF62A6DE"
-                Foreground="White"
-                Height="27" />
-    </Grid>
+    </DockPanel>
 </Window>
