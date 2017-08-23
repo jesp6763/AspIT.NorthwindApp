@@ -16,6 +16,61 @@
         Loaded="Window_Loaded"
         MinWidth="721"
         MinHeight="504">
+    <Window.Resources>
+        <Style x:Key="FocusedBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Direction="-1"
+                                      BlurRadius="5"
+                                      ShadowDepth="0"
+                                      Color="#FF0080FF" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FocusVisualStyle"
+                    Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border Name="Border"
+                                CornerRadius="2"
+                                Padding="2"
+                                BorderThickness="1">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="#FF0086F5" />
+                            </Border.BorderBrush>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ErrorBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Direction="-1"
+                                      BlurRadius="5"
+                                      ShadowDepth="0"
+                                      Color="Red" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FocusVisualStyle"
+                    Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                        <Border Name="Border"
+                                CornerRadius="2"
+                                Padding="2"
+                                BorderThickness="1">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="#FFF50000" />
+                            </Border.BorderBrush>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
     <DockPanel>
 
         <Menu x:Name="menu" Height="22" DockPanel.Dock="Top">
@@ -81,7 +136,12 @@
             <GroupBox x:Name="groupBox" Header="Personlige oplysninger" VerticalAlignment="Top" Height="315">
                 <Grid>
                     <Label x:Name="firstNameLbl" Content="Fornavn:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="firstNameTb" Margin="117,37,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+                    <TextBox x:Name="firstNameTb"
+                             Margin="117,37,10,0"
+                             TextWrapping="Wrap"
+                             Height="23"
+                             VerticalAlignment="Top"
+                             Style="{DynamicResource FocusedBox}" />
                     <Label x:Name="lastNameLbl" Content="Efternavn:" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Width="69"/>
                     <TextBox x:Name="lastNameTb" Margin="117,64,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
                     <Label x:Name="birthDateLbl" Content="Fødselsdato:" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="79" Padding="5,5,0,5"/>
