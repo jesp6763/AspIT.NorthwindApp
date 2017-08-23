@@ -10,37 +10,37 @@ namespace AspIT.NorthwindApp.Entities
     public abstract class Person
     {
         /// <summary>
-        /// The first name of the employee
+        /// The first name of the person
         /// </summary>
-        private string firstName;
+        protected string firstName;
         /// <summary>
-        /// The last name of the employee
+        /// The last name of the person
         /// </summary>
-        private string lastName;
+        protected string lastName;
         /// <summary>
-        /// The birth date of the employee
+        /// The birth date of the person
         /// </summary>
-        private DateTime birthDate;
+        protected DateTime birthDate;
         /// <summary>
-        /// The address of the employee
+        /// The address of the person
         /// </summary>
-        private string address;
+        protected string address;
         /// <summary>
-        /// The city of the employee
+        /// The city of the person
         /// </summary>
-        private string city;
+        protected string city;
         /// <summary>
-        /// The region of the employee
+        /// The region of the person
         /// </summary>
-        private string region;
+        protected string region;
         /// <summary>
-        /// The postal code of the employee
+        /// The postal code of the person
         /// </summary>
-        private string postalCode;
+        protected string postalCode;
         /// <summary>
-        /// The country the employee lives in
+        /// The country the person lives in
         /// </summary>
-        private string country;
+        protected string country;
 
         private ContactInfo contactInfo;
 
@@ -282,9 +282,25 @@ namespace AspIT.NorthwindApp.Entities
                 {
                     return (false, "Karakteren '-' må ikke være i starten eller slutningen af navnet.");
                 }
-                else if(!char.IsUpper(name[0]) || !char.IsUpper(name[name.IndexOf('-') + 1]))
+                else
                 {
-                    return (false, "Begge navne skal starte med stort.");
+                    if(!char.IsUpper(name[name.IndexOf('-') + 1]))
+                    {
+                        return (false, "Navnet efter '-' tegnet skal starte med stort.");
+                    }
+                }
+            }
+            if(!char.IsUpper(name[0]))
+            {
+                return (false, "Navn skal starte med stort.");
+            }
+
+            // Check for numbers
+            for(int i = 0; i < name.Length; i++)
+            {
+                if(char.IsNumber(name[i]))
+                {
+                    return (false, "Der må ikke være tal i navnet.");
                 }
             }
 
