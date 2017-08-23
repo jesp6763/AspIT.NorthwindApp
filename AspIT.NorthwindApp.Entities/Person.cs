@@ -267,10 +267,28 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Checks the specified name to see if it is valid.
         /// </summary>
+        /// <param name="name">Name of the person</param>
         /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
         public static (bool, string) IsValidName(string name)
         {
+            if(name == string.Empty)
+            {
+                return (false, "Navnet må ikke være tomt.");
+            }
 
+            if(name.Contains('-'))
+            {
+                if(name.StartsWith("-") || name.EndsWith("-"))
+                {
+                    return (false, "Karakteren '-' må ikke være i starten eller slutningen af navnet.");
+                }
+                else if(!char.IsUpper(name[0]) || !char.IsUpper(name[name.IndexOf('-') + 1]))
+                {
+                    return (false, "Begge navne skal starte med stort.");
+                }
+            }
+
+            return (true, string.Empty);
         }
         #endregion
     }
