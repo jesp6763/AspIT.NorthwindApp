@@ -262,5 +262,16 @@ namespace AspIT.NorthwindApp.Entities
 
         public ContactInfo ContactInfo { get => contactInfo; set => contactInfo = value; }
         #endregion
+
+        #region Methods
+        /// <summary>
+        /// Checks the specified name to see if it is valid.
+        /// </summary>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidName(string name)
+        {
+
+        }
+        #endregion
     }
 }
