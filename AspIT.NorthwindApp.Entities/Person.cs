@@ -267,7 +267,7 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Checks the specified name to see if it is valid.
         /// </summary>
-        /// <param name="name">Name of the person</param>
+        /// <param name="name">The name you want to validate</param>
         /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
         public static (bool, string) IsValidName(string name)
         {
