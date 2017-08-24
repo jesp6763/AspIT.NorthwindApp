@@ -47,7 +47,16 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Initializes a new instance of this class
         /// </summary>
-        public Employee(string photoPath)
+        /// <param name="firstName">The person's firstname</param>
+        /// <param name="lastName">The person's lastname</param>
+        /// <param name="birthDate">The person's birthdate</param>
+        /// <param name="address">The person's address</param>
+        /// <param name="city">The city of the person</param>
+        /// <param name="region">The region of the city</param>
+        /// <param name="postalCode">The postal code of the city</param>
+        /// <param name="country">The country</param>
+        /// <param name="contactInfo">The person's contact informations</param>
+        public Employee(string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             PhotoPath = photoPath;
         }
