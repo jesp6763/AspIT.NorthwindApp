@@ -368,7 +368,7 @@
                                     DisplayMemberBinding="{Binding Country}" />
                     <GridViewColumn Header="Hjemme nummer"
                                     Width="150"
-                                    DisplayMemberBinding="{Binding HomePhone}" />
+                                    DisplayMemberBinding="{Binding ContactInfo.HomePhone}" />
                     <GridViewColumn Header="Afdeling"
                                     Width="80"
                                     DisplayMemberBinding="{Binding Extension}" />
