@@ -55,40 +55,23 @@ namespace AspIT.NorthwindApp.Entities
 
         #region Methods
         /// <summary>
-        /// Checks the specified name to see if it is valid.
+        /// Checks the specified phone number, to see if it is valid.
         /// </summary>
-        /// <param name="name">The name you want to validate</param>
+        /// <param name="name">The phone number you want to validate</param>
         /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
-        public static (bool, string) IsValidName(string name)
+        public static (bool, string) IsValidPhone(string phoneNumber)
         {
-            if (name == string.Empty)
+            if (phoneNumber == string.Empty)
             {
-                return (false, "Navnet må ikke være tomt.");
+                return (false, "Nummeret må ikke være tomt.");
             }
 
-            if (name.Contains('-'))
+            // Check for non-numbers
+            for (int i = 0; i < phoneNumber.Length; i++)
             {
-                if (name.StartsWith("-") || name.EndsWith("-"))
+                if (!char.IsNumber(phoneNumber[i]))
                 {
-                    return (false, "Karakteren '-' må ikke være i starten eller slutningen af navnet.");
-                }
-
-                if (!char.IsUpper(name[name.IndexOf('-') + 1]))
-                {
-                    return (false, "Navnet efter '-' tegnet skal starte med stort.");
-                }
-            }
-            if (!char.IsUpper(name[0]))
-            {
-                return (false, "Navn skal starte med stort.");
-            }
-
-            // Check for numbers
-            for (int i = 0; i < name.Length; i++)
-            {
-                if (char.IsNumber(name[i]))
-                {
-                    return (false, "Der må ikke være tal i navnet.");
+                    return (false, "Der må ikke være bogstaver i telefon nummer.");
                 }
             }
 
