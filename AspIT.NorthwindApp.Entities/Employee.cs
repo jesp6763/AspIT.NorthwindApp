@@ -346,12 +346,12 @@ namespace AspIT.NorthwindApp.Entities
         {
             if (string.IsNullOrWhiteSpace(reportsTo))
             {
-                return (false, "Afdeling må ikke være tom.");
+                return (false, "'Reportere til' må ikke være tom.");
             }
 
             if (!Regex.IsMatch(reportsTo, "^[0-9]+$"))
             {
-                return (false, "Afdeling må kun tal.");
+                return (false, "'Reportere til' må kun tal.");
             }
             return (true, string.Empty);
         }

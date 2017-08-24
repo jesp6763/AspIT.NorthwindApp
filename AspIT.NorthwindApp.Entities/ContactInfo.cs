@@ -71,7 +71,7 @@ namespace AspIT.NorthwindApp.Entities
             {
                 if (!char.IsNumber(phoneNumber[i]))
                 {
-                    return (false, "Der må ikke være bogstaver i telefon nummer.");
+                    return (false, "Nummeret må kun indholde tal.");
                 }
             }
 

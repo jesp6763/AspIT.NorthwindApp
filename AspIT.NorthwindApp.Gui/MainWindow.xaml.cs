@@ -171,7 +171,7 @@ namespace AspIT.NorthwindApp.Gui
                 }
                 else
                 {
-                    ErrorMessages[ErrorMessages.Keys.ElementAt(0)] = result.Item2;
+                    ErrorMessages[validationMethod] = result.Item2;
                 }
             }
             else
