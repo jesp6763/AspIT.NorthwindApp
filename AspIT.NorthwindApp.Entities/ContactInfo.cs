@@ -3,6 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace AspIT.NorthwindApp.Entities
 {
+    /// <summary>
+    /// Represents contact info
+    /// </summary>
     public struct ContactInfo
     {
         /// <summary>
@@ -10,6 +13,10 @@ namespace AspIT.NorthwindApp.Entities
         /// </summary>
         private string homePhone;
 
+        /// <summary>
+        /// Initialises an instance of this struct
+        /// </summary>
+        /// <param name="homePhone">The home phone number</param>
         public ContactInfo(string homePhone) : this()
         {
             HomePhone = homePhone;
