@@ -353,7 +353,7 @@ namespace AspIT.NorthwindApp.Entities
 
             if (!Regex.IsMatch(address, "^[ A-Za-z0-9-]+$"))
             {
-                return (false, "Addressen må kun inholde bogstaver, tal, mellemrum og '-' tegnet");
+                return (false, "Addressen må kun indholde bogstaver, tal, mellemrum og '-' tegnet");
             }
             return (true, string.Empty);
         }
@@ -372,7 +372,7 @@ namespace AspIT.NorthwindApp.Entities
 
             if (!Regex.IsMatch(city, "^[ A-Za-z]+$"))
             {
-                return (false, "By må kun inholde bogstaver og mellemrum");
+                return (false, "By må kun indholde bogstaver og mellemrum");
             }
             return (true, string.Empty);
         }
@@ -391,7 +391,45 @@ namespace AspIT.NorthwindApp.Entities
 
             if (!Regex.IsMatch(region, "^[ A-Za-z]+$"))
             {
-                return (false, "Region må kun inholde bogstaver og mellemrum");
+                return (false, "Region må kun indholde bogstaver og mellemrum");
+            }
+            return (true, string.Empty);
+        }
+
+        /// <summary>
+        /// Checks the specified postal code to see if it is valid.
+        /// </summary>
+        /// <param name="postalCode">The postal code you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidPostalCode(string postalCode)
+        {
+            if (string.IsNullOrEmpty(postalCode))
+            {
+                return (false, "Postnummeret må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(postalCode, "^[0-9]+$"))
+            {
+                return (false, "Postnummeret må kun indholde tal");
+            }
+            return (true, string.Empty);
+        }
+
+        /// <summary>
+        /// Checks the specified country to see if it is valid.
+        /// </summary>
+        /// <param name="country">The country you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidCountry(string country)
+        {
+            if (string.IsNullOrEmpty(country))
+            {
+                return (false, "Land må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(country, "^[ A-Za-z]+$"))
+            {
+                return (false, "Land må kun indholde bogstaver og mellemrum");
             }
             return (true, string.Empty);
         }
