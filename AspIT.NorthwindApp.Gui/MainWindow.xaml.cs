@@ -43,8 +43,8 @@ namespace AspIT.NorthwindApp.Gui
 
 
             /*Test - Start*/
-            Employee employee1 = new Employee(string.Empty) { TitleOfCourtesy = "Hr", FirstName = "Chris", LastName = "McDonald", BirthDate = new DateTime(1956, 11, 13), HireDate = new DateTime(1993, 8, 11) };
-            Employee employee2 = new Employee(string.Empty) { TitleOfCourtesy = "Hr", FirstName = "Carl", LastName = "Johnson", BirthDate = new DateTime(1987, 4, 27), HireDate = new DateTime(2003, 5, 17) };
+            Employee employee1 = new Employee("Jack", "Slalom", new DateTime(1949, 3, 29), "Boredom street", "Desert city", "Desert", "493919", "Dafert", new ContactInfo("2919023932"));
+            Employee employee2 = new Employee("Jonn", "Jones", new DateTime(1949, 3, 29), "Windy street", "Water", "Hurrri", "5323", "Hurricane", new ContactInfo("51251341"));
             employeeList.Items.Add(employee1);
             employeeList.Items.Add(employee2);
             /*Test - End*/
