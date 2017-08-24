@@ -16,12 +16,43 @@
         Loaded="Window_Loaded"
         MinWidth="721"
         MinHeight="504">
+    <Window.Resources>
+        <Style x:Key="ErrorBox" TargetType="{x:Type TextBox}">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True" />
+            <Setter Property="OverridesDefaultStyle"
+                    Value="False" />
+            <Setter Property="AllowDrop"
+                    Value="True" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border Name="Border"
+                                CornerRadius="0"
+                                Padding="2"
+                                BorderThickness="1">
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="Red" />
+                            </Border.BorderBrush>
+                            <ScrollViewer Margin="0"
+                                          x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <DockPanel>
 
-        <Menu x:Name="menu" Height="22" DockPanel.Dock="Top">
-            <MenuItem Header="Fil"/>
+        <Menu x:Name="menu"
+              Height="22"
+              DockPanel.Dock="Top">
+            <MenuItem Header="Fil" />
         </Menu>
-        <StatusBar VerticalAlignment="Bottom"
+        <StatusBar x:Name="statusBar"
+                   VerticalAlignment="Bottom"
                    DockPanel.Dock="Bottom"
                    Height="21"
                    Foreground="White"
@@ -31,8 +62,13 @@
             <StatusBarItem x:Name="statusValue_Text"
                            Content="" />
         </StatusBar>
-        <StackPanel Orientation="Vertical" DockPanel.Dock="Top" HorizontalAlignment="Left" Width="198">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="23">
+        <StackPanel Orientation="Vertical"
+                    DockPanel.Dock="Top"
+                    HorizontalAlignment="Left"
+                    Width="198">
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Height="23">
                 <Button x:Name="searchBtn"
                         Content="Søg"
                         HorizontalAlignment="Right"
@@ -41,16 +77,26 @@
                         BorderThickness="0"
                         Background="#FF62A6DE"
                         Foreground="White"
-                        Height="23" Margin="0" />
+                        Height="23"
+                        Margin="0" />
                 <TextBox Height="23"
                          Margin="0"
                          TextWrapping="Wrap"
                          BorderThickness="1"
-                         ToolTip="Søg med navn" Width="146" />
+                         ToolTip="Søg med navn"
+                         Width="146" />
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Vertical" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="280">
-            <StackPanel Orientation="Horizontal" Width="242" Margin="0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="23">
+        <StackPanel Orientation="Vertical"
+                    DockPanel.Dock="Right"
+                    HorizontalAlignment="Right"
+                    Width="280">
+            <StackPanel Orientation="Horizontal"
+                        Width="242"
+                        Margin="0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Height="23">
                 <Button x:Name="addBtn"
                         Content="Tilføj"
                         HorizontalAlignment="Right"
@@ -59,7 +105,8 @@
                         BorderThickness="0"
                         Background="#FF62A6DE"
                         Foreground="White"
-                        Height="23" Margin="0" />
+                        Height="23"
+                        Margin="0" />
                 <Button x:Name="editBtn"
                         Content="Gem ændringer"
                         HorizontalAlignment="Right"
@@ -68,7 +115,9 @@
                         BorderThickness="0"
                         Background="#FF62A6DE"
                         Foreground="White"
-                        Height="23" Margin="2,0,0,0" IsEnabled="False" />
+                        Height="23"
+                        Margin="2,0,0,0"
+                        IsEnabled="False" />
                 <Button x:Name="deleteBtn"
                         Content="Slet"
                         VerticalAlignment="Top"
@@ -76,54 +125,203 @@
                         BorderThickness="0"
                         Background="#FFE04848"
                         Foreground="White"
-                        Height="23" Margin="2,0,0,0" HorizontalAlignment="Right" HorizontalContentAlignment="Center" IsEnabled="False" />
+                        Height="23"
+                        Margin="2,0,0,0"
+                        HorizontalAlignment="Right"
+                        HorizontalContentAlignment="Center"
+                        IsEnabled="False" />
             </StackPanel>
-            <GroupBox x:Name="groupBox" Header="Personlige oplysninger" VerticalAlignment="Top" Height="315">
+            <GroupBox x:Name="groupBox"
+                      Header="Personlige oplysninger"
+                      VerticalAlignment="Top"
+                      Height="315">
                 <Grid>
-                    <Label x:Name="firstNameLbl" Content="Fornavn:" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="firstNameTb" Margin="117,37,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="lastNameLbl" Content="Efternavn:" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Width="69"/>
-                    <TextBox x:Name="lastNameTb" Margin="117,64,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="birthDateLbl" Content="Fødselsdato:" HorizontalAlignment="Left" Margin="0,90,0,0" VerticalAlignment="Top" Width="79" Padding="5,5,0,5"/>
-                    <DatePicker x:Name="birthDatePicker" HorizontalAlignment="Left" Margin="117,92,0,0" VerticalAlignment="Top" Width="141"/>
-                    <Label x:Name="addressLbl" Content="Addresse:" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" Width="69"/>
-                    <TextBox x:Name="addressTb" Margin="117,122,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="cityLbl" Content="By:" HorizontalAlignment="Left" Margin="0,146,0,0" VerticalAlignment="Top" Width="69"/>
-                    <TextBox x:Name="cityTb" Margin="117,150,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="regionLbl" Content="Region:" HorizontalAlignment="Left" Margin="0,174,0,0" VerticalAlignment="Top" Width="69"/>
-                    <TextBox x:Name="regionTb" Margin="117,178,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="postalCodeLbl" Content="Postnummer:" HorizontalAlignment="Left" Margin="0,202,0,0" VerticalAlignment="Top" Width="94"/>
-                    <TextBox x:Name="postalCodeTb" Margin="117,206,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="countryLbl" Content="Land:" HorizontalAlignment="Left" Margin="0,230,0,0" VerticalAlignment="Top" Width="94"/>
-                    <TextBox x:Name="countryTb" Margin="117,234,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="homePhoneLbl" Content="Hjemme nummer:" HorizontalAlignment="Left" Margin="0,258,0,0" VerticalAlignment="Top" Width="117"/>
-                    <TextBox x:Name="homePhoneTb" Margin="117,262,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="firstNameLbl_Copy" Content="Tiltale:" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="117,9,0,0" VerticalAlignment="Top" Width="141" SelectedIndex="0">
-                        <ComboBoxItem Content="Ingen"/>
-                        <ComboBoxItem Content="Hr"/>
-                        <ComboBoxItem Content="Fru"/>
+                    <Label x:Name="firstNameLbl"
+                           Content="Fornavn:"
+                           HorizontalAlignment="Left"
+                           Margin="0,33,0,0"
+                           VerticalAlignment="Top" />
+                    <TextBox x:Name="firstNameTb"
+                             Margin="117,37,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top"
+                             LostKeyboardFocus="FirstNameTb_LostKeyboardFocus" />
+                    <Label x:Name="lastNameLbl"
+                           Content="Efternavn:"
+                           HorizontalAlignment="Left"
+                           Margin="0,60,0,0"
+                           VerticalAlignment="Top"
+                           Width="69" />
+                    <TextBox x:Name="lastNameTb"
+                             Margin="117,64,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="birthDateLbl"
+                           Content="Fødselsdato:"
+                           HorizontalAlignment="Left"
+                           Margin="0,90,0,0"
+                           VerticalAlignment="Top"
+                           Width="79"
+                           Padding="5,5,0,5" />
+                    <DatePicker x:Name="birthDatePicker"
+                                HorizontalAlignment="Left"
+                                Margin="117,92,0,0"
+                                VerticalAlignment="Top"
+                                Width="141" />
+                    <Label x:Name="addressLbl"
+                           Content="Addresse:"
+                           HorizontalAlignment="Left"
+                           Margin="0,118,0,0"
+                           VerticalAlignment="Top"
+                           Width="69" />
+                    <TextBox x:Name="addressTb"
+                             Margin="117,122,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="cityLbl"
+                           Content="By:"
+                           HorizontalAlignment="Left"
+                           Margin="0,146,0,0"
+                           VerticalAlignment="Top"
+                           Width="69" />
+                    <TextBox x:Name="cityTb"
+                             Margin="117,150,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="regionLbl"
+                           Content="Region:"
+                           HorizontalAlignment="Left"
+                           Margin="0,174,0,0"
+                           VerticalAlignment="Top"
+                           Width="69" />
+                    <TextBox x:Name="regionTb"
+                             Margin="117,178,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="postalCodeLbl"
+                           Content="Postnummer:"
+                           HorizontalAlignment="Left"
+                           Margin="0,202,0,0"
+                           VerticalAlignment="Top"
+                           Width="94" />
+                    <TextBox x:Name="postalCodeTb"
+                             Margin="117,206,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="countryLbl"
+                           Content="Land:"
+                           HorizontalAlignment="Left"
+                           Margin="0,230,0,0"
+                           VerticalAlignment="Top"
+                           Width="94" />
+                    <TextBox x:Name="countryTb"
+                             Margin="117,234,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="homePhoneLbl"
+                           Content="Hjemme nummer:"
+                           HorizontalAlignment="Left"
+                           Margin="0,258,0,0"
+                           VerticalAlignment="Top"
+                           Width="117" />
+                    <TextBox x:Name="homePhoneTb"
+                             Margin="117,262,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="tiltaleLbl"
+                           Content="Tiltale:"
+                           HorizontalAlignment="Left"
+                           Margin="0,5,0,0"
+                           VerticalAlignment="Top" />
+                    <ComboBox x:Name="comboBox"
+                              HorizontalAlignment="Left"
+                              Margin="117,9,0,0"
+                              VerticalAlignment="Top"
+                              Width="141"
+                              SelectedIndex="0">
+                        <ComboBoxItem Content="Ingen" />
+                        <ComboBoxItem Content="Hr" />
+                        <ComboBoxItem Content="Fru" />
                     </ComboBox>
                 </Grid>
             </GroupBox>
-            <GroupBox x:Name="groupBox1" Header="Andre oplysninger" Height="213">
+            <GroupBox x:Name="groupBox1"
+                      Header="Andre oplysninger"
+                      Height="213">
                 <Grid>
-                    <Label x:Name="hireDateLbl" Content="Ansættelsesdato:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Padding="5,5,0,5" Margin="0,32,0,0"/>
-                    <DatePicker x:Name="hireDatePicker" HorizontalAlignment="Left" Margin="117,33,0,0" VerticalAlignment="Top" Width="146"/>
-                    <Label x:Name="titleLbl" Content="Titel:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Padding="5,5,0,5"/>
-                    <TextBox x:Name="titleTb" Margin="117,4,6,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="extensionLbl" Content="Afdeling:" HorizontalAlignment="Left" Margin="0,64,0,0" VerticalAlignment="Top" Width="117"/>
-                    <TextBox x:Name="extensionTb" Margin="117,68,10,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="reportsToLbl" Content="Reportere til:" HorizontalAlignment="Left" Margin="0,96,0,-5" VerticalAlignment="Top" Width="117"/>
-                    <TextBox x:Name="reportsToTb" Margin="117,100,10,-5" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-                    <Label x:Name="notesLbl" Content="Noter:" HorizontalAlignment="Left" Margin="0,128,0,0" VerticalAlignment="Top" Width="117"/>
-                    <TextBox x:Name="notesTb" Margin="117,132,10,0" TextWrapping="Wrap" Height="56" VerticalAlignment="Top" AcceptsReturn="True"/>
+                    <Label x:Name="hireDateLbl"
+                           Content="Ansættelsesdato:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Width="106"
+                           Padding="5,5,0,5"
+                           Margin="0,32,0,0" />
+                    <DatePicker x:Name="hireDatePicker"
+                                HorizontalAlignment="Left"
+                                Margin="117,33,0,0"
+                                VerticalAlignment="Top"
+                                Width="146" />
+                    <Label x:Name="titleLbl"
+                           Content="Titel:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Width="106"
+                           Padding="5,5,0,5" />
+                    <TextBox x:Name="titleTb"
+                             Margin="117,4,6,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="extensionLbl"
+                           Content="Afdeling:"
+                           HorizontalAlignment="Left"
+                           Margin="0,64,0,0"
+                           VerticalAlignment="Top"
+                           Width="117" />
+                    <TextBox x:Name="extensionTb"
+                             Margin="117,68,10,0"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="reportsToLbl"
+                           Content="Reportere til:"
+                           HorizontalAlignment="Left"
+                           Margin="0,96,0,-5"
+                           VerticalAlignment="Top"
+                           Width="117" />
+                    <TextBox x:Name="reportsToTb"
+                             Margin="117,100,10,-5"
+                             TextWrapping="NoWrap"
+                             Height="23"
+                             VerticalAlignment="Top" />
+                    <Label x:Name="notesLbl"
+                           Content="Noter:"
+                           HorizontalAlignment="Left"
+                           Margin="0,128,0,0"
+                           VerticalAlignment="Top"
+                           Width="117" />
+                    <TextBox x:Name="notesTb"
+                             Margin="117,132,10,0"
+                             TextWrapping="NoWrap"
+                             Height="56"
+                             VerticalAlignment="Top"
+                             AcceptsReturn="True" />
                 </Grid>
             </GroupBox>
         </StackPanel>
         <ListView x:Name="employeeList"
                   Margin="0,0,3,0"
-                  SelectionChanged="EmployeeList_SelectionChanged" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                  SelectionChanged="EmployeeList_SelectionChanged"
+                  VerticalContentAlignment="Stretch"
+                  HorizontalContentAlignment="Stretch">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="64">
