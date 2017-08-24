@@ -18,6 +18,8 @@ namespace AspIT.NorthwindApp.Entities
         /// Initialises an instance of this struct
         /// </summary>
         /// <param name="homePhone">The home phone number</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when homePhone is greater than 24</exception>
+        /// <exception cref="ArgumentException">Thrown when homePhone is empty, null, has special characters, or letters</exception>
         public ContactInfo(string homePhone) : this()
         {
             HomePhone = homePhone;
