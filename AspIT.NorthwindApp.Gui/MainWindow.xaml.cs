@@ -86,6 +86,26 @@ namespace AspIT.NorthwindApp.Gui
             Validate("PostalCode", postalCodeTb);
         }
 
+        private void CountryTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Country", countryTb);
+        }
+
+        private void HomePhoneTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Phone", homePhoneTb);
+        }
+
+        private void TitleTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Title", titleTb);
+        }
+
+        private void ExtensionTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Extension", extensionTb);
+        }
+
         /// <summary>
         /// Validates the text with the specified method.
         /// </summary>
@@ -134,26 +154,6 @@ namespace AspIT.NorthwindApp.Gui
             }
 
             statusValue_Text.Content = result.Item2;
-        }
-
-        private void CountryTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            Validate("Country", countryTb);
-        }
-
-        private void HomePhoneTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            Validate("Phone", homePhoneTb);
-        }
-
-        private void TitleTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            Validate("Title", titleTb);
-        }
-
-        private void ExtensionTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            Validate("Extension", extensionTb);
         }
     }
 }
