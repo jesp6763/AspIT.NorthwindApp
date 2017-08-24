@@ -178,7 +178,6 @@ namespace AspIT.NorthwindApp.Entities
             }
         }
 
-
         /// <summary>
         /// Gets or sets the city
         /// </summary>
