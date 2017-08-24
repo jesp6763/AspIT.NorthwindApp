@@ -44,6 +44,7 @@ namespace AspIT.NorthwindApp.Entities
         private string photoPath;
         #endregion
 
+        #region Constructors
         // TODO: Add possible exceptions
         /// <summary>
         /// Initializes a new instance of this class
@@ -69,6 +70,54 @@ namespace AspIT.NorthwindApp.Entities
             ReportsTo = reportsTo;
             PhotoPath = string.Empty;
         }
+
+        // TODO: Add possible exceptions
+        /// <summary>
+        /// Initializes a new instance of this class
+        /// </summary>
+        /// <param name="titleOfCourtesy">The title of courtesy of the person</param>
+        /// <param name="title">The title of the employee</param>
+        /// <param name="hireDate">The date the employee got hired</param>
+        /// <param name="extension">The extension the employee is in</param>
+        /// <param name="reportsTo">The id of the person to report to</param>
+        /// <param name="firstName">The person's firstname</param>
+        /// <param name="lastName">The person's lastname</param>
+        /// <param name="birthDate">The person's birthdate</param>
+        /// <param name="address">The person's address</param>
+        /// <param name="city">The city of the person</param>
+        /// <param name="region">The region of the city</param>
+        /// <param name="postalCode">The postal code of the city</param>
+        /// <param name="country">The country</param>
+        /// <param name="contactInfo">The person's contact informations</param>
+        public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
+        {
+            TitleOfCourtesy = titleOfCourtesy;
+        }
+
+        // TODO: Add possible exceptions
+        /// <summary>
+        /// Initializes a new instance of this class
+        /// </summary>
+        /// <param name="titleOfCourtesy">The title of courtesy of the person</param>
+        /// <param name="title">The title of the employee</param>
+        /// <param name="hireDate">The date the employee got hired</param>
+        /// <param name="extension">The extension the employee is in</param>
+        /// <param name="notes">The notes of the employee</param>
+        /// <param name="reportsTo">The id of the person to report to</param>
+        /// <param name="firstName">The person's firstname</param>
+        /// <param name="lastName">The person's lastname</param>
+        /// <param name="birthDate">The person's birthdate</param>
+        /// <param name="address">The person's address</param>
+        /// <param name="city">The city of the person</param>
+        /// <param name="region">The region of the city</param>
+        /// <param name="postalCode">The postal code of the city</param>
+        /// <param name="country">The country</param>
+        /// <param name="contactInfo">The person's contact informations</param>
+        public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, string notes, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(titleOfCourtesy, title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
+        {
+            Notes = notes;
+        }
+        #endregion
 
         #region Properties
         /// <summary>
