@@ -336,6 +336,25 @@ namespace AspIT.NorthwindApp.Entities
             }
             return (true, string.Empty);
         }
+
+        /// <summary>
+        /// Checks the specified 'reports to' to see if it is valid.
+        /// </summary>
+        /// <param name="reportsTo">The 'reports to' you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidReportsTo(string reportsTo)
+        {
+            if (string.IsNullOrWhiteSpace(reportsTo))
+            {
+                return (false, "Afdeling må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(reportsTo, "^[0-9]+$"))
+            {
+                return (false, "Afdeling må kun tal.");
+            }
+            return (true, string.Empty);
+        }
         #endregion
     }
 }

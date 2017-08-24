@@ -106,6 +106,11 @@ namespace AspIT.NorthwindApp.Gui
             Validate("Extension", extensionTb);
         }
 
+        private void ReportsToTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("ReportsTo", reportsToTb);
+        }
+
         /// <summary>
         /// Validates the text with the specified method.
         /// </summary>
@@ -137,6 +142,9 @@ namespace AspIT.NorthwindApp.Gui
                 case "Extension":
                     result = Employee.IsValidExtension(textBox.Text);
                     break;
+                case "ReportsTo":
+                    result = Employee.IsValidReportsTo(textBox.Text);
+                    break;
                 case "Phone":
                     result = ContactInfo.IsValidPhone(textBox.Text);
                     break;
@@ -144,12 +152,12 @@ namespace AspIT.NorthwindApp.Gui
 
             if (!result.Item1)
             {
-                lastNameTb.Style = Resources["ErrorBox"] as Style;
+                textBox.Style = Resources["ErrorBox"] as Style;
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
             }
             else
             {
-                lastNameTb.Style = null;
+                textBox.Style = null;
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
             }
 

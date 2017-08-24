@@ -301,7 +301,7 @@
                              Margin="117,100,10,-5"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="ReportsToTb_LostKeyboardFocus" />
                     <Label x:Name="notesLbl"
                            Content="Noter:"
                            HorizontalAlignment="Left"
