@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -57,36 +58,67 @@ namespace AspIT.NorthwindApp.Gui
 
         private void FirstNameTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            (bool, string) result = Person.IsValidName(firstNameTb.Text);
-            if(!result.Item1)
-            {
-                firstNameTb.Style = Resources["ErrorBox"] as Style;
-                statusValue_Text.Content = result.Item2;
-                statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
-            }
-            else
-            {
-                firstNameTb.Style = null;
-                statusValue_Text.Content = string.Empty;
-                statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
-            }
+            Validate("Name", firstNameTb);
         }
 
         private void LastNameTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            (bool, string) result = Person.IsValidName(lastNameTb.Text);
+            Validate("Name", lastNameTb);
+        }
+
+        private void AddressTb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Validate("Address", addressTb);
+        }
+
+        /// <summary>
+        /// Validates the text with the specified method.
+        /// </summary>
+        /// <param name="validationMethod">The validation method: Name, City, Region, PostalCode, Country, Title, Extension, and Phone</param>
+        /// <param name="textBox"></param>
+        private void Validate(string validationMethod, TextBox textBox)
+        {
+            (bool, string) result = (false, string.Empty);
+            switch (validationMethod)
+            {
+                case "Name":
+                    result = Person.IsValidName(textBox.Text);
+                    break;
+                case "City":
+                    result = Person.IsValidCity(textBox.Text);
+                    break;
+                case "Region":
+                    result = Person.IsValidRegion(textBox.Text);
+                    break;
+                case "PostalCode":
+                    result = Person.IsValidPostalCode(textBox.Text);
+                    break;
+                case "Country":
+                    result = Person.IsValidCountry(textBox.Text);
+                    break;
+                case "Title":
+                    result = Employee.IsValidTitle(textBox.Text);
+                    break;
+                case "Extension":
+                    result = Employee.IsValidExtension(textBox.Text);
+                    break;
+                case "Phone":
+                    result = ContactInfo.IsValidPhone(textBox.Text);
+                    break;
+            }
+
             if (!result.Item1)
             {
                 lastNameTb.Style = Resources["ErrorBox"] as Style;
-                statusValue_Text.Content = result.Item2;
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
             }
             else
             {
                 lastNameTb.Style = null;
-                statusValue_Text.Content = string.Empty;
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
             }
+
+            statusValue_Text.Content = result.Item2;
         }
     }
 }

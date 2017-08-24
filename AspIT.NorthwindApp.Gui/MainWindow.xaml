@@ -180,7 +180,7 @@
                              Margin="117,122,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostFocus="AddressTb_LostFocus" />
                     <Label x:Name="cityLbl"
                            Content="By:"
                            HorizontalAlignment="Left"
