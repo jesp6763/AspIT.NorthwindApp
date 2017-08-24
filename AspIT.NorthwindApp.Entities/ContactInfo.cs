@@ -10,6 +10,11 @@ namespace AspIT.NorthwindApp.Entities
         /// </summary>
         private string homePhone;
 
+        public ContactInfo(string homePhone) : this()
+        {
+            HomePhone = homePhone;
+        }
+
         #region Properties
         /// <summary>
         /// Gets or sets the home phone
