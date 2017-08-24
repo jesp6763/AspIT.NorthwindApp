@@ -45,7 +45,6 @@ namespace AspIT.NorthwindApp.Entities
         #endregion
 
         #region Constructors
-        // TODO: Add possible exceptions
         /// <summary>
         /// Initializes a new instance of this class
         /// </summary>
@@ -62,6 +61,12 @@ namespace AspIT.NorthwindApp.Entities
         /// <param name="postalCode">The postal code of the city</param>
         /// <param name="country">The country</param>
         /// <param name="contactInfo">The person's contact informations</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when firstname, or postalCode is greater than 10.
+        /// Thrown when lastName is greater than 20.
+        /// Thrown when city, region, or country is greater than 15.
+        /// Thrown when address is greater than 60. Thrown when title is greater than 30.
+        /// Thrown when extension is greater than 4.</exception>
+        /// <exception cref="ArgumentException">Thrown when title, extension, firstName, lastname, address, city, region, postalCode, or country is empty, null, numbers, or has special characters</exception>
         public Employee(string title, DateTime hireDate, string extension, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             Title = title;
@@ -71,7 +76,6 @@ namespace AspIT.NorthwindApp.Entities
             PhotoPath = string.Empty;
         }
 
-        // TODO: Add possible exceptions
         /// <summary>
         /// Initializes a new instance of this class
         /// </summary>
@@ -89,12 +93,18 @@ namespace AspIT.NorthwindApp.Entities
         /// <param name="postalCode">The postal code of the city</param>
         /// <param name="country">The country</param>
         /// <param name="contactInfo">The person's contact informations</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when firstname, or postalCode is greater than 10.
+        /// Thrown when lastName is greater than 20.
+        /// Thrown when city, region, or country is greater than 15.
+        /// Thrown when address is greater than 60. Thrown when title is greater than 30.
+        /// Thrown when titleOfCourtesy is greater than 25.
+        /// Thrown when extension is greater than 4.</exception>
+        /// <exception cref="ArgumentException">Thrown when title, titleOfCourtesy, extension, firstName, lastname, address, city, region, postalCode, or country is empty, null, numbers, or has special characters</exception>
         public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             TitleOfCourtesy = titleOfCourtesy;
         }
 
-        // TODO: Add possible exceptions
         /// <summary>
         /// Initializes a new instance of this class
         /// </summary>
@@ -113,6 +123,13 @@ namespace AspIT.NorthwindApp.Entities
         /// <param name="postalCode">The postal code of the city</param>
         /// <param name="country">The country</param>
         /// <param name="contactInfo">The person's contact informations</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when firstname, or postalCode is greater than 10.
+        /// Thrown when lastName is greater than 20.
+        /// Thrown when city, region, or country is greater than 15.
+        /// Thrown when address is greater than 60. Thrown when title is greater than 30.
+        /// Thrown when titleOfCourtesy is greater than 25.
+        /// Thrown when extension is greater than 4.</exception>
+        /// <exception cref="ArgumentException">Thrown when title, titleOfCourtesy, extension, firstName, lastname, address, city, region, postalCode, or country is empty, null, numbers, or has special characters</exception>
         public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, string notes, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(titleOfCourtesy, title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             Notes = notes;
@@ -244,21 +261,10 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Gets or sets the notes
         /// </summary>
-        /// <exception cref="ArgumentException">Thrown when the value is empty, or null</exception>
         public string Notes
         {
             get => notes;
-            set
-            {
-                if(!string.IsNullOrWhiteSpace(value))
-                {
-                    notes = value;
-                }
-                else
-                {
-                    throw new ArgumentException();
-                }
-            }
+            set => notes = value;
         }
 
         /// <summary>
