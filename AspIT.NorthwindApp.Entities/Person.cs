@@ -9,6 +9,7 @@ namespace AspIT.NorthwindApp.Entities
 {
     public abstract class Person
     {
+        #region Fields
         /// <summary>
         /// The first name of the person
         /// </summary>
@@ -41,11 +42,26 @@ namespace AspIT.NorthwindApp.Entities
         /// The country the person lives in
         /// </summary>
         protected string country;
-
         /// <summary>
         /// The contact info of the person
         /// </summary>
         protected ContactInfo contactInfo;
+        #endregion
+
+        #region Constructors
+        public Person(string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            BirthDate = birthDate;
+            Address = address;
+            City = city;
+            Region = region;
+            PostalCode = postalCode;
+            Country = country;
+            ContactInfo = contactInfo;
+        }
+        #endregion
 
         #region Properties
         /// <summary>
