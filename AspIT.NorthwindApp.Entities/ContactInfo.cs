@@ -57,7 +57,7 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Checks the specified phone number, to see if it is valid.
         /// </summary>
-        /// <param name="name">The phone number you want to validate</param>
+        /// <param name="phoneNumber">The phone number you want to validate</param>
         /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
         public static (bool, string) IsValidPhone(string phoneNumber)
         {

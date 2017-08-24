@@ -71,5 +71,22 @@ namespace AspIT.NorthwindApp.Gui
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
             }
         }
+
+        private void LastNameTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            (bool, string) result = Person.IsValidName(lastNameTb.Text);
+            if (!result.Item1)
+            {
+                lastNameTb.Style = Resources["ErrorBox"] as Style;
+                statusValue_Text.Content = result.Item2;
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
+            }
+            else
+            {
+                lastNameTb.Style = null;
+                statusValue_Text.Content = string.Empty;
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
+            }
+        }
     }
 }

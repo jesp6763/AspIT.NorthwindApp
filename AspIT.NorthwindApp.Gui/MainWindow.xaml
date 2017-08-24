@@ -157,7 +157,7 @@
                              Margin="117,64,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="LastNameTb_LostKeyboardFocus" />
                     <Label x:Name="birthDateLbl"
                            Content="Fødselsdato:"
                            HorizontalAlignment="Left"

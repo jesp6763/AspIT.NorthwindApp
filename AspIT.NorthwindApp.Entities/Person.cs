@@ -189,7 +189,7 @@ namespace AspIT.NorthwindApp.Entities
             get => city;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Za-z]+$"))
+                if(!string.IsNullOrEmpty(value) && Regex.IsMatch(value, "^[ A-Za-z]+$"))
                 {
                     if(value.Length <= 15)
                     {
@@ -305,7 +305,7 @@ namespace AspIT.NorthwindApp.Entities
         /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
         public static (bool, string) IsValidName(string name)
         {
-            if(name == string.Empty)
+            if(string.IsNullOrEmpty(name))
             {
                 return (false, "Navnet må ikke være tomt.");
             }
@@ -336,6 +336,63 @@ namespace AspIT.NorthwindApp.Entities
                 }
             }
 
+            return (true, string.Empty);
+        }
+
+        /// <summary>
+        /// Checks the specified address to see if it is valid.
+        /// </summary>
+        /// <param name="address">The address you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidAddress(string address)
+        {
+            if (string.IsNullOrEmpty(address))
+            {
+                return (false, "Addressen må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(address, "^[ A-Za-z0-9-]+$"))
+            {
+                return (false, "Addressen må kun inholde bogstaver, tal, mellemrum og '-' tegnet");
+            }
+            return (true, string.Empty);
+        }
+
+        /// <summary>
+        /// Checks the specified city to see if it is valid.
+        /// </summary>
+        /// <param name="city">The city you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidCity(string city)
+        {
+            if (string.IsNullOrEmpty(city))
+            {
+                return (false, "By må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(city, "^[ A-Za-z]+$"))
+            {
+                return (false, "By må kun inholde bogstaver og mellemrum");
+            }
+            return (true, string.Empty);
+        }
+
+        /// <summary>
+        /// Checks the specified region to see if it is valid.
+        /// </summary>
+        /// <param name="region">The region you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidRegion(string region)
+        {
+            if (string.IsNullOrEmpty(region))
+            {
+                return (false, "Region må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(region, "^[ A-Za-z]+$"))
+            {
+                return (false, "Region må kun inholde bogstaver og mellemrum");
+            }
             return (true, string.Empty);
         }
         #endregion
