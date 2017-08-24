@@ -42,7 +42,7 @@ namespace AspIT.NorthwindApp.Entities
         /// </summary>
         protected string country;
 
-        private ContactInfo contactInfo;
+        protected ContactInfo contactInfo;
 
         #region Properties
         /// <summary>
