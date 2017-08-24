@@ -42,6 +42,9 @@ namespace AspIT.NorthwindApp.Entities
         /// </summary>
         protected string country;
 
+        /// <summary>
+        /// The contact info of the person
+        /// </summary>
         protected ContactInfo contactInfo;
 
         #region Properties
@@ -260,6 +263,9 @@ namespace AspIT.NorthwindApp.Entities
             }
         }
 
+        /// <summary>
+        /// Gets or sets the contact info of the person
+        /// </summary>
         public ContactInfo ContactInfo { get => contactInfo; set => contactInfo = value; }
         #endregion
 
