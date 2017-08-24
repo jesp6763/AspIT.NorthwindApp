@@ -56,7 +56,7 @@
                    DockPanel.Dock="Bottom"
                    Height="21"
                    Foreground="White"
-                   Background="#4169e1">
+                   Background="RoyalBlue">
             <StatusBarItem x:Name="statusLbl"
                            Content="Status:" />
             <StatusBarItem x:Name="statusValue_Text"

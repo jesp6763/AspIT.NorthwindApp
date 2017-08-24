@@ -316,12 +316,10 @@ namespace AspIT.NorthwindApp.Entities
                 {
                     return (false, "Karakteren '-' må ikke være i starten eller slutningen af navnet.");
                 }
-                else
+
+                if(!char.IsUpper(name[name.IndexOf('-') + 1]))
                 {
-                    if(!char.IsUpper(name[name.IndexOf('-') + 1]))
-                    {
-                        return (false, "Navnet efter '-' tegnet skal starte med stort.");
-                    }
+                    return (false, "Navnet efter '-' tegnet skal starte med stort.");
                 }
             }
             if(!char.IsUpper(name[0]))

@@ -62,11 +62,13 @@ namespace AspIT.NorthwindApp.Gui
             {
                 firstNameTb.Style = Resources["ErrorBox"] as Style;
                 statusValue_Text.Content = result.Item2;
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
             }
             else
             {
                 firstNameTb.Style = null;
                 statusValue_Text.Content = string.Empty;
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
             }
         }
     }
