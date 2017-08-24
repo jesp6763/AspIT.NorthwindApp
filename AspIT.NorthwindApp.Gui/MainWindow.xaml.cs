@@ -66,16 +66,31 @@ namespace AspIT.NorthwindApp.Gui
             Validate("Name", lastNameTb);
         }
 
-        private void AddressTb_LostFocus(object sender, RoutedEventArgs e)
+        private void AddressTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             Validate("Address", addressTb);
+        }
+
+        private void CityTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("City", cityTb);
+        }
+
+        private void RegionTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Region", regionTb);
+        }
+
+        private void PostalCodeTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("PostalCode", postalCodeTb);
         }
 
         /// <summary>
         /// Validates the text with the specified method.
         /// </summary>
         /// <param name="validationMethod">The validation method: Name, City, Region, PostalCode, Country, Title, Extension, and Phone</param>
-        /// <param name="textBox"></param>
+        /// <param name="textBox">The textbox to validate</param>
         private void Validate(string validationMethod, TextBox textBox)
         {
             (bool, string) result = (false, string.Empty);
@@ -119,6 +134,26 @@ namespace AspIT.NorthwindApp.Gui
             }
 
             statusValue_Text.Content = result.Item2;
+        }
+
+        private void CountryTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Country", countryTb);
+        }
+
+        private void HomePhoneTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Phone", homePhoneTb);
+        }
+
+        private void TitleTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Title", titleTb);
+        }
+
+        private void ExtensionTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Validate("Extension", extensionTb);
         }
     }
 }

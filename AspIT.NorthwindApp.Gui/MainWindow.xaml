@@ -180,7 +180,7 @@
                              Margin="117,122,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" LostFocus="AddressTb_LostFocus" />
+                             VerticalAlignment="Top" LostKeyboardFocus="AddressTb_LostKeyboardFocus" />
                     <Label x:Name="cityLbl"
                            Content="By:"
                            HorizontalAlignment="Left"
@@ -191,7 +191,7 @@
                              Margin="117,150,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="CityTb_LostKeyboardFocus" />
                     <Label x:Name="regionLbl"
                            Content="Region:"
                            HorizontalAlignment="Left"
@@ -202,7 +202,7 @@
                              Margin="117,178,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="RegionTb_LostKeyboardFocus" />
                     <Label x:Name="postalCodeLbl"
                            Content="Postnummer:"
                            HorizontalAlignment="Left"
@@ -213,7 +213,7 @@
                              Margin="117,206,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="PostalCodeTb_LostKeyboardFocus" />
                     <Label x:Name="countryLbl"
                            Content="Land:"
                            HorizontalAlignment="Left"
@@ -224,7 +224,7 @@
                              Margin="117,234,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="CountryTb_LostKeyboardFocus" />
                     <Label x:Name="homePhoneLbl"
                            Content="Hjemme nummer:"
                            HorizontalAlignment="Left"
@@ -235,7 +235,7 @@
                              Margin="117,262,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="HomePhoneTb_LostKeyboardFocus" />
                     <Label x:Name="tiltaleLbl"
                            Content="Tiltale:"
                            HorizontalAlignment="Left"
@@ -279,7 +279,7 @@
                              Margin="117,4,6,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="TitleTb_LostKeyboardFocus" />
                     <Label x:Name="extensionLbl"
                            Content="Afdeling:"
                            HorizontalAlignment="Left"
@@ -290,7 +290,7 @@
                              Margin="117,68,10,0"
                              TextWrapping="NoWrap"
                              Height="23"
-                             VerticalAlignment="Top" />
+                             VerticalAlignment="Top" LostKeyboardFocus="ExtensionTb_LostKeyboardFocus" />
                     <Label x:Name="reportsToLbl"
                            Content="Reportere til:"
                            HorizontalAlignment="Left"
