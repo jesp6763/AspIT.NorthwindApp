@@ -29,7 +29,7 @@ namespace AspIT.NorthwindApp.Gui
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             /*Test - Start*/
-            Employee employee1 = new Employee(@"C:\Users\jesp6763\Pictures\Flaming Skull very small.png") { TitleOfCourtesy = "Hr", FirstName = "Chris", LastName = "McDonald", BirthDate = new DateTime(1956, 11, 13), HireDate = new DateTime(1993, 8, 11) };
+            Employee employee1 = new Employee(string.Empty) { TitleOfCourtesy = "Hr", FirstName = "Chris", LastName = "McDonald", BirthDate = new DateTime(1956, 11, 13), HireDate = new DateTime(1993, 8, 11) };
             Employee employee2 = new Employee(string.Empty) { TitleOfCourtesy = "Hr", FirstName = "Carl", LastName = "Johnson", BirthDate = new DateTime(1987, 4, 27), HireDate = new DateTime(2003, 5, 17) };
             employeeList.Items.Add(employee1);
             employeeList.Items.Add(employee2);
