@@ -48,6 +48,7 @@ namespace AspIT.NorthwindApp.Entities
         protected ContactInfo contactInfo;
         #endregion
 
+        // TODO: Add possible exceptions
         /// <summary>
         /// 
         /// </summary>
