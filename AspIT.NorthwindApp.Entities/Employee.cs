@@ -297,5 +297,45 @@ namespace AspIT.NorthwindApp.Entities
             }
         }
         #endregion
+
+        #region Methods
+        /// <summary>
+        /// Checks the specified title to see if it is valid.
+        /// </summary>
+        /// <param name="title">The title you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidTitle(string title)
+        {
+            if (string.IsNullOrEmpty(title))
+            {
+                return (false, "Titel må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(title, "^[ A-Za-z]+$"))
+            {
+                return (false, "Titel må kun indholde bogstaver og mellemrum.");
+            }
+            return (true, string.Empty);
+        }
+
+        /// <summary>
+        /// Checks the specified extension to see if it is valid.
+        /// </summary>
+        /// <param name="extension">The extension you want to validate</param>
+        /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
+        public static (bool, string) IsValidExtension(string extension)
+        {
+            if (string.IsNullOrWhiteSpace(extension))
+            {
+                return (false, "Afdeling må ikke være tom.");
+            }
+
+            if (!Regex.IsMatch(extension, "^[A-Za-z0-9]+$"))
+            {
+                return (false, "Afdeling må kun indholde bogstaver og tal.");
+            }
+            return (true, string.Empty);
+        }
+        #endregion
     }
 }
