@@ -132,6 +132,9 @@ namespace AspIT.NorthwindApp.Gui
                 case "LastName":
                     result = Person.IsValidName(textBox.Text);
                     break;
+                case "Address":
+                    result = Person.IsValidAddress(textBox.Text);
+                    break;
                 case "City":
                     result = Person.IsValidCity(textBox.Text);
                     break;
@@ -161,21 +164,35 @@ namespace AspIT.NorthwindApp.Gui
             if (!result.Item1)
             {
                 textBox.Style = Resources["ErrorBox"] as Style;
-                statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
 
-                if (ErrorMessages.ContainsKey(validationMethod))
+                if (!ErrorMessages.ContainsKey(validationMethod))
                 {
                     ErrorMessages.Add(validationMethod, result.Item2);
+                }
+                else
+                {
+                    ErrorMessages[ErrorMessages.Keys.ElementAt(0)] = result.Item2;
                 }
             }
             else
             {
                 textBox.Style = null;
-                statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
-                ErrorMessages.Remove(validationMethod);
+                if (ErrorMessages.ContainsKey(validationMethod))
+                {
+                    ErrorMessages.Remove(validationMethod);
+                }
             }
 
-            statusValue_Text.Content = result.Item2;
+            if (ErrorMessages.Count == 0)
+            {
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
+                statusValue_Text.Content = string.Empty;
+            }
+            else
+            {
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
+                statusValue_Text.Content = ErrorMessages[ErrorMessages.Keys.ElementAt(0)];
+            }
         }
     }
 }
