@@ -48,6 +48,18 @@ namespace AspIT.NorthwindApp.Entities
         protected ContactInfo contactInfo;
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="firstName">The person's firstname</param>
+        /// <param name="lastName">The person's lastname</param>
+        /// <param name="birthDate">The person's birthdate</param>
+        /// <param name="address">The person's address</param>
+        /// <param name="city">The city of the person</param>
+        /// <param name="region">The region of the city</param>
+        /// <param name="postalCode">The postal code of the city</param>
+        /// <param name="country">The country</param>
+        /// <param name="contactInfo">The person's contact informations</param>
         #region Constructors
         public Person(string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo)
         {
