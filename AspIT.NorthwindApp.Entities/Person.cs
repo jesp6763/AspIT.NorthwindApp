@@ -48,9 +48,10 @@ namespace AspIT.NorthwindApp.Entities
         protected ContactInfo contactInfo;
         #endregion
 
+        #region Constructors
         // TODO: Add possible exceptions
         /// <summary>
-        /// 
+        /// Initializes a new instance of this class
         /// </summary>
         /// <param name="firstName">The person's firstname</param>
         /// <param name="lastName">The person's lastname</param>
@@ -61,7 +62,6 @@ namespace AspIT.NorthwindApp.Entities
         /// <param name="postalCode">The postal code of the city</param>
         /// <param name="country">The country</param>
         /// <param name="contactInfo">The person's contact informations</param>
-        #region Constructors
         public Person(string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo)
         {
             FirstName = firstName;
