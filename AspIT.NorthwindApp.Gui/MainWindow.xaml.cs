@@ -27,6 +27,8 @@ namespace AspIT.NorthwindApp.Gui
             InitializeComponent();
         }
 
+        public static Dictionary<string, string> ErrorMessages { get; set; } = new Dictionary<string, string>();
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Set max character length on textboxes
@@ -61,12 +63,12 @@ namespace AspIT.NorthwindApp.Gui
 
         private void FirstNameTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            Validate("Name", firstNameTb);
+            Validate("FirstName", firstNameTb);
         }
 
         private void LastNameTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            Validate("Name", lastNameTb);
+            Validate("LastName", lastNameTb);
         }
 
         private void AddressTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -124,7 +126,10 @@ namespace AspIT.NorthwindApp.Gui
             (bool, string) result = (false, string.Empty);
             switch (validationMethod)
             {
-                case "Name":
+                case "FirstName":
+                    result = Person.IsValidName(textBox.Text);
+                    break;
+                case "LastName":
                     result = Person.IsValidName(textBox.Text);
                     break;
                 case "City":
@@ -157,11 +162,17 @@ namespace AspIT.NorthwindApp.Gui
             {
                 textBox.Style = Resources["ErrorBox"] as Style;
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
+
+                if (ErrorMessages.ContainsKey(validationMethod))
+                {
+                    ErrorMessages.Add(validationMethod, result.Item2);
+                }
             }
             else
             {
                 textBox.Style = null;
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
+                ErrorMessages.Remove(validationMethod);
             }
 
             statusValue_Text.Content = result.Item2;
