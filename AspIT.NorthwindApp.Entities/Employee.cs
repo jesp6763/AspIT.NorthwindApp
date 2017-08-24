@@ -48,6 +48,10 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Initializes a new instance of this class
         /// </summary>
+        /// <param name="title">The title of the employee</param>
+        /// <param name="hireDate">The date the employee got hired</param>
+        /// <param name="extension">The extension the employee is in</param>
+        /// <param name="reportsTo">The id of the person to report to</param>
         /// <param name="firstName">The person's firstname</param>
         /// <param name="lastName">The person's lastname</param>
         /// <param name="birthDate">The person's birthdate</param>
@@ -57,11 +61,12 @@ namespace AspIT.NorthwindApp.Entities
         /// <param name="postalCode">The postal code of the city</param>
         /// <param name="country">The country</param>
         /// <param name="contactInfo">The person's contact informations</param>
-        public Employee(string title, DateTime hireDate, string extension, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
+        public Employee(string title, DateTime hireDate, string extension, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             Title = title;
             HireDate = hireDate;
             Extension = extension;
+            ReportsTo = reportsTo;
             PhotoPath = string.Empty;
         }
 
@@ -208,7 +213,7 @@ namespace AspIT.NorthwindApp.Entities
         }
 
         /// <summary>
-        /// Gets or sets the id of the employee to report to
+        /// Gets or sets the id of the person to report to
         /// </summary>
         public int ReportsTo
         {
