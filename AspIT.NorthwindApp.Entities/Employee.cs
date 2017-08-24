@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Net.Sockets;
 
 namespace AspIT.NorthwindApp.Entities
 {
@@ -56,11 +57,11 @@ namespace AspIT.NorthwindApp.Entities
         /// <param name="postalCode">The postal code of the city</param>
         /// <param name="country">The country</param>
         /// <param name="contactInfo">The person's contact informations</param>
-        public Employee(string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
+        public Employee(string firstName, string lastName, DateTime birthDate, Address address, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, contactInfo)
         {
-            PhotoPath = photoPath;
+            
         }
-
+        // string address, string city, string region, string postalCode, string country
         #region Properties
         /// <summary>
         /// Gets or sets the title
