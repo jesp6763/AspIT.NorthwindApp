@@ -41,6 +41,9 @@ namespace AspIT.NorthwindApp.Gui
             homePhoneTb.MaxLength = 24;
             extensionTb.MaxLength = 4;
 
+            // Set default birthdate, and hiredate
+            birthDatePicker.SelectedDate = DateTime.Today;
+            hireDatePicker.SelectedDate = DateTime.Today;
 
 
             /*Test - Start*/
