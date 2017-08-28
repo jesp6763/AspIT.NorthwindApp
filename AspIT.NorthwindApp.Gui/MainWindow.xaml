@@ -62,6 +62,11 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#FF6FB4EE" />
                 </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="Foreground" Value="DarkGray" />
+                    <Setter Property="BorderThickness" Value="1" />
+                </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
@@ -79,10 +84,8 @@
                    Height="21"
                    Foreground="White"
                    Background="RoyalBlue">
-            <StatusBarItem x:Name="statusLbl"
-                           Content="Status:" />
             <StatusBarItem x:Name="statusValue_Text"
-                           Content="" />
+                           Content="Klar" />
         </StatusBar>
         <StackPanel Orientation="Vertical"
                     DockPanel.Dock="Top"

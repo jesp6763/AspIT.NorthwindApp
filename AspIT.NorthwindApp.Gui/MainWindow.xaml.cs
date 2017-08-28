@@ -190,11 +190,13 @@ namespace AspIT.NorthwindApp.Gui
             {
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
                 statusValue_Text.Content = string.Empty;
+                addBtn.IsEnabled = true;
             }
             else
             {
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
                 statusValue_Text.Content = ErrorMessages[ErrorMessages.Keys.ElementAt(0)];
+                addBtn.IsEnabled = false;
             }
         }
     }
