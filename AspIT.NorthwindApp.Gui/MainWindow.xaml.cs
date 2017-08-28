@@ -122,7 +122,7 @@ namespace AspIT.NorthwindApp.Gui
         /// <summary>
         /// Validates the text with the specified method.
         /// </summary>
-        /// <param name="validationMethod">The validation method: Name, City, Region, PostalCode, Country, Title, Extension, and Phone</param>
+        /// <param name="validationMethod">The validation method: FirstName, LastName, City, Region, PostalCode, Country, Title, Extension, and Phone</param>
         /// <param name="textBox">The textbox to validate</param>
         private void Validate(string validationMethod, TextBox textBox)
         {
