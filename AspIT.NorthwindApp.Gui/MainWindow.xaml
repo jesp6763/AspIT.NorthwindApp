@@ -42,6 +42,28 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="LightBlueFlatBtn" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF62A6DE" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="Black"
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF6FB4EE" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
 
     <DockPanel>
@@ -75,10 +97,9 @@
                         VerticalAlignment="Top"
                         Width="52"
                         BorderThickness="0"
-                        Background="#FF62A6DE"
-                        Foreground="White"
                         Height="23"
-                        Margin="0" />
+                        Margin="0"
+                        Style="{DynamicResource LightBlueFlatBtn}" />
                 <TextBox Height="23"
                          Margin="0"
                          TextWrapping="Wrap"
@@ -103,10 +124,10 @@
                         VerticalAlignment="Top"
                         Width="64"
                         BorderThickness="0"
-                        Background="#FF62A6DE"
-                        Foreground="White"
                         Height="23"
-                        Margin="0" />
+                        Margin="0"
+                        OverridesDefaultStyle="True"
+                        Style="{DynamicResource LightBlueFlatBtn}" />
                 <Button x:Name="editBtn"
                         Content="Gem ændringer"
                         HorizontalAlignment="Right"
@@ -324,6 +345,7 @@
                   HorizontalContentAlignment="Stretch">
             <ListView.View>
                 <GridView>
+                    <!-- PHOTO -->
                     <GridViewColumn Width="64">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -331,7 +353,6 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <!-- PHOTO -->
                     <GridViewColumn Header="Tiltale"
                                     Width="150"
                                     DisplayMemberBinding="{Binding TitleOfCourtesy}" />
