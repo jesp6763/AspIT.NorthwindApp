@@ -27,6 +27,9 @@ namespace AspIT.NorthwindApp.Gui
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Gets or sets the error messages
+        /// </summary>
         public static Dictionary<string, string> ErrorMessages { get; set; } = new Dictionary<string, string>();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
