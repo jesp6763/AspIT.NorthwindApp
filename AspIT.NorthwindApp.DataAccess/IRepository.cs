@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace AspIT.NorthwindApp.DataAccess
 {
-    public class Class1
+    public interface IRepository<T>
     {
+        void Add(T entity);
+        void Delete(T entity);
+        void Update(T entity);
+        void Get(int id);
     }
 }
