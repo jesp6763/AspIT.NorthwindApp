@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AspIT.NorthwindApp.Entities
 {
-    public abstract class Person : Entity
+    public abstract class Person : IPersistable
     {
         #region Fields
         /// <summary>
@@ -297,6 +297,12 @@ namespace AspIT.NorthwindApp.Entities
         /// Gets or sets the contact info of the person
         /// </summary>
         public ContactInfo ContactInfo { get => contactInfo; set => contactInfo = value; }
+
+        /// <summary>
+        /// Gets or sets the ID of the person
+        /// </summary>
+        public int Id { get; set; }
+
         #endregion
 
         #region Methods
