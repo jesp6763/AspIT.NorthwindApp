@@ -10,10 +10,17 @@ namespace AspIT.NorthwindApp.DataAccess
 {
     public class DataRepository<TEntity> where TEntity : IPersistable
     {
+        private string tableName;
+
+        public DataRepository(string tableName)
+        {
+            this.tableName = tableName;
+        }
+
         public List<TEntity> GetAll()
         {
             QueryExecutor queryExecuter = new QueryExecutor("Name=Northwind");
-            DataTable data = queryExecuter.Execute($"SELECT * FROM ´dbo.{typeof(TEntity).Name}´");
+            DataTable data = queryExecuter.Execute($"SELECT * FROM ´{tableName}´");
             return new List<TEntity>();
         }
     }

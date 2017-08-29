@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AspIT.NorthwindApp.DataAccess;
 using AspIT.NorthwindApp.Entities;
 
 namespace AspIT.NorthwindApp.Gui
@@ -56,6 +57,9 @@ namespace AspIT.NorthwindApp.Gui
             Employee employee2 = new Employee("Moose", DateTime.Today, "412", 0, "Jonn", "Jones", new DateTime(1954, 6, 23), "Windy street", "Water", "Hurrri", "5323", "Hurricane", new ContactInfo("51251341"));
             employeeList.Items.Add(employee1);
             employeeList.Items.Add(employee2);
+
+            DataRepository<Employee> employeeRepository = new DataRepository<Employee>("dbo.Employees");
+            List<Employee> employees = employeeRepository.GetAll();
             /*Test - End*/
         }
 
