@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AspIT.NorthwindApp.Entities
 {
-    public abstract class Person
+    public abstract class Person : Entity
     {
         #region Fields
         /// <summary>
