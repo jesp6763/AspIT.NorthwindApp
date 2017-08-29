@@ -19,9 +19,12 @@ namespace AspIT.NorthwindApp.DataAccess
 
         public List<TEntity> GetAll()
         {
-            QueryExecutor queryExecuter = new QueryExecutor("Name=Northwind");
-            DataTable data = queryExecuter.Execute($"SELECT * FROM ´{tableName}´");
-            return new List<TEntity>();
+            
+        }
+
+        public TEntity GetById(int id)
+        {
+            
         }
     }
 }
