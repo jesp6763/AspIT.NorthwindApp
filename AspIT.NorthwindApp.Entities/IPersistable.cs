@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AspIT.NorthwindApp.Entities
 {
-    public class Entity
+    public interface IPersistable
     {
-        public int ID { get; set; }
+        int Id { get; set; }
     }
 }
