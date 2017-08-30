@@ -14,7 +14,7 @@ namespace AspIT.NorthwindApp.DataAccess
             
         }
 
-        public DataTable Execute(string sqlQuery)
+        public DataSet Execute(string sqlQuery)
         {
             return null;
         }
