@@ -55,7 +55,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public abstract void Update();
 
         /// <summary>
-        /// Delets a entity
+        /// Deletes a entity
         /// </summary>
         public abstract void Delete();
     }
