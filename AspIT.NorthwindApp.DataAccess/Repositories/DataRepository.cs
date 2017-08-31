@@ -14,7 +14,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 
         protected DataRepository()
         {
-            queryExecutor = new QueryExecutor("Name=Northwind");
+            queryExecutor = new QueryExecutor("Data Source=ProjectsV13;Initial Catalog=Northwind");
         }
 
         public abstract IEnumerable<TEntity> GetAll();
