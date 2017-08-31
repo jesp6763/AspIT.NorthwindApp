@@ -17,6 +17,10 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             queryExecutor = new QueryExecutor(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Northwind");
         }
 
+        /// <summary>
+        /// Finds all entities from database
+        /// </summary>
+        /// <returns>All entities from database</returns>
         public abstract IEnumerable<TEntity> GetAll();
 
         /// <summary>
