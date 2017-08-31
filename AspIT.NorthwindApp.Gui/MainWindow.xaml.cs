@@ -217,5 +217,11 @@ namespace AspIT.NorthwindApp.Gui
                 addBtn.IsEnabled = false;
             }
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeDataRepository employeeRepository = new EmployeeDataRepository();
+            employeeRepository.Save(new Employee(comboBox.Text, titleTb.Text, hireDatePicker.SelectedDate.Value, extensionTb.Text, notesTb.Text, int.Parse(reportsToTb.Text), firstNameTb.Text, lastNameTb.Text, birthDatePicker.SelectedDate.Value, addressTb.Text, cityTb.Text, regionTb.Text, postalCodeTb.Text, countryTb.Text, new ContactInfo(homePhoneTb.Text)));
+        }
     }
 }
