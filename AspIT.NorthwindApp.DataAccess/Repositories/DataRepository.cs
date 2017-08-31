@@ -19,7 +19,25 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 
         public abstract IEnumerable<TEntity> GetAll();
 
-        public abstract TEntity GetById(int id);
+        /// <summary>
+        /// Finds an entity with id
+        /// </summary>
+        /// <param name="id">The id of the entity</param>
+        /// <returns>An entity if it exists</returns>
+        /// <exception cref="NullReferenceException">Thrown when no entity were found with the specified id</exception>
+        public virtual TEntity GetById(int id)
+        {
+            IEnumerable<TEntity> entities = GetAll();
+            foreach (TEntity entity in entities)
+            {
+                if (entity.Id == id)
+                {
+                    return entity;
+                }
+            }
+
+            throw new NullReferenceException("No entity with that id exists");
+        }
 
         public abstract void Save();
 
