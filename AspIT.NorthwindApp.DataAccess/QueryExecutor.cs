@@ -30,13 +30,14 @@ namespace AspIT.NorthwindApp.DataAccess
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                using (SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection))
+                connection.Open();
+                using (SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, connection))
                 {
-                    connection.Open();
-                    sqlCommand.ExecuteNonQuery();
+                    DataSet dataSet = new DataSet();
+                    sqlAdapter.Fill(dataSet);
+                    return dataSet;
                 }
             }
-            return null;
         }
     }
 }
