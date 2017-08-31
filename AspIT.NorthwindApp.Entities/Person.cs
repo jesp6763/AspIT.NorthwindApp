@@ -163,7 +163,7 @@ namespace AspIT.NorthwindApp.Entities
             get => address;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Za-z0-9-]+$"))
+                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, @"^[\sA-Za-z0-9-.]+$"))
                 {
                     if(value.Length <= 60)
                     {

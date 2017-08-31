@@ -37,7 +37,7 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// The id of the person to report to
         /// </summary>
-        private int reportsTo;
+        private int? reportsTo;
         /// <summary>
         /// The path to the photo
         /// </summary>
@@ -175,7 +175,7 @@ namespace AspIT.NorthwindApp.Entities
             get => titleOfCourtesy;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Za-z]+$"))
+                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Za-z.]+$"))
                 {
                     if(value.Length <= 25)
                     {
@@ -270,7 +270,7 @@ namespace AspIT.NorthwindApp.Entities
         /// <summary>
         /// Gets or sets the id of the person to report to
         /// </summary>
-        public int ReportsTo
+        public int? ReportsTo
         {
             get => reportsTo;
             set => reportsTo = value;

@@ -36,7 +36,7 @@ namespace AspIT.NorthwindApp.Entities
             get => homePhone;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[0-9]+$"))
+                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ 0-9()-]+$"))
                 {
                     if(value.Length <= 24)
                     {

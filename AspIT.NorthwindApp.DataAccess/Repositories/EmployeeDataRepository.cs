@@ -21,9 +21,9 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             List<Employee> employeeList = new List<Employee>();
             DataSet employees = queryExecutor.Execute($"SELECT * FROM {TableName}");
 
-            if (employees.Tables[TableName] != null)
+            if (employees.Tables["Table"] != null)
             {
-                foreach (DataRow row in employees.Tables[TableName].Rows)
+                foreach (DataRow row in employees.Tables["Table"].Rows)
                 {
                     Employee employee = new Employee(row.Field<string>("TitleOfCourtesy"), row.Field<string>("Title"),
                         row.Field<DateTime>("HireDate"), row.Field<string>("Extension"), row.Field<string>("Notes"),
