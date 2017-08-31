@@ -27,7 +27,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
                 {
                     Employee employee = new Employee(row.Field<string>("TitleOfCourtesy"), row.Field<string>("Title"),
                         row.Field<DateTime>("HireDate"), row.Field<string>("Extension"), row.Field<string>("Notes"),
-                        row.Field<int>("ReportsTo"), row.Field<string>("FirstName"), row.Field<string>("LastName"),
+                        row.Field<int?>("ReportsTo"), row.Field<string>("FirstName"), row.Field<string>("LastName"),
                         row.Field<DateTime>("BirthDate"), row.Field<string>("Address"), row.Field<string>("City"),
                         row.Field<string>("Region"), row.Field<string>("PostalCode"), row.Field<string>("Country"),
                         new ContactInfo(row.Field<string>("HomePhone")));
