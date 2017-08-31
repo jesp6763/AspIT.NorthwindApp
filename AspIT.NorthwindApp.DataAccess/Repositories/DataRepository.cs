@@ -43,8 +43,20 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             throw new NullReferenceException("No entity with that id exists");
         }
 
-        public abstract void Save();
+        /// <summary>
+        /// Saves a entity into the database
+        /// </summary>
+        /// <param name="entity">The entity to save</param>
+        public abstract void Save(TEntity entity);
 
+        /// <summary>
+        /// Updates a entity
+        /// </summary>
         public abstract void Update();
+
+        /// <summary>
+        /// Delets a entity
+        /// </summary>
+        public abstract void Delete();
     }
 }
