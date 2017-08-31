@@ -10,6 +10,13 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 {
     public abstract class DataRepository<TEntity> where TEntity : IPersistable
     {
+        protected QueryExecutor queryExecutor;
+
+        protected DataRepository()
+        {
+            queryExecutor = new QueryExecutor("Name=Northwind");
+        }
+
         public abstract IEnumerable<TEntity> GetAll();
 
         public abstract TEntity GetById(int id);
