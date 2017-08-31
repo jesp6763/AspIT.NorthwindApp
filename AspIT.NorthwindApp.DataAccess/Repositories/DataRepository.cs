@@ -10,11 +10,9 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 {
     public abstract class DataRepository<TEntity> where TEntity : IPersistable
     {
-        private string tableName;
-
-        public DataRepository(string tableName)
+        protected DataRepository()
         {
-            this.tableName = tableName;
+
         }
 
         public abstract List<TEntity> GetAll();
