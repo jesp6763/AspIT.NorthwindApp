@@ -19,7 +19,6 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public override IEnumerable<Employee> GetAll()
         {
             List<Employee> employeeList = new List<Employee>();
-            QueryExecutor queryExecutor = new QueryExecutor("Name=Northwind");
             DataSet employees = queryExecutor.Execute($"SELECT * FROM ´{TableName}´");
 
             foreach (DataRow row in employees.Tables[TableName].Rows)
