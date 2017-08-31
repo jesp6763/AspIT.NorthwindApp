@@ -12,7 +12,11 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
     {
         public const string TableName = "dbo.Employees";
 
-        public override List<Employee> GetAll()
+        /// <summary>
+        /// Finds all employees from database
+        /// </summary>
+        /// <returns>All employees from database</returns>
+        public override IEnumerable<Employee> GetAll()
         {
             List<Employee> employeeList = new List<Employee>();
             QueryExecutor queryExecutor = new QueryExecutor("Name=Northwind");
@@ -27,9 +31,24 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             return employeeList;
         }
 
+        /// <summary>
+        /// Finds an employee with id
+        /// </summary>
+        /// <param name="id">The id of the employee</param>
+        /// <returns>An employee if an employee exists with specified id</returns>
+        /// <exception cref="NullReferenceException">Thrown when no employees were found with the specified id</exception>
         public override Employee GetById(int id)
         {
-            throw new NotImplementedException();
+            IEnumerable<Employee> employees = GetAll();
+            foreach (Employee employee in employees)
+            {
+                if (employee.Id == id)
+                {
+                    return employee;
+                }
+            }
+
+            throw new NullReferenceException("No employee with that id exists");
         }
     }
 }
