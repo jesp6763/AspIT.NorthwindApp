@@ -34,29 +34,8 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
                     employeeList.Add(employee);
                 }
             }
-            
 
             return employeeList;
-        }
-
-        /// <summary>
-        /// Finds an employee with id
-        /// </summary>
-        /// <param name="id">The id of the employee</param>
-        /// <returns>An employee if an employee exists with specified id</returns>
-        /// <exception cref="NullReferenceException">Thrown when no employees were found with the specified id</exception>
-        public override Employee GetById(int id)
-        {
-            IEnumerable<Employee> employees = GetAll();
-            foreach (Employee employee in employees)
-            {
-                if (employee.Id == id)
-                {
-                    return employee;
-                }
-            }
-
-            throw new NullReferenceException("No employee with that id exists");
         }
 
         public override void Save()
