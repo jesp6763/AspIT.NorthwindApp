@@ -65,6 +65,7 @@ namespace AspIT.NorthwindApp.Gui
         private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Employee curEmployee = employeeList.SelectedItem as Employee;
+            comboBox.Text = curEmployee.TitleOfCourtesy;
             firstNameTb.Text = curEmployee.FirstName;
             lastNameTb.Text = curEmployee.LastName;
             addressTb.Text = curEmployee.Address;
