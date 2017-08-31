@@ -8,6 +8,9 @@ namespace AspIT.NorthwindApp.Entities
 {
     public interface IPersistable
     {
+        /// <summary>
+        /// Gets or sets an id
+        /// </summary>
         int Id { get; set; }
     }
 }
