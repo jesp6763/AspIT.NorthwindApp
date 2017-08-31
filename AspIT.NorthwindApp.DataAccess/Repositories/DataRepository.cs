@@ -10,11 +10,6 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 {
     public abstract class DataRepository<TEntity> where TEntity : IPersistable
     {
-        protected DataRepository()
-        {
-
-        }
-
         public abstract IEnumerable<TEntity> GetAll();
 
         public abstract TEntity GetById(int id);
