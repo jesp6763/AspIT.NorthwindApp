@@ -21,11 +21,20 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             List<Employee> employeeList = new List<Employee>();
             DataSet employees = queryExecutor.Execute($"SELECT * FROM {TableName}");
 
-            foreach (DataRow row in employees.Tables[TableName].Rows)
+            if (employees.Tables[TableName] != null)
             {
-                Employee employee = new Employee(row.Field<string>("TitleOfCourtesy"), row.Field<string>("Title"), row.Field<DateTime>("HireDate"), row.Field<string>("Extension"), row.Field<string>("Notes"), row.Field<int>("ReportsTo"), row.Field<string>("FirstName"), row.Field<string>("LastName"), row.Field<DateTime>("BirthDate"), row.Field<string>("Address"), row.Field<string>("City"), row.Field<string>("Region"), row.Field<string>("PostalCode"), row.Field<string>("Country"), new ContactInfo(row.Field<string>("HomePhone")));
-                employeeList.Add(employee);
+                foreach (DataRow row in employees.Tables[TableName].Rows)
+                {
+                    Employee employee = new Employee(row.Field<string>("TitleOfCourtesy"), row.Field<string>("Title"),
+                        row.Field<DateTime>("HireDate"), row.Field<string>("Extension"), row.Field<string>("Notes"),
+                        row.Field<int>("ReportsTo"), row.Field<string>("FirstName"), row.Field<string>("LastName"),
+                        row.Field<DateTime>("BirthDate"), row.Field<string>("Address"), row.Field<string>("City"),
+                        row.Field<string>("Region"), row.Field<string>("PostalCode"), row.Field<string>("Country"),
+                        new ContactInfo(row.Field<string>("HomePhone")));
+                    employeeList.Add(employee);
+                }
             }
+            
 
             return employeeList;
         }
