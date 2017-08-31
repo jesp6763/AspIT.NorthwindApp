@@ -64,7 +64,21 @@ namespace AspIT.NorthwindApp.Gui
 
         private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            Employee curEmployee = employeeList.SelectedItem as Employee;
+            firstNameTb.Text = curEmployee.FirstName;
+            lastNameTb.Text = curEmployee.LastName;
+            addressTb.Text = curEmployee.Address;
+            cityTb.Text = curEmployee.City;
+            regionTb.Text = curEmployee.Region;
+            postalCodeTb.Text = curEmployee.PostalCode;
+            countryTb.Text = curEmployee.Country;
+            homePhoneTb.Text = curEmployee.ContactInfo.HomePhone;
+            titleTb.Text = curEmployee.Title;
+            extensionTb.Text = curEmployee.Extension;
+            reportsToTb.Text = curEmployee.ReportsTo.ToString();
+            notesTb.Text = curEmployee.Notes;
+            hireDatePicker.SelectedDate = curEmployee.HireDate;
+            birthDatePicker.SelectedDate = curEmployee.BirthDate;
         }
 
         private void FirstNameTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

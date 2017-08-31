@@ -272,8 +272,10 @@
                               Width="141"
                               SelectedIndex="0">
                         <ComboBoxItem Content="Ingen" />
-                        <ComboBoxItem Content="Hr" />
-                        <ComboBoxItem Content="Fru" />
+                        <ComboBoxItem Content="Mr." />
+                        <ComboBoxItem Content="Ms." />
+                        <ComboBoxItem Content="Dr."/>
+                        <ComboBoxItem Content="Mrs."/>
                     </ComboBox>
                 </Grid>
             </GroupBox>
