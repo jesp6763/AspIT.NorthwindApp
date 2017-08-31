@@ -52,5 +52,10 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         {
             queryExecutor.Execute("");
         }
+
+        public override void Delete()
+        {
+            
+        }
     }
 }
