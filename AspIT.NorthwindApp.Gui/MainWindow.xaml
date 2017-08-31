@@ -130,7 +130,7 @@
                         Height="23"
                         Margin="0"
                         OverridesDefaultStyle="True"
-                        Style="{DynamicResource LightBlueFlatBtn}" IsEnabled="False" />
+                        Style="{DynamicResource LightBlueFlatBtn}" IsEnabled="False" Click="AddBtn_Click" />
                 <Button x:Name="editBtn"
                         Content="Gem ændringer"
                         HorizontalAlignment="Right"
