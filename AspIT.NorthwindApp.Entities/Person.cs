@@ -213,26 +213,29 @@ namespace AspIT.NorthwindApp.Entities
         /// Gets or sets the region
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when value is greater than 15</exception>
-        /// <exception cref="ArgumentException">Thrown when the value is empty, null or has special characters, or numbers</exception>
+        /// <exception cref="ArgumentException">Thrown when the value is empty or has special characters, or numbers</exception>
         public string Region
         {
             get => region;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Za-z]+$"))
+                if (value != null)
                 {
-                    if(value.Length <= 15)
+                    if (value != String.Empty && Regex.IsMatch(value, "^[ A-Za-z]+$"))
                     {
-                        region = value;
+                        if (value.Length <= 15)
+                        {
+                            region = value;
+                        }
+                        else
+                        {
+                            throw new ArgumentOutOfRangeException();
+                        }
                     }
                     else
                     {
-                        throw new ArgumentOutOfRangeException();
+                        throw new ArgumentException();
                     }
-                }
-                else
-                {
-                    throw new ArgumentException();
                 }
             }
         }
@@ -241,13 +244,13 @@ namespace AspIT.NorthwindApp.Entities
         /// Gets or sets the postal code
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when value is greater than 10</exception>
-        /// <exception cref="ArgumentException">Thrown when the value is empty, null, has special characters, or letters</exception>
+        /// <exception cref="ArgumentException">Thrown when the value is empty, null, or has special characters</exception>
         public string PostalCode
         {
             get => postalCode;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[0-9]+$"))
+                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Z0-9]+$"))
                 {
                     if(value.Length <= 10)
                     {
