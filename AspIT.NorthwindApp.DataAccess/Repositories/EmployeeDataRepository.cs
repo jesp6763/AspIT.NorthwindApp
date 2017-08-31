@@ -58,5 +58,15 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 
             throw new NullReferenceException("No employee with that id exists");
         }
+
+        public override void Save()
+        {
+            
+        }
+
+        public override void Update()
+        {
+            
+        }
     }
 }
