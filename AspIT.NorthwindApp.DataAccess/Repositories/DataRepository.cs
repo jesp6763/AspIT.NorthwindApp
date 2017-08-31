@@ -15,7 +15,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 
         }
 
-        public abstract List<TEntity> GetAll();
+        public abstract IEnumerable<TEntity> GetAll();
 
         public abstract TEntity GetById(int id);
     }
