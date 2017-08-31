@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AspIT.NorthwindApp.DataAccess;
+using AspIT.NorthwindApp.DataAccess.Repositories;
 using AspIT.NorthwindApp.Entities;
 
 namespace AspIT.NorthwindApp.Gui
@@ -58,8 +59,7 @@ namespace AspIT.NorthwindApp.Gui
             employeeList.Items.Add(employee1);
             employeeList.Items.Add(employee2);
 
-            DataRepository<Employee> employeeRepository = new DataRepository<Employee>("dbo.Employees");
-            List<Employee> employees = employeeRepository.GetAll();
+            EmployeeDataRepository employeeRepository = new EmployeeDataRepository();
             /*Test - End*/
         }
 
