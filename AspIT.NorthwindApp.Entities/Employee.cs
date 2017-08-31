@@ -67,7 +67,7 @@ namespace AspIT.NorthwindApp.Entities
         /// Thrown when address is greater than 60. Thrown when title is greater than 30.
         /// Thrown when extension is greater than 4.</exception>
         /// <exception cref="ArgumentException">Thrown when title, extension, firstName, lastname, address, city, region, postalCode, or country is empty, null, numbers, or has special characters</exception>
-        public Employee(string title, DateTime hireDate, string extension, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
+        public Employee(string title, DateTime hireDate, string extension, int? reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : base(firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             Title = title;
             HireDate = hireDate;
@@ -100,7 +100,7 @@ namespace AspIT.NorthwindApp.Entities
         /// Thrown when titleOfCourtesy is greater than 25.
         /// Thrown when extension is greater than 4.</exception>
         /// <exception cref="ArgumentException">Thrown when title, titleOfCourtesy, extension, firstName, lastname, address, city, region, postalCode, or country is empty, null, numbers, or has special characters</exception>
-        public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
+        public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, int? reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             TitleOfCourtesy = titleOfCourtesy;
         }
@@ -130,7 +130,7 @@ namespace AspIT.NorthwindApp.Entities
         /// Thrown when titleOfCourtesy is greater than 25.
         /// Thrown when extension is greater than 4.</exception>
         /// <exception cref="ArgumentException">Thrown when title, titleOfCourtesy, extension, firstName, lastname, address, city, region, postalCode, or country is empty, null, numbers, or has special characters</exception>
-        public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, string notes, int reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(titleOfCourtesy, title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
+        public Employee(string titleOfCourtesy, string title, DateTime hireDate, string extension, string notes, int? reportsTo, string firstName, string lastName, DateTime birthDate, string address, string city, string region, string postalCode, string country, ContactInfo contactInfo) : this(titleOfCourtesy, title, hireDate, extension, reportsTo, firstName, lastName, birthDate, address, city, region, postalCode, country, contactInfo)
         {
             Notes = notes;
         }
@@ -147,7 +147,7 @@ namespace AspIT.NorthwindApp.Entities
             get => title;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Za-z]+$"))
+                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[ A-Za-z,]+$"))
                 {
                     if(value.Length <= 30)
                     {
@@ -221,7 +221,7 @@ namespace AspIT.NorthwindApp.Entities
             get => extension;
             set
             {
-                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[A-Za-z0-9]+$"))
+                if(!string.IsNullOrWhiteSpace(value) && Regex.IsMatch(value, "^[0-9]+$"))
                 {
                     if(value.Length <= 4)
                     {
