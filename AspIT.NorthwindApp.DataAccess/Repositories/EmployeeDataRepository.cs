@@ -10,8 +10,6 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 {
     public class EmployeeDataRepository : DataRepository<Employee>
     {
-        public const string TableName = "dbo.Employees";
-
         /// <summary>
         /// Finds all employees from database
         /// </summary>
@@ -19,7 +17,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public override IEnumerable<Employee> GetAll()
         {
             List<Employee> employeeList = new List<Employee>();
-            DataSet employees = queryExecutor.Execute($"SELECT * FROM {TableName}");
+            DataSet employees = queryExecutor.Execute($"SELECT * FROM {tableName}");
 
             if (employees.Tables["Table"] != null)
             {
@@ -41,7 +39,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public override void Save(Employee employee)
         {
             string dbNull = "NULL";
-            queryExecutor.Execute($"INSERT INTO {TableName} (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath) VALUES('{employee.LastName}', '{employee.FirstName}', '{employee.Title}', '{employee.TitleOfCourtesy}', '{employee.BirthDate.Year}{employee.BirthDate.Month}{employee.BirthDate.Day}', '{employee.HireDate.Year}{employee.HireDate.Month}{employee.HireDate.Day}', '{employee.Address}', '{employee.City}', '{employee.Region}', '{employee.PostalCode}', '{employee.Country}', '{employee.ContactInfo.HomePhone}', '{employee.Extension}', NULL, 'No notes', {employee.ReportsTo?.ToString() ?? dbNull}, '{employee.PhotoPath}')");
+            queryExecutor.Execute($"INSERT INTO {tableName} (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath) VALUES('{employee.LastName}', '{employee.FirstName}', '{employee.Title}', '{employee.TitleOfCourtesy}', '{employee.BirthDate.Year}{employee.BirthDate.Month}{employee.BirthDate.Day}', '{employee.HireDate.Year}{employee.HireDate.Month}{employee.HireDate.Day}', '{employee.Address}', '{employee.City}', '{employee.Region}', '{employee.PostalCode}', '{employee.Country}', '{employee.ContactInfo.HomePhone}', '{employee.Extension}', NULL, 'No notes', {employee.ReportsTo?.ToString() ?? dbNull}, '{employee.PhotoPath}')");
         }
 
         /*
