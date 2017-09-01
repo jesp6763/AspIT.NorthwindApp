@@ -63,6 +63,9 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// <summary>
         /// Deletes a entity
         /// </summary>
-        public abstract void Delete();
+        public virtual void Delete(int id)
+        {
+            queryExecutor.Execute($"DELETE FROM {tableName} WHERE {typeof(TEntity).Name}ID={id}");
+        }
     }
 }
