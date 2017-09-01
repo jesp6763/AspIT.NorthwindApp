@@ -42,10 +42,6 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             queryExecutor.Execute($"INSERT INTO {tableName} (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath) VALUES('{employee.LastName}', '{employee.FirstName}', '{employee.Title}', '{employee.TitleOfCourtesy}', '{employee.BirthDate.Year}{employee.BirthDate.Month}{employee.BirthDate.Day}', '{employee.HireDate.Year}{employee.HireDate.Month}{employee.HireDate.Day}', '{employee.Address}', '{employee.City}', '{employee.Region}', '{employee.PostalCode}', '{employee.Country}', '{employee.ContactInfo.HomePhone}', '{employee.Extension}', NULL, 'No notes', {employee.ReportsTo?.ToString() ?? dbNull}, '{employee.PhotoPath}')");
         }
 
-        /*
-         * INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
-         */
-
         public override void Update()
         {
             queryExecutor.Execute("");
