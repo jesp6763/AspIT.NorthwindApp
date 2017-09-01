@@ -20,7 +20,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 
         static DataRepository()
         {
-            tableName = $"dbo.{typeof(TEntity).Name}s";
+            tableName = $"dbo.{nameof(TEntity)}s";
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// </summary>
         public virtual void Delete(int id)
         {
-            queryExecutor.Execute($"DELETE FROM {tableName} WHERE {typeof(TEntity).Name}ID={id}");
+            queryExecutor.Execute($"DELETE FROM {tableName} WHERE {nameof(TEntity)}ID={id}");
         }
     }
 }
