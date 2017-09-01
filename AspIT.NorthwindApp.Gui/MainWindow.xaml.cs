@@ -59,6 +59,10 @@ namespace AspIT.NorthwindApp.Gui
             {
                 employeeList.Items.Add(employee);
             }
+            employeeRepository.SayHi();
+            TestRepository customerRepository = new TestRepository();
+            customerRepository.SayHi();
+            employeeRepository.SayHi();
             /*Test - End*/
         }
 
