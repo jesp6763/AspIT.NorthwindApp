@@ -28,7 +28,8 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
                         row.Field<int?>("ReportsTo"), row.Field<string>("FirstName"), row.Field<string>("LastName"),
                         row.Field<DateTime>("BirthDate"), row.Field<string>("Address"), row.Field<string>("City"),
                         row.Field<string>("Region"), row.Field<string>("PostalCode"), row.Field<string>("Country"),
-                        new ContactInfo(row.Field<string>("HomePhone")));
+                        new ContactInfo(row.Field<string>("HomePhone")))
+                        { Id = row.Field<int>("EmployeeID") };
                     employeeList.Add(employee);
                 }
             }
@@ -45,11 +46,6 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public override void Update()
         {
             queryExecutor.Execute("");
-        }
-
-        public override void Delete()
-        {
-            
         }
     }
 }
