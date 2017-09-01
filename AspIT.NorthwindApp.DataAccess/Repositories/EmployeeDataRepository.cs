@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using AspIT.NorthwindApp.Entities;
 
 namespace AspIT.NorthwindApp.DataAccess.Repositories
@@ -50,6 +50,11 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public override void Delete()
         {
             
+        }
+
+        public void SayHi()
+        {
+            Debug.WriteLine($"Table name {tableName}");
         }
     }
 }
