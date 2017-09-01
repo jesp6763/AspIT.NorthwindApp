@@ -11,10 +11,16 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
     public abstract class DataRepository<TEntity> where TEntity : IPersistable
     {
         protected QueryExecutor queryExecutor;
+        protected static string tableName;
 
         protected DataRepository()
         {
-            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Northwind");
+            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
+        }
+
+        static DataRepository()
+        {
+            tableName = $"dbo.{typeof(TEntity).Name}s";
         }
 
         /// <summary>
