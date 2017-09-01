@@ -51,10 +51,5 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         {
             
         }
-
-        public void SayHi()
-        {
-            Debug.WriteLine($"Table name {tableName}");
-        }
     }
 }
