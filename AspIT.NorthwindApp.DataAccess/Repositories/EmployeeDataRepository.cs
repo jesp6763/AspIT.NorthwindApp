@@ -42,9 +42,10 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             queryExecutor.Execute($"INSERT INTO {tableName} (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath) VALUES('{employee.LastName}', '{employee.FirstName}', '{employee.Title}', '{employee.TitleOfCourtesy}', '{employee.BirthDate.Year}{employee.BirthDate.Month}{employee.BirthDate.Day}', '{employee.HireDate.Year}{employee.HireDate.Month}{employee.HireDate.Day}', '{employee.Address}', '{employee.City}', '{employee.Region}', '{employee.PostalCode}', '{employee.Country}', '{employee.ContactInfo.HomePhone}', '{employee.Extension}', NULL, 'No notes', {employee.ReportsTo?.ToString() ?? dbNull}, '{employee.PhotoPath}')");
         }
 
-        public override void Update()
+        public override void Update(int id, Employee employee)
         {
-            queryExecutor.Execute("");
+            string dbNull = "NULL";
+            queryExecutor.Execute($"UPDATE {tableName} SET LastName='{employee.LastName}', FirstName='{employee.FirstName}', Title='{employee.Title}', TitleOfCourtesy='{employee.TitleOfCourtesy}', BirthDate='{employee.BirthDate.Year}{employee.BirthDate.Month}{employee.BirthDate.Day}', HireDate='{employee.HireDate.Year}{employee.HireDate.Month}{employee.HireDate.Day}', Address='{employee.Address}', City='{employee.City}', Region='{employee.Region}', PostalCode='{employee.PostalCode}', Country='{employee.Country}', HomePhone='{employee.ContactInfo.HomePhone}', Extension='{employee.Extension}', Notes='{employee.Notes}', ReportsTo={employee.ReportsTo?.ToString() ?? dbNull}, PhotoPath='{employee.PhotoPath}' WHERE EmployeeID={employee.Id}");
         }
     }
 }
