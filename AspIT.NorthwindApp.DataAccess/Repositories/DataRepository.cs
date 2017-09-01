@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AspIT.NorthwindApp.Entities;
+using System.Diagnostics;
 
 namespace AspIT.NorthwindApp.DataAccess.Repositories
 {
@@ -20,7 +21,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
 
         static DataRepository()
         {
-            tableName = $"dbo.{nameof(TEntity)}s";
+            tableName = $"dbo.{typeof(TEntity).Name}s";
         }
 
         /// <summary>
@@ -66,6 +67,11 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public virtual void Delete(int id)
         {
             queryExecutor.Execute($"DELETE FROM {tableName} WHERE {nameof(TEntity)}ID={id}");
+        }
+
+        public void SayHi()
+        {
+            Debug.WriteLine($"Hi from {typeof(TEntity).Name}");
         }
     }
 }
