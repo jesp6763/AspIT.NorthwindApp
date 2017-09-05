@@ -69,12 +69,9 @@ namespace AspIT.NorthwindApp.Entities
             }
 
             // Check for non-numbers
-            for (int i = 0; i < phoneNumber.Length; i++)
+            if (!Regex.IsMatch(phoneNumber, "^[ 0-9()-]+$"))
             {
-                if (!char.IsNumber(phoneNumber[i]))
-                {
-                    return (false, "Nummeret må kun indholde tal.");
-                }
+                return (false, "Nummeret må kun indholde tal, (), og -");
             }
 
             return (true, string.Empty);

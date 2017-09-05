@@ -221,7 +221,7 @@ namespace AspIT.NorthwindApp.Entities
             {
                 if (value != null)
                 {
-                    if (value != String.Empty && Regex.IsMatch(value, "^[ A-Za-z]+$"))
+                    if (Regex.IsMatch(value, "^[ A-Za-z]+$"))
                     {
                         if (value.Length <= 15)
                         {
@@ -395,15 +395,11 @@ namespace AspIT.NorthwindApp.Entities
         /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
         public static (bool, string) IsValidRegion(string region)
         {
-            if (string.IsNullOrEmpty(region))
-            {
-                return (false, "Region må ikke være tom.");
-            }
-
-            if (!Regex.IsMatch(region, "^[ A-Za-z]+$"))
+            if (region != String.Empty && !Regex.IsMatch(region, @"^[ A-Za-z]+$"))
             {
                 return (false, "Region må kun indholde bogstaver og mellemrum");
             }
+
             return (true, string.Empty);
         }
 
@@ -419,9 +415,9 @@ namespace AspIT.NorthwindApp.Entities
                 return (false, "Postnummeret må ikke være tom.");
             }
 
-            if (!Regex.IsMatch(postalCode, "^[0-9]+$"))
+            if (!Regex.IsMatch(postalCode, "^[ 0-9A-Z]+$"))
             {
-                return (false, "Postnummeret må kun indholde tal");
+                return (false, "Postnummeret må kun indholde tal, mellemrum og bogstaver");
             }
             return (true, string.Empty);
         }

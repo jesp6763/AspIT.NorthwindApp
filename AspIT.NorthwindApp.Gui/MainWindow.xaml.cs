@@ -80,6 +80,7 @@ namespace AspIT.NorthwindApp.Gui
             notesTb.Text = curEmployee.Notes;
             hireDatePicker.SelectedDate = curEmployee.HireDate;
             birthDatePicker.SelectedDate = curEmployee.BirthDate;
+            ValidateAll();
         }
 
         private void FirstNameTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -134,6 +135,24 @@ namespace AspIT.NorthwindApp.Gui
 
         private void ReportsToTb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
+            Validate("ReportsTo", reportsToTb);
+        }
+
+        /// <summary>
+        /// Validates all inputs
+        /// </summary>
+        private void ValidateAll()
+        {
+            Validate("FirstName", firstNameTb);
+            Validate("LastName", lastNameTb);
+            Validate("Address", addressTb);
+            Validate("City", cityTb);
+            Validate("Region", regionTb);
+            Validate("PostalCode", postalCodeTb);
+            Validate("Country", countryTb);
+            Validate("Phone", homePhoneTb);
+            Validate("Title", titleTb);
+            Validate("Extension", extensionTb);
             Validate("ReportsTo", reportsToTb);
         }
 
@@ -207,14 +226,20 @@ namespace AspIT.NorthwindApp.Gui
             if (ErrorMessages.Count == 0)
             {
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
-                statusValue_Text.Content = string.Empty;
+                statusValue_Text.Content = "Klar";
                 addBtn.IsEnabled = true;
+
+                if (employeeList.SelectedIndex > -1)
+                {
+                    editBtn.IsEnabled = true;
+                }
             }
             else
             {
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
                 statusValue_Text.Content = ErrorMessages[ErrorMessages.Keys.ElementAt(0)];
                 addBtn.IsEnabled = false;
+                editBtn.IsEnabled = false;
             }
         }
 

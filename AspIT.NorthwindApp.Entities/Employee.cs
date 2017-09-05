@@ -336,9 +336,9 @@ namespace AspIT.NorthwindApp.Entities
                 return (false, "Afdeling må ikke være tom.");
             }
 
-            if (!Regex.IsMatch(extension, "^[A-Za-z0-9]+$"))
+            if (!Regex.IsMatch(extension, "^[0-9]+$"))
             {
-                return (false, "Afdeling må kun indholde bogstaver og tal.");
+                return (false, "Afdeling må kun indholde tal.");
             }
             return (true, string.Empty);
         }
