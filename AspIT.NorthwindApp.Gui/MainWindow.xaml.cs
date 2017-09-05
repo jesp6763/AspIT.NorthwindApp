@@ -236,11 +236,13 @@ namespace AspIT.NorthwindApp.Gui
                 {
                     addBtn.IsEnabled = false;
                     editBtn.IsEnabled = true;
+                    deleteBtn.IsEnabled = true;
                 }
                 else
                 {
                     addBtn.IsEnabled = true;
                     editBtn.IsEnabled = false;
+                    deleteBtn.IsEnabled = false;
                 }
             }
             else
@@ -255,7 +257,14 @@ namespace AspIT.NorthwindApp.Gui
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             EmployeeDataRepository employeeRepository = new EmployeeDataRepository();
-            employeeRepository.Save(new Employee(comboBox.Text, titleTb.Text, hireDatePicker.SelectedDate.Value, extensionTb.Text, notesTb.Text, int.Parse(reportsToTb.Text), firstNameTb.Text, lastNameTb.Text, birthDatePicker.SelectedDate.Value, addressTb.Text, cityTb.Text, regionTb.Text, postalCodeTb.Text, countryTb.Text, new ContactInfo(homePhoneTb.Text)));
+            int? reportsTo = null;
+            if (reportsToTb.Text != string.Empty)
+            {
+                reportsTo = int.Parse(reportsToTb.Text);
+            }
+            Employee employee = new Employee(comboBox.Text, titleTb.Text, hireDatePicker.SelectedDate.Value, extensionTb.Text, notesTb.Text, reportsTo, firstNameTb.Text, lastNameTb.Text, birthDatePicker.SelectedDate.Value, addressTb.Text, cityTb.Text, regionTb.Text, postalCodeTb.Text, countryTb.Text, new ContactInfo(homePhoneTb.Text));
+            employeeRepository.Save(employee);
+            employeeList.Items.Add(employee);
         }
 
         private void EmployeeList_MouseDown(object sender, MouseButtonEventArgs e)
@@ -291,6 +300,15 @@ namespace AspIT.NorthwindApp.Gui
                 employee.ReportsTo = null;
             }
             employeeRepository.Update(employee.Id, employee);
+            statusValue_Text.Content = "Medarbejder gemt";
+            employeeList.Items.Refresh();
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeDataRepository repository = new EmployeeDataRepository();
+            repository.Delete((employeeList.SelectedItem as Employee).Id);
+            employeeList.Items.RemoveAt(employeeList.SelectedIndex);
         }
     }
 }
