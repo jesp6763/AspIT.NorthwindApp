@@ -317,7 +317,7 @@ namespace AspIT.NorthwindApp.Entities
                 return (false, "Titel må ikke være tom.");
             }
 
-            if (!Regex.IsMatch(title, "^[ A-Za-z]+$"))
+            if (!Regex.IsMatch(title, "^[ A-Za-z,]+$"))
             {
                 return (false, "Titel må kun indholde bogstaver og mellemrum.");
             }
@@ -350,12 +350,7 @@ namespace AspIT.NorthwindApp.Entities
         /// <returns>A boolean telling whether it is valid or not, and a string error message</returns>
         public static (bool, string) IsValidReportsTo(string reportsTo)
         {
-            if (string.IsNullOrWhiteSpace(reportsTo))
-            {
-                return (false, "'Reportere til' må ikke være tom.");
-            }
-
-            if (!Regex.IsMatch(reportsTo, "^[0-9]+$"))
+            if (reportsTo != string.Empty && !Regex.IsMatch(reportsTo, "^[0-9]+$"))
             {
                 return (false, "'Reportere til' må kun tal.");
             }
