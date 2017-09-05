@@ -362,7 +362,7 @@ namespace AspIT.NorthwindApp.Entities
                 return (false, "Addressen må ikke være tom.");
             }
 
-            if (!Regex.IsMatch(address, "^[ A-Za-z0-9-]+$"))
+            if (!Regex.IsMatch(address, @"^[\sA-Za-z0-9-.]+$"))
             {
                 return (false, "Addressen må kun indholde bogstaver, tal, mellemrum og '-' tegnet");
             }
