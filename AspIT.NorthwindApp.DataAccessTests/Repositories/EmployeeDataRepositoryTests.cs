@@ -12,12 +12,6 @@ namespace AspIT.NorthwindApp.DataAccessTests.Repositories
     class EmployeeDataRepositoryTests
     {
         [TestMethod()]
-        public void GetByAllTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
         public void SaveTest()
         {
             Assert.Fail();
