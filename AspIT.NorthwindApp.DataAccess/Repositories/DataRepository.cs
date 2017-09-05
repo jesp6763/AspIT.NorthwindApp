@@ -12,7 +12,8 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
     public abstract class DataRepository<TEntity> where TEntity : IPersistable
     {
         protected QueryExecutor queryExecutor;
-        protected static string tableName;
+        protected static readonly string tableName;
+        protected const string DBNull = "NULL";
 
         protected DataRepository()
         {
