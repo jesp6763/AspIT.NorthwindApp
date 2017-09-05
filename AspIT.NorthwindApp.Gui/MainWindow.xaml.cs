@@ -267,7 +267,29 @@ namespace AspIT.NorthwindApp.Gui
         {
             Employee employee = employeeList.SelectedItem as Employee;
             EmployeeDataRepository employeeRepository = new EmployeeDataRepository();
+            employee.FirstName = firstNameTb.Text;
+            employee.LastName = lastNameTb.Text;
+            employee.Title = titleTb.Text;
+            employee.TitleOfCourtesy = comboBox.Text;
+            employee.Extension = extensionTb.Text;
+            employee.HireDate = hireDatePicker.SelectedDate.Value;
+            employee.BirthDate = birthDatePicker.SelectedDate.Value;
+            employee.Notes = notesTb.Text;
+            employee.Address = addressTb.Text;
+            employee.City = cityTb.Text;
+            employee.Region = regionTb.Text;
+            employee.Country = countryTb.Text;
+            employee.PostalCode = postalCodeTb.Text;
+            employee.ContactInfo = new ContactInfo(homePhoneTb.Text);
 
+            if (reportsToTb.Text != string.Empty)
+            {
+                employee.ReportsTo = int.Parse(reportsToTb.Text);
+            }
+            else
+            {
+                employee.ReportsTo = null;
+            }
             employeeRepository.Update(employee.Id, employee);
         }
     }
