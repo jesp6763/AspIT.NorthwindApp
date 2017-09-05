@@ -64,22 +64,26 @@ namespace AspIT.NorthwindApp.Gui
 
         private void EmployeeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Employee curEmployee = employeeList.SelectedItem as Employee;
-            comboBox.Text = curEmployee.TitleOfCourtesy;
-            firstNameTb.Text = curEmployee.FirstName;
-            lastNameTb.Text = curEmployee.LastName;
-            addressTb.Text = curEmployee.Address;
-            cityTb.Text = curEmployee.City;
-            regionTb.Text = curEmployee.Region;
-            postalCodeTb.Text = curEmployee.PostalCode;
-            countryTb.Text = curEmployee.Country;
-            homePhoneTb.Text = curEmployee.ContactInfo.HomePhone;
-            titleTb.Text = curEmployee.Title;
-            extensionTb.Text = curEmployee.Extension;
-            reportsToTb.Text = curEmployee.ReportsTo.ToString();
-            notesTb.Text = curEmployee.Notes;
-            hireDatePicker.SelectedDate = curEmployee.HireDate;
-            birthDatePicker.SelectedDate = curEmployee.BirthDate;
+            if (employeeList.SelectedIndex > -1)
+            {
+                Employee curEmployee = employeeList.SelectedItem as Employee;
+                comboBox.Text = curEmployee.TitleOfCourtesy;
+                firstNameTb.Text = curEmployee.FirstName;
+                lastNameTb.Text = curEmployee.LastName;
+                addressTb.Text = curEmployee.Address;
+                cityTb.Text = curEmployee.City;
+                regionTb.Text = curEmployee.Region;
+                postalCodeTb.Text = curEmployee.PostalCode;
+                countryTb.Text = curEmployee.Country;
+                homePhoneTb.Text = curEmployee.ContactInfo.HomePhone;
+                titleTb.Text = curEmployee.Title;
+                extensionTb.Text = curEmployee.Extension;
+                reportsToTb.Text = curEmployee.ReportsTo.ToString();
+                notesTb.Text = curEmployee.Notes;
+                hireDatePicker.SelectedDate = curEmployee.HireDate;
+                birthDatePicker.SelectedDate = curEmployee.BirthDate;
+            }
+            
             ValidateAll();
         }
 
@@ -227,11 +231,16 @@ namespace AspIT.NorthwindApp.Gui
             {
                 statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
                 statusValue_Text.Content = "Klar";
-                addBtn.IsEnabled = true;
 
                 if (employeeList.SelectedIndex > -1)
                 {
+                    addBtn.IsEnabled = false;
                     editBtn.IsEnabled = true;
+                }
+                else
+                {
+                    addBtn.IsEnabled = true;
+                    editBtn.IsEnabled = false;
                 }
             }
             else
@@ -247,6 +256,19 @@ namespace AspIT.NorthwindApp.Gui
         {
             EmployeeDataRepository employeeRepository = new EmployeeDataRepository();
             employeeRepository.Save(new Employee(comboBox.Text, titleTb.Text, hireDatePicker.SelectedDate.Value, extensionTb.Text, notesTb.Text, int.Parse(reportsToTb.Text), firstNameTb.Text, lastNameTb.Text, birthDatePicker.SelectedDate.Value, addressTb.Text, cityTb.Text, regionTb.Text, postalCodeTb.Text, countryTb.Text, new ContactInfo(homePhoneTb.Text)));
+        }
+
+        private void EmployeeList_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            employeeList.SelectedIndex = -1;
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employee = employeeList.SelectedItem as Employee;
+            EmployeeDataRepository employeeRepository = new EmployeeDataRepository();
+
+            employeeRepository.Update(employee.Id, employee);
         }
     }
 }

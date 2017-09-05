@@ -141,7 +141,7 @@
                         Foreground="White"
                         Height="23"
                         Margin="2,0,0,0"
-                        IsEnabled="False" />
+                        IsEnabled="False" Click="EditBtn_Click" />
                 <Button x:Name="deleteBtn"
                         Content="Slet"
                         VerticalAlignment="Top"
@@ -347,7 +347,7 @@
                   Margin="0,0,3,0"
                   SelectionChanged="EmployeeList_SelectionChanged"
                   VerticalContentAlignment="Stretch"
-                  HorizontalContentAlignment="Stretch">
+                  HorizontalContentAlignment="Stretch" MouseDown="EmployeeList_MouseDown">
             <ListView.View>
                 <GridView>
                     <!-- PHOTO -->
