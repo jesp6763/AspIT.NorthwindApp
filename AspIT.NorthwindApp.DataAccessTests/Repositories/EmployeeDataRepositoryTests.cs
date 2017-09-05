@@ -12,13 +12,24 @@ namespace AspIT.NorthwindApp.DataAccessTests.Repositories
     class EmployeeDataRepositoryTests
     {
         [TestMethod()]
-        public void ConstructorSuccess()
+        public void GetByAllTest()
         {
-            
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void SaveTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void UpdateTest()
+        {
+            Assert.Fail();
         }
     }
 }
-
 /*
 Reglen er: 1 Test class tester 1 class.
 Så hvis du har en class EmployeeDataRepository der skal Unit Testes, skal du lave en test class der hedder EmployeeDataRepositoryTests.
