@@ -49,7 +49,6 @@ namespace AspIT.NorthwindApp.Entities
         #endregion
 
         #region Constructors
-        // TODO: Add possible exceptions
         /// <summary>
         /// Initializes a new instance of this class
         /// </summary>
