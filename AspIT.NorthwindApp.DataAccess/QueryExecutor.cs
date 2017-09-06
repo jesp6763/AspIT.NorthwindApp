@@ -49,6 +49,8 @@ namespace AspIT.NorthwindApp.DataAccess
         /// </summary>
         /// <param name="sqlQuery">The sql query to execute</param>
         /// <returns>A dataset as a result from the sql query</returns>
+        /// <exception cref="InvalidOperationException">Thrown when can't open a connection without specifying a data source or server. or the connection is already open.</exception>
+        /// <exception cref="SqlException">Thrown when a connection-level error occurred while opening the connection.</exception>
         public DataSet Execute(string sqlQuery)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
