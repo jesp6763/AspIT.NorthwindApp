@@ -79,6 +79,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// Deletes a entity
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when id is less than 0</exception>
+        /// <exception cref="ArgumentNullException">Thrown when no entity is found with the specified id</exception>
         public virtual void Delete(int id)
         {
             if (id < 0)
@@ -86,9 +87,9 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
                 throw new ArgumentOutOfRangeException();
             }
             DataSet dataSet = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {typeof(TEntity).Name}ID={id}");
-            if (dataSet.Tables[0].Rows.Count == 0)
+            if (dataSet.Tables.Count == 0)
             {
-                throw new ArgumentException("Didn't find any entity with that ID");
+                throw new ArgumentNullException();
             }
         }
     }
