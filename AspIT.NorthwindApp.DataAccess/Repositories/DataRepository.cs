@@ -22,7 +22,8 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// <exception cref="SqlException">Thrown when a connection-level error occurred while opening the connection.</exception>
         protected DataRepository()
         {
-            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
+            //queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
+            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Northwind"); // Test db
         }
 
         static DataRepository()
