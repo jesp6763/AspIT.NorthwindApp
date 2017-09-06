@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AspIT.NorthwindApp.Entities;
 
 namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
 {
@@ -12,9 +13,14 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
     public class EmployeeDataRepositoryTests
     {
         [TestMethod]
-        public void SaveTest()
+        public void SaveSuccess()
         {
-            Assert.Fail();
+            EmployeeDataRepository repository = new EmployeeDataRepository();
+            Employee employee = new Employee("Mr.", "Nugget Representive", new DateTime(1999, 10, 3), "9999", "Best nugget representive ever", null, "Pierce", "Pan", new DateTime(1959, 3, 10), "Norly 22", "Undercity", "Basement", "999", "Crypt", new ContactInfo("99999999"));
+            repository.Save(employee);
+
+            IEnumerable<Employee> employees = repository.GetAll();
+            Assert.AreEqual(employee.FirstName, employees.Last().FirstName);
         }
 
         [TestMethod]
