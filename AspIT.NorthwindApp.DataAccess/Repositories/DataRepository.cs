@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using AspIT.NorthwindApp.Entities;
 
@@ -77,9 +78,18 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// <summary>
         /// Deletes a entity
         /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when id is less than 0</exception>
         public virtual void Delete(int id)
         {
-            queryExecutor.Execute($"DELETE FROM {tableName} WHERE {typeof(TEntity).Name}ID={id}");
+            if (id < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            DataSet dataSet = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {typeof(TEntity).Name}ID={id}");
+            if (dataSet.Tables[0].Rows.Count == 0)
+            {
+                throw new ArgumentException("Didn't find any entity with that ID");
+            }
         }
     }
 }
