@@ -68,6 +68,10 @@
       <Project>{7E38E572-719D-486E-8235-B6989E5A0422}</Project>
       <Name>AspIT.NorthwindApp.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AspIT.NorthwindApp.Entities\AspIT.NorthwindApp.Entities.csproj">
+      <Project>{ffee66fc-6f2f-4725-bf8e-931f4106ca68}</Project>
+      <Name>AspIT.NorthwindApp.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
