@@ -10,6 +10,9 @@ namespace AspIT.NorthwindApp.DataAccess
 {
     public class QueryExecutor
     {
+        /// <summary>
+        /// The connection string to the database
+        /// </summary>
         private string connectionString;
 
         /// <summary>
@@ -18,7 +21,25 @@ namespace AspIT.NorthwindApp.DataAccess
         /// <param name="connectionString">The connection string</param>
         public QueryExecutor(string connectionString)
         {
-            this.connectionString = connectionString;
+            ConnectionString = connectionString;
+        }
+
+        /// <summary>
+        /// Gets or sets the connection string
+        /// </summary>
+        public string ConnectionString
+        {
+            get => connectionString;
+            private set
+            {
+                // Test connection string
+                using (SqlConnection conn = new SqlConnection(value))
+                {
+                    conn.Open();
+                }
+
+                connectionString = value;
+            }
         }
 
         /// <summary>
@@ -28,7 +49,7 @@ namespace AspIT.NorthwindApp.DataAccess
         /// <returns>A dataset as a result from the sql query</returns>
         public DataSet Execute(string sqlQuery)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, connection))
