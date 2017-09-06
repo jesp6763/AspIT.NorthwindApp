@@ -24,9 +24,14 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         }
 
         [TestMethod]
-        public void UpdateTest()
+        public void UpdateSuccess()
         {
-            Assert.Fail();
+            EmployeeDataRepository repository = new EmployeeDataRepository();
+            Employee employee = new Employee("Mr.", "Vice President, Sales", new DateTime(1992, 8, 14), "3457", "Andreww ee notes", null, "Andrew", "Fuller", new DateTime(1952, 2, 19), "908 W. Capital Way", "Tacoma", "WA", "98401", "USA", new ContactInfo("(206) 555-9482"));
+            repository.Update(2, employee);
+
+            Employee updatedEmployee = repository.GetById(2);
+            Assert.AreEqual(employee.TitleOfCourtesy, updatedEmployee.TitleOfCourtesy);
         }
 
         /// <summary>
@@ -62,9 +67,26 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         }
 
         [TestMethod]
-        public void DeleteTest()
+        public void DeleteSuccess()
         {
-            Assert.Fail();
+            EmployeeDataRepository repository = new EmployeeDataRepository();
+            repository.Delete(1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void DeleteFail1()
+        {
+            EmployeeDataRepository repository = new EmployeeDataRepository();
+            repository.Delete(-1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DeleteFail2()
+        {
+            EmployeeDataRepository repository = new EmployeeDataRepository();
+            repository.Delete(66);
         }
     }
 }
