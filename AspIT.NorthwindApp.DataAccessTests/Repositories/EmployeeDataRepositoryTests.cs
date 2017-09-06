@@ -24,7 +24,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         }
 
         /// <summary>
-        /// Tests to see if an employee returns successfully with id
+        /// Tests to see if an employee returns successfully with a correct id
         /// </summary>
         [TestMethod]
         public void GetByIdSuccess()
@@ -34,7 +34,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         }
 
         /// <summary>
-        /// Tests to see if it gives the correct exception if a invalid id is given
+        /// Tests to see if it gives a NullReferenceException if an employee with the given id does not exist
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(NullReferenceException))]
@@ -45,7 +45,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         }
 
         /// <summary>
-        /// Tests to see if it gives the correct exception if the given id is less than 0
+        /// Tests to see if it gives a ArgumentOutOfRangeException if the given id is less than 0
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
