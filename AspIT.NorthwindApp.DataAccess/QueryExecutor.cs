@@ -27,6 +27,8 @@ namespace AspIT.NorthwindApp.DataAccess
         /// <summary>
         /// Gets or sets the connection string
         /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown when can't open a connection without specifying a data source or server. or the connection is already open.</exception>
+        /// <exception cref="SqlException">Thrown when a connection-level error occurred while opening the connection.</exception>
         public string ConnectionString
         {
             get => connectionString;
