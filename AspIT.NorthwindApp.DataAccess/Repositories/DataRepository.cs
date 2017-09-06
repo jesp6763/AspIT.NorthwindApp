@@ -39,6 +39,11 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// <exception cref="NullReferenceException">Thrown when no entity were found with the specified id</exception>
         public virtual TEntity GetById(int id)
         {
+            if (id < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
             IEnumerable<TEntity> entities = GetAll();
             foreach (TEntity entity in entities)
             {
