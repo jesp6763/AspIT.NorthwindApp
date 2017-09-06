@@ -1,26 +1,34 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AspIT.NorthwindApp.DataAccess.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AspIT.NorthwindApp.Entities;
 
 namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class DataRepositoryTests
     {
-        [TestMethod()]
-        public void GetByIdTest()
+        [TestMethod]
+        public void ConstructorSuccess()
         {
-            Assert.Fail();
+            QueryExecutor queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
         }
 
-        [TestMethod()]
-        public void DeleteTest()
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void ConstructorFail1()
         {
-            Assert.Fail();
+            QueryExecutor queryExecutor = new QueryExecutor(@"dss");
+        }
+
+        /// <summary>
+        /// Tests to see if it throws an InvalidOperationException if the connection string has not specified any data source or server
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ConstructorFail2()
+        {
+            QueryExecutor queryExecutor = new QueryExecutor("");
         }
     }
 }
