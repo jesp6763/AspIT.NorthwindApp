@@ -28,6 +28,8 @@ namespace AspIT.NorthwindApp.CodedUITest
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
             this.UIMap.EditEmployeeTest1();
             this.UIMap.EditEmployeeTest2();
+            this.UIMap.EditEmployeeTest3();
+            this.UIMap.DeleteEmployeeTest1();
 
         }
 

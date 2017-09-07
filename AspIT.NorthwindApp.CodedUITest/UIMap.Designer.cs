@@ -60,7 +60,7 @@ namespace AspIT.NorthwindApp.CodedUITest
         }
         
         /// <summary>
-        /// Selects an employee, changes birthdate, country and title. Then presses the save button
+        /// Selects an employee, changes some data and then presses the save button
         /// </summary>
         public void EditEmployeeTest2()
         {
@@ -88,6 +88,55 @@ namespace AspIT.NorthwindApp.CodedUITest
             Mouse.Click(uIGemændringerButton, new Point(15, 17));
         }
         
+        /// <summary>
+        /// Selects an employee, changes the city. Then presses the save button
+        /// </summary>
+        public void EditEmployeeTest3()
+        {
+            #region Variable Declarations
+            WpfCell uIItem999Cell = this.UIEmployeeOverwatchWindow.UIEmployeeListTable.UIItemDataItem2.UIItem999Cell;
+            WpfEdit uIAddressTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIAddressTbEdit;
+            WpfEdit uIRegionTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIRegionTbEdit;
+            WpfEdit uICityTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICityTbEdit;
+            WpfButton uIGemændringerButton = this.UIEmployeeOverwatchWindow.UIGemændringerButton;
+            #endregion
+
+            // Click '999' cell
+            Mouse.Click(uIItem999Cell, new Point(0, 14));
+
+            // Type 'Tavern 29' in 'addressTb' text box
+            uIAddressTbEdit.Text = this.EditEmployeeTest3Params.UIAddressTbEditText;
+
+            // Click 'regionTb' text box
+            Mouse.Click(uIRegionTbEdit, new Point(69, 13));
+
+            // Type 'Control + {Back}' in 'regionTb' text box
+            Keyboard.SendKeys(uIRegionTbEdit, this.EditEmployeeTest3Params.UIRegionTbEditSendKeys, ModifierKeys.Control);
+
+            // Click 'cityTb' text box
+            Mouse.Click(uICityTbEdit, new Point(85, 10));
+
+            // Click 'Gem ændringer' button
+            Mouse.Click(uIGemændringerButton, new Point(82, 20));
+        }
+        
+        /// <summary>
+        /// Selects an employee and presses the delete button
+        /// </summary>
+        public void DeleteEmployeeTest1()
+        {
+            #region Variable Declarations
+            WpfControl uIItemDataItem3 = this.UIEmployeeOverwatchWindow.UIEmployeeListTable.UIItemDataItem3;
+            WpfButton uISletButton = this.UIEmployeeOverwatchWindow.UISletButton;
+            #endregion
+
+            // Click DataItem numbered 11 in 'employeeList' table
+            Mouse.Click(uIItemDataItem3, new Point(1000, 45));
+
+            // Click 'Slet' button
+            Mouse.Click(uISletButton, new Point(22, 19));
+        }
+        
         #region Properties
         public virtual EditEmployeeTest1Params EditEmployeeTest1Params
         {
@@ -113,6 +162,18 @@ namespace AspIT.NorthwindApp.CodedUITest
             }
         }
         
+        public virtual EditEmployeeTest3Params EditEmployeeTest3Params
+        {
+            get
+            {
+                if ((this.mEditEmployeeTest3Params == null))
+                {
+                    this.mEditEmployeeTest3Params = new EditEmployeeTest3Params();
+                }
+                return this.mEditEmployeeTest3Params;
+            }
+        }
+        
         public UIEmployeeOverwatchWindow UIEmployeeOverwatchWindow
         {
             get
@@ -130,6 +191,8 @@ namespace AspIT.NorthwindApp.CodedUITest
         private EditEmployeeTest1Params mEditEmployeeTest1Params;
         
         private EditEmployeeTest2Params mEditEmployeeTest2Params;
+        
+        private EditEmployeeTest3Params mEditEmployeeTest3Params;
         
         private UIEmployeeOverwatchWindow mUIEmployeeOverwatchWindow;
         #endregion
@@ -182,6 +245,26 @@ namespace AspIT.NorthwindApp.CodedUITest
         /// Type 'Marketing' in 'titleTb' text box
         /// </summary>
         public string UITitleTbEditText = "Marketing";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'EditEmployeeTest3'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class EditEmployeeTest3Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'Tavern 29' in 'addressTb' text box
+        /// </summary>
+        public string UIAddressTbEditText = "Tavern 29";
+        
+        /// <summary>
+        /// Type 'Control + {Back}' in 'regionTb' text box
+        /// </summary>
+        public string UIRegionTbEditSendKeys = "{Back}";
         #endregion
     }
     
@@ -250,6 +333,22 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUIAndreoplysningerGroup;
             }
         }
+        
+        public WpfButton UISletButton
+        {
+            get
+            {
+                if ((this.mUISletButton == null))
+                {
+                    this.mUISletButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUISletButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "deleteBtn";
+                    this.mUISletButton.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUISletButton;
+            }
+        }
         #endregion
         
         #region Fields
@@ -260,6 +359,8 @@ namespace AspIT.NorthwindApp.CodedUITest
         private WpfButton mUIGemændringerButton;
         
         private UIAndreoplysningerGroup mUIAndreoplysningerGroup;
+        
+        private WpfButton mUISletButton;
         #endregion
     }
     
@@ -309,12 +410,82 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUIItemDataItem1;
             }
         }
+        
+        public UIItemDataItem2 UIItemDataItem2
+        {
+            get
+            {
+                if ((this.mUIItemDataItem2 == null))
+                {
+                    this.mUIItemDataItem2 = new UIItemDataItem2(this);
+                }
+                return this.mUIItemDataItem2;
+            }
+        }
+        
+        public WpfControl UIItemDataItem3
+        {
+            get
+            {
+                if ((this.mUIItemDataItem3 == null))
+                {
+                    this.mUIItemDataItem3 = new WpfControl(this);
+                    #region Search Criteria
+                    this.mUIItemDataItem3.SearchProperties[WpfControl.PropertyNames.ControlType] = "DataItem";
+                    this.mUIItemDataItem3.SearchProperties[WpfControl.PropertyNames.Instance] = "11";
+                    this.mUIItemDataItem3.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIItemDataItem3;
+            }
+        }
         #endregion
         
         #region Fields
         private WpfControl mUIItemDataItem;
         
         private WpfControl mUIItemDataItem1;
+        
+        private UIItemDataItem2 mUIItemDataItem2;
+        
+        private WpfControl mUIItemDataItem3;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIItemDataItem2 : WpfControl
+    {
+        
+        public UIItemDataItem2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfControl.PropertyNames.ControlType] = "DataItem";
+            this.SearchProperties[WpfControl.PropertyNames.Instance] = "10";
+            this.WindowTitles.Add("Employee Overwatch");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfCell UIItem999Cell
+        {
+            get
+            {
+                if ((this.mUIItem999Cell == null))
+                {
+                    this.mUIItem999Cell = new WpfCell(this);
+                    #region Search Criteria
+                    this.mUIItem999Cell.SearchProperties[WpfCell.PropertyNames.ColumnHeader] = "Postnummer";
+                    this.mUIItem999Cell.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIItem999Cell;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfCell mUIItem999Cell;
         #endregion
     }
     
@@ -379,6 +550,54 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUICountryTbEdit;
             }
         }
+        
+        public WpfEdit UIAddressTbEdit
+        {
+            get
+            {
+                if ((this.mUIAddressTbEdit == null))
+                {
+                    this.mUIAddressTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIAddressTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "addressTb";
+                    this.mUIAddressTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIAddressTbEdit;
+            }
+        }
+        
+        public WpfEdit UIRegionTbEdit
+        {
+            get
+            {
+                if ((this.mUIRegionTbEdit == null))
+                {
+                    this.mUIRegionTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIRegionTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "regionTb";
+                    this.mUIRegionTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIRegionTbEdit;
+            }
+        }
+        
+        public WpfEdit UICityTbEdit
+        {
+            get
+            {
+                if ((this.mUICityTbEdit == null))
+                {
+                    this.mUICityTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUICityTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "cityTb";
+                    this.mUICityTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUICityTbEdit;
+            }
+        }
         #endregion
         
         #region Fields
@@ -387,6 +606,12 @@ namespace AspIT.NorthwindApp.CodedUITest
         private WpfDatePicker mUIBirthDatePickerDatePicker;
         
         private WpfEdit mUICountryTbEdit;
+        
+        private WpfEdit mUIAddressTbEdit;
+        
+        private WpfEdit mUIRegionTbEdit;
+        
+        private WpfEdit mUICityTbEdit;
         #endregion
     }
     
