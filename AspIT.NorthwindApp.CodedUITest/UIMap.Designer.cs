@@ -137,6 +137,100 @@ namespace AspIT.NorthwindApp.CodedUITest
             Mouse.Click(uISletButton, new Point(22, 19));
         }
         
+        /// <summary>
+        /// Fills all information and presses the add button
+        /// </summary>
+        public void AddEmployeeTest1()
+        {
+            #region Variable Declarations
+            WpfComboBox uIComboBoxComboBox = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIComboBoxComboBox;
+            WpfEdit uIFirstNameTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIFirstNameTbEdit;
+            WpfEdit uILastNameTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UILastNameTbEdit;
+            WpfDatePicker uIBirthDatePickerDatePicker = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIBirthDatePickerDatePicker;
+            WpfEdit uIAddressTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIAddressTbEdit;
+            WpfEdit uICityTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICityTbEdit;
+            WpfEdit uIRegionTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIRegionTbEdit;
+            WpfEdit uIPostalCodeTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIPostalCodeTbEdit;
+            WpfEdit uICountryTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICountryTbEdit;
+            WpfEdit uIHomePhoneTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIHomePhoneTbEdit;
+            WpfEdit uITitleTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UITitleTbEdit;
+            WpfDatePicker uIHireDatePickerDatePicker = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIHireDatePickerDatePicker;
+            WpfEdit uIExtensionTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIExtensionTbEdit;
+            WpfEdit uINotesTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UINotesTbEdit;
+            WpfEdit uIReportsToTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIReportsToTbEdit;
+            WpfButton uITilføjButton = this.UIEmployeeOverwatchWindow.UITilføjButton;
+            #endregion
+
+            // Select 'Mr.' in 'comboBox' combo box
+            uIComboBoxComboBox.SelectedItem = this.AddEmployeeTest1Params.UIComboBoxComboBoxSelectedItem;
+
+            // Type 'John' in 'firstNameTb' text box
+            uIFirstNameTbEdit.Text = this.AddEmployeeTest1Params.UIFirstNameTbEditText;
+
+            // Type '{Tab}' in 'firstNameTb' text box
+            Keyboard.SendKeys(uIFirstNameTbEdit, this.AddEmployeeTest1Params.UIFirstNameTbEditSendKeys, ModifierKeys.None);
+
+            // Type 'Crayon' in 'lastNameTb' text box
+            uILastNameTbEdit.Text = this.AddEmployeeTest1Params.UILastNameTbEditText;
+
+            // Select '19-Jul-1979' in 'birthDatePicker' date picker
+            uIBirthDatePickerDatePicker.DateAsString = this.AddEmployeeTest1Params.UIBirthDatePickerDatePickerDateAsString;
+
+            // Type 'Crowstreet 13' in 'addressTb' text box
+            uIAddressTbEdit.Text = this.AddEmployeeTest1Params.UIAddressTbEditText;
+
+            // Type 'Clove city' in 'cityTb' text box
+            uICityTbEdit.Text = this.AddEmployeeTest1Params.UICityTbEditText;
+
+            // Type '{Tab}' in 'cityTb' text box
+            Keyboard.SendKeys(uICityTbEdit, this.AddEmployeeTest1Params.UICityTbEditSendKeys, ModifierKeys.None);
+
+            // Type '{Tab}' in 'regionTb' text box
+            Keyboard.SendKeys(uIRegionTbEdit, this.AddEmployeeTest1Params.UIRegionTbEditSendKeys, ModifierKeys.None);
+
+            // Type '9291' in 'postalCodeTb' text box
+            uIPostalCodeTbEdit.Text = this.AddEmployeeTest1Params.UIPostalCodeTbEditText;
+
+            // Type '{Tab}' in 'postalCodeTb' text box
+            Keyboard.SendKeys(uIPostalCodeTbEdit, this.AddEmployeeTest1Params.UIPostalCodeTbEditSendKeys, ModifierKeys.None);
+
+            // Type 'Bland' in 'countryTb' text box
+            uICountryTbEdit.Text = this.AddEmployeeTest1Params.UICountryTbEditText;
+
+            // Type '{Tab}' in 'countryTb' text box
+            Keyboard.SendKeys(uICountryTbEdit, this.AddEmployeeTest1Params.UICountryTbEditSendKeys, ModifierKeys.None);
+
+            // Type '9229222' in 'homePhoneTb' text box
+            uIHomePhoneTbEdit.Text = this.AddEmployeeTest1Params.UIHomePhoneTbEditText;
+
+            // Type '{Tab}' in 'homePhoneTb' text box
+            Keyboard.SendKeys(uIHomePhoneTbEdit, this.AddEmployeeTest1Params.UIHomePhoneTbEditSendKeys, ModifierKeys.None);
+
+            // Type 'Haybale Representive' in 'titleTb' text box
+            uITitleTbEdit.Text = this.AddEmployeeTest1Params.UITitleTbEditText;
+
+            // Type '{Tab}' in 'titleTb' text box
+            Keyboard.SendKeys(uITitleTbEdit, this.AddEmployeeTest1Params.UITitleTbEditSendKeys, ModifierKeys.None);
+
+            // Select '07-Sep-2010' in 'hireDatePicker' date picker
+            uIHireDatePickerDatePicker.DateAsString = this.AddEmployeeTest1Params.UIHireDatePickerDatePickerDateAsString;
+
+            // Type '2399' in 'extensionTb' text box
+            uIExtensionTbEdit.Text = this.AddEmployeeTest1Params.UIExtensionTbEditText;
+
+            // Type 'John is a crazy man from clove city' in 'notesTb' text box
+            uINotesTbEdit.Text = this.AddEmployeeTest1Params.UINotesTbEditText;
+
+            // Type '' in 'reportsToTb' text box
+            uIReportsToTbEdit.Text = this.AddEmployeeTest1Params.UIReportsToTbEditText;
+
+            // Type '{Tab}' in 'reportsToTb' text box
+            Keyboard.SendKeys(uIReportsToTbEdit, this.AddEmployeeTest1Params.UIReportsToTbEditSendKeys, ModifierKeys.None);
+
+            // Click 'Tilføj' button
+            Mouse.Click(uITilføjButton, new Point(16, 16));
+        }
+        
         #region Properties
         public virtual EditEmployeeTest1Params EditEmployeeTest1Params
         {
@@ -174,6 +268,18 @@ namespace AspIT.NorthwindApp.CodedUITest
             }
         }
         
+        public virtual AddEmployeeTest1Params AddEmployeeTest1Params
+        {
+            get
+            {
+                if ((this.mAddEmployeeTest1Params == null))
+                {
+                    this.mAddEmployeeTest1Params = new AddEmployeeTest1Params();
+                }
+                return this.mAddEmployeeTest1Params;
+            }
+        }
+        
         public UIEmployeeOverwatchWindow UIEmployeeOverwatchWindow
         {
             get
@@ -193,6 +299,8 @@ namespace AspIT.NorthwindApp.CodedUITest
         private EditEmployeeTest2Params mEditEmployeeTest2Params;
         
         private EditEmployeeTest3Params mEditEmployeeTest3Params;
+        
+        private AddEmployeeTest1Params mAddEmployeeTest1Params;
         
         private UIEmployeeOverwatchWindow mUIEmployeeOverwatchWindow;
         #endregion
@@ -265,6 +373,126 @@ namespace AspIT.NorthwindApp.CodedUITest
         /// Type 'Control + {Back}' in 'regionTb' text box
         /// </summary>
         public string UIRegionTbEditSendKeys = "{Back}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AddEmployeeTest1'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AddEmployeeTest1Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Select 'Mr.' in 'comboBox' combo box
+        /// </summary>
+        public string UIComboBoxComboBoxSelectedItem = "Mr.";
+        
+        /// <summary>
+        /// Type 'John' in 'firstNameTb' text box
+        /// </summary>
+        public string UIFirstNameTbEditText = "John";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'firstNameTb' text box
+        /// </summary>
+        public string UIFirstNameTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'Crayon' in 'lastNameTb' text box
+        /// </summary>
+        public string UILastNameTbEditText = "Crayon";
+        
+        /// <summary>
+        /// Select '19-Jul-1979' in 'birthDatePicker' date picker
+        /// </summary>
+        public string UIBirthDatePickerDatePickerDateAsString = "19-Jul-1979";
+        
+        /// <summary>
+        /// Type 'Crowstreet 13' in 'addressTb' text box
+        /// </summary>
+        public string UIAddressTbEditText = "Crowstreet 13";
+        
+        /// <summary>
+        /// Type 'Clove city' in 'cityTb' text box
+        /// </summary>
+        public string UICityTbEditText = "Clove city";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'cityTb' text box
+        /// </summary>
+        public string UICityTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'regionTb' text box
+        /// </summary>
+        public string UIRegionTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '9291' in 'postalCodeTb' text box
+        /// </summary>
+        public string UIPostalCodeTbEditText = "9291";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'postalCodeTb' text box
+        /// </summary>
+        public string UIPostalCodeTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'Bland' in 'countryTb' text box
+        /// </summary>
+        public string UICountryTbEditText = "Bland";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'countryTb' text box
+        /// </summary>
+        public string UICountryTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '9229222' in 'homePhoneTb' text box
+        /// </summary>
+        public string UIHomePhoneTbEditText = "9229222";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'homePhoneTb' text box
+        /// </summary>
+        public string UIHomePhoneTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'Haybale Representive' in 'titleTb' text box
+        /// </summary>
+        public string UITitleTbEditText = "Haybale Representive";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'titleTb' text box
+        /// </summary>
+        public string UITitleTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Select '07-Sep-2010' in 'hireDatePicker' date picker
+        /// </summary>
+        public string UIHireDatePickerDatePickerDateAsString = "07-Sep-2010";
+        
+        /// <summary>
+        /// Type '2399' in 'extensionTb' text box
+        /// </summary>
+        public string UIExtensionTbEditText = "2399";
+        
+        /// <summary>
+        /// Type 'John is a crazy man from clove city' in 'notesTb' text box
+        /// </summary>
+        public string UINotesTbEditText = "John is a crazy man from clove city";
+        
+        /// <summary>
+        /// Type '' in 'reportsToTb' text box
+        /// </summary>
+        public string UIReportsToTbEditText = "";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'reportsToTb' text box
+        /// </summary>
+        public string UIReportsToTbEditSendKeys = "{Tab}";
         #endregion
     }
     
@@ -349,6 +577,22 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUISletButton;
             }
         }
+        
+        public WpfButton UITilføjButton
+        {
+            get
+            {
+                if ((this.mUITilføjButton == null))
+                {
+                    this.mUITilføjButton = new WpfButton(this);
+                    #region Search Criteria
+                    this.mUITilføjButton.SearchProperties[WpfButton.PropertyNames.AutomationId] = "addBtn";
+                    this.mUITilføjButton.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUITilføjButton;
+            }
+        }
         #endregion
         
         #region Fields
@@ -361,6 +605,8 @@ namespace AspIT.NorthwindApp.CodedUITest
         private UIAndreoplysningerGroup mUIAndreoplysningerGroup;
         
         private WpfButton mUISletButton;
+        
+        private WpfButton mUITilføjButton;
         #endregion
     }
     
@@ -598,6 +844,70 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUICityTbEdit;
             }
         }
+        
+        public WpfComboBox UIComboBoxComboBox
+        {
+            get
+            {
+                if ((this.mUIComboBoxComboBox == null))
+                {
+                    this.mUIComboBoxComboBox = new WpfComboBox(this);
+                    #region Search Criteria
+                    this.mUIComboBoxComboBox.SearchProperties[WpfComboBox.PropertyNames.AutomationId] = "comboBox";
+                    this.mUIComboBoxComboBox.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIComboBoxComboBox;
+            }
+        }
+        
+        public WpfEdit UILastNameTbEdit
+        {
+            get
+            {
+                if ((this.mUILastNameTbEdit == null))
+                {
+                    this.mUILastNameTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUILastNameTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "lastNameTb";
+                    this.mUILastNameTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUILastNameTbEdit;
+            }
+        }
+        
+        public WpfEdit UIPostalCodeTbEdit
+        {
+            get
+            {
+                if ((this.mUIPostalCodeTbEdit == null))
+                {
+                    this.mUIPostalCodeTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIPostalCodeTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "postalCodeTb";
+                    this.mUIPostalCodeTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIPostalCodeTbEdit;
+            }
+        }
+        
+        public WpfEdit UIHomePhoneTbEdit
+        {
+            get
+            {
+                if ((this.mUIHomePhoneTbEdit == null))
+                {
+                    this.mUIHomePhoneTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIHomePhoneTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "homePhoneTb";
+                    this.mUIHomePhoneTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIHomePhoneTbEdit;
+            }
+        }
         #endregion
         
         #region Fields
@@ -612,6 +922,14 @@ namespace AspIT.NorthwindApp.CodedUITest
         private WpfEdit mUIRegionTbEdit;
         
         private WpfEdit mUICityTbEdit;
+        
+        private WpfComboBox mUIComboBoxComboBox;
+        
+        private WpfEdit mUILastNameTbEdit;
+        
+        private WpfEdit mUIPostalCodeTbEdit;
+        
+        private WpfEdit mUIHomePhoneTbEdit;
         #endregion
     }
     
@@ -644,10 +962,82 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUITitleTbEdit;
             }
         }
+        
+        public WpfDatePicker UIHireDatePickerDatePicker
+        {
+            get
+            {
+                if ((this.mUIHireDatePickerDatePicker == null))
+                {
+                    this.mUIHireDatePickerDatePicker = new WpfDatePicker(this);
+                    #region Search Criteria
+                    this.mUIHireDatePickerDatePicker.SearchProperties[WpfDatePicker.PropertyNames.AutomationId] = "hireDatePicker";
+                    this.mUIHireDatePickerDatePicker.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIHireDatePickerDatePicker;
+            }
+        }
+        
+        public WpfEdit UIExtensionTbEdit
+        {
+            get
+            {
+                if ((this.mUIExtensionTbEdit == null))
+                {
+                    this.mUIExtensionTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIExtensionTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "extensionTb";
+                    this.mUIExtensionTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIExtensionTbEdit;
+            }
+        }
+        
+        public WpfEdit UINotesTbEdit
+        {
+            get
+            {
+                if ((this.mUINotesTbEdit == null))
+                {
+                    this.mUINotesTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUINotesTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "notesTb";
+                    this.mUINotesTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUINotesTbEdit;
+            }
+        }
+        
+        public WpfEdit UIReportsToTbEdit
+        {
+            get
+            {
+                if ((this.mUIReportsToTbEdit == null))
+                {
+                    this.mUIReportsToTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUIReportsToTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "reportsToTb";
+                    this.mUIReportsToTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIReportsToTbEdit;
+            }
+        }
         #endregion
         
         #region Fields
         private WpfEdit mUITitleTbEdit;
+        
+        private WpfDatePicker mUIHireDatePickerDatePicker;
+        
+        private WpfEdit mUIExtensionTbEdit;
+        
+        private WpfEdit mUINotesTbEdit;
+        
+        private WpfEdit mUIReportsToTbEdit;
         #endregion
     }
 }

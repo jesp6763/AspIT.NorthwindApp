@@ -30,6 +30,8 @@ namespace AspIT.NorthwindApp.CodedUITest
             this.UIMap.EditEmployeeTest2();
             this.UIMap.EditEmployeeTest3();
             this.UIMap.DeleteEmployeeTest1();
+            this.UIMap.AddEmployeeTest1();
+
 
         }
 
