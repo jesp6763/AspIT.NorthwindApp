@@ -220,7 +220,7 @@ namespace AspIT.NorthwindApp.Entities
             {
                 if (value != null)
                 {
-                    if (Regex.IsMatch(value, "^[ A-Za-z]+$"))
+                    if (value == string.Empty || Regex.IsMatch(value, "^[ A-Za-z]+$"))
                     {
                         if (value.Length <= 15)
                         {
