@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.DataAccessTests", "AspIT.NorthwindApp.DataAccessTests\AspIT.NorthwindApp.DataAccessTests.csproj", "{B04F07EF-D674-4203-8A02-1B068AE53AC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspIT.NorthwindApp.CodedUITest", "AspIT.NorthwindApp.CodedUITest\AspIT.NorthwindApp.CodedUITest.csproj", "{7669114B-A2B0-4D20-94C1-2ACCC217DEC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B04F07EF-D674-4203-8A02-1B068AE53AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B04F07EF-D674-4203-8A02-1B068AE53AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B04F07EF-D674-4203-8A02-1B068AE53AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7669114B-A2B0-4D20-94C1-2ACCC217DEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7669114B-A2B0-4D20-94C1-2ACCC217DEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7669114B-A2B0-4D20-94C1-2ACCC217DEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7669114B-A2B0-4D20-94C1-2ACCC217DEC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
