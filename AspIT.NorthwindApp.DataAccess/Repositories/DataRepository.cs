@@ -87,6 +87,8 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
                 throw new ArgumentOutOfRangeException();
             }
             DataSet dataSet = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {typeof(TEntity).Name}ID={id}");
+
+            // TODO: The table is 0 when deleting. Fix this sheit
             if (dataSet.Tables.Count == 0)
             {
                 throw new ArgumentNullException();
