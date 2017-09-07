@@ -60,7 +60,7 @@ namespace AspIT.NorthwindApp.CodedUITest
         }
         
         /// <summary>
-        /// Selects an employee, changes some data and then presses the save button
+        /// Selects an employee, changes birthdate, country and title. Then presses the save button
         /// </summary>
         public void EditEmployeeTest2()
         {
