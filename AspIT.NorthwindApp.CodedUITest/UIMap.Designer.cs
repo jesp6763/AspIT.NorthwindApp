@@ -59,6 +59,35 @@ namespace AspIT.NorthwindApp.CodedUITest
             Mouse.Click(uIGemændringerButton, new Point(43, 12));
         }
         
+        /// <summary>
+        /// Selects an employee, changes some data and then presses the save button
+        /// </summary>
+        public void EditEmployeeTest2()
+        {
+            #region Variable Declarations
+            WpfControl uIItemDataItem1 = this.UIEmployeeOverwatchWindow.UIEmployeeListTable.UIItemDataItem1;
+            WpfDatePicker uIBirthDatePickerDatePicker = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIBirthDatePickerDatePicker;
+            WpfEdit uICountryTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICountryTbEdit;
+            WpfEdit uITitleTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UITitleTbEdit;
+            WpfButton uIGemændringerButton = this.UIEmployeeOverwatchWindow.UIGemændringerButton;
+            #endregion
+
+            // Click DataItem numbered 3 in 'employeeList' table
+            Mouse.Click(uIItemDataItem1, new Point(631, 34));
+
+            // Select '14-Aug-1963' in 'birthDatePicker' date picker
+            uIBirthDatePickerDatePicker.DateAsString = this.EditEmployeeTest2Params.UIBirthDatePickerDatePickerDateAsString;
+
+            // Type 'UK' in 'countryTb' text box
+            uICountryTbEdit.Text = this.EditEmployeeTest2Params.UICountryTbEditText;
+
+            // Type 'Marketing' in 'titleTb' text box
+            uITitleTbEdit.Text = this.EditEmployeeTest2Params.UITitleTbEditText;
+
+            // Click 'Gem ændringer' button
+            Mouse.Click(uIGemændringerButton, new Point(15, 17));
+        }
+        
         #region Properties
         public virtual EditEmployeeTest1Params EditEmployeeTest1Params
         {
@@ -69,6 +98,18 @@ namespace AspIT.NorthwindApp.CodedUITest
                     this.mEditEmployeeTest1Params = new EditEmployeeTest1Params();
                 }
                 return this.mEditEmployeeTest1Params;
+            }
+        }
+        
+        public virtual EditEmployeeTest2Params EditEmployeeTest2Params
+        {
+            get
+            {
+                if ((this.mEditEmployeeTest2Params == null))
+                {
+                    this.mEditEmployeeTest2Params = new EditEmployeeTest2Params();
+                }
+                return this.mEditEmployeeTest2Params;
             }
         }
         
@@ -87,6 +128,8 @@ namespace AspIT.NorthwindApp.CodedUITest
         
         #region Fields
         private EditEmployeeTest1Params mEditEmployeeTest1Params;
+        
+        private EditEmployeeTest2Params mEditEmployeeTest2Params;
         
         private UIEmployeeOverwatchWindow mUIEmployeeOverwatchWindow;
         #endregion
@@ -114,6 +157,31 @@ namespace AspIT.NorthwindApp.CodedUITest
         /// Type '{Enter}' in 'firstNameTb' text box
         /// </summary>
         public string UIFirstNameTbEditSendKeys1 = "{Enter}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'EditEmployeeTest2'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class EditEmployeeTest2Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Select '14-Aug-1963' in 'birthDatePicker' date picker
+        /// </summary>
+        public string UIBirthDatePickerDatePickerDateAsString = "14-Aug-1963";
+        
+        /// <summary>
+        /// Type 'UK' in 'countryTb' text box
+        /// </summary>
+        public string UICountryTbEditText = "UK";
+        
+        /// <summary>
+        /// Type 'Marketing' in 'titleTb' text box
+        /// </summary>
+        public string UITitleTbEditText = "Marketing";
         #endregion
     }
     
@@ -170,6 +238,18 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUIGemændringerButton;
             }
         }
+        
+        public UIAndreoplysningerGroup UIAndreoplysningerGroup
+        {
+            get
+            {
+                if ((this.mUIAndreoplysningerGroup == null))
+                {
+                    this.mUIAndreoplysningerGroup = new UIAndreoplysningerGroup(this);
+                }
+                return this.mUIAndreoplysningerGroup;
+            }
+        }
         #endregion
         
         #region Fields
@@ -178,6 +258,8 @@ namespace AspIT.NorthwindApp.CodedUITest
         private UIPersonligeoplysningeGroup mUIPersonligeoplysningeGroup;
         
         private WpfButton mUIGemændringerButton;
+        
+        private UIAndreoplysningerGroup mUIAndreoplysningerGroup;
         #endregion
     }
     
@@ -210,10 +292,29 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUIItemDataItem;
             }
         }
+        
+        public WpfControl UIItemDataItem1
+        {
+            get
+            {
+                if ((this.mUIItemDataItem1 == null))
+                {
+                    this.mUIItemDataItem1 = new WpfControl(this);
+                    #region Search Criteria
+                    this.mUIItemDataItem1.SearchProperties[WpfControl.PropertyNames.ControlType] = "DataItem";
+                    this.mUIItemDataItem1.SearchProperties[WpfControl.PropertyNames.Instance] = "3";
+                    this.mUIItemDataItem1.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIItemDataItem1;
+            }
+        }
         #endregion
         
         #region Fields
         private WpfControl mUIItemDataItem;
+        
+        private WpfControl mUIItemDataItem1;
         #endregion
     }
     
@@ -246,10 +347,82 @@ namespace AspIT.NorthwindApp.CodedUITest
                 return this.mUIFirstNameTbEdit;
             }
         }
+        
+        public WpfDatePicker UIBirthDatePickerDatePicker
+        {
+            get
+            {
+                if ((this.mUIBirthDatePickerDatePicker == null))
+                {
+                    this.mUIBirthDatePickerDatePicker = new WpfDatePicker(this);
+                    #region Search Criteria
+                    this.mUIBirthDatePickerDatePicker.SearchProperties[WpfDatePicker.PropertyNames.AutomationId] = "birthDatePicker";
+                    this.mUIBirthDatePickerDatePicker.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUIBirthDatePickerDatePicker;
+            }
+        }
+        
+        public WpfEdit UICountryTbEdit
+        {
+            get
+            {
+                if ((this.mUICountryTbEdit == null))
+                {
+                    this.mUICountryTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUICountryTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "countryTb";
+                    this.mUICountryTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUICountryTbEdit;
+            }
+        }
         #endregion
         
         #region Fields
         private WpfEdit mUIFirstNameTbEdit;
+        
+        private WpfDatePicker mUIBirthDatePickerDatePicker;
+        
+        private WpfEdit mUICountryTbEdit;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIAndreoplysningerGroup : WpfGroup
+    {
+        
+        public UIAndreoplysningerGroup(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WpfGroup.PropertyNames.AutomationId] = "groupBox1";
+            this.WindowTitles.Add("Employee Overwatch");
+            #endregion
+        }
+        
+        #region Properties
+        public WpfEdit UITitleTbEdit
+        {
+            get
+            {
+                if ((this.mUITitleTbEdit == null))
+                {
+                    this.mUITitleTbEdit = new WpfEdit(this);
+                    #region Search Criteria
+                    this.mUITitleTbEdit.SearchProperties[WpfEdit.PropertyNames.AutomationId] = "titleTb";
+                    this.mUITitleTbEdit.WindowTitles.Add("Employee Overwatch");
+                    #endregion
+                }
+                return this.mUITitleTbEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WpfEdit mUITitleTbEdit;
         #endregion
     }
 }
