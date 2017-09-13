@@ -16,11 +16,11 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         public override IEnumerable<Employee> GetAll()
         {
             List<Employee> employeeList = new List<Employee>();
-            DataSet employees = queryExecutor.Execute($"SELECT * FROM {tableName}");
+            (DataSet, int) result = queryExecutor.Execute($"SELECT * FROM {tableName}");
 
-            if (employees.Tables["Table"] != null)
+            if (result.Item1.Tables["Table"] != null)
             {
-                foreach (DataRow row in employees.Tables["Table"].Rows)
+                foreach (DataRow row in result.Item1.Tables["Table"].Rows)
                 {
                     Employee employee = new Employee(row.Field<string>("TitleOfCourtesy"), row.Field<string>("Title"),
                         row.Field<DateTime>("HireDate"), row.Field<string>("Extension"), row.Field<string>("Notes"),
