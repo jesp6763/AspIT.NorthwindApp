@@ -41,7 +41,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         public void GetByIdSuccess()
         {
             EmployeeDataRepository repository = new EmployeeDataRepository();
-            repository.GetById(1);
+            repository.GetById(2);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         public void DeleteSuccess()
         {
             EmployeeDataRepository repository = new EmployeeDataRepository();
-            repository.Delete(2011);
+            repository.Delete(2016);
         }
 
         [TestMethod]
@@ -82,7 +82,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
+        [ExpectedException(typeof(ArgumentException))]
         public void DeleteFail2()
         {
             EmployeeDataRepository repository = new EmployeeDataRepository();
