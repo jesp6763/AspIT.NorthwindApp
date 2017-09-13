@@ -23,8 +23,8 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// <exception cref="SqlException">Thrown when a connection-level error occurred while opening the connection.</exception>
         protected DataRepository()
         {
-            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
-            //queryExecutor = new QueryExecutor(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Northwind"); // Test db
+            //queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
+            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Northwind"); // Test db
         }
 
         static DataRepository()
@@ -86,12 +86,13 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             {
                 throw new ArgumentOutOfRangeException();
             }
-            DataSet dataSet = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {typeof(TEntity).Name}ID={id}");
+            string entityName = typeof(TEntity).Name;
 
+            DataSet result = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {entityName}ID={id}");
             // TODO: The table is 0 when deleting. Fix this sheit
-            if (dataSet.Tables.Count == 0)
+            if (!result.HasChanges())
             {
-                throw new ArgumentNullException();
+                throw new ArgumentException("No deleted rows");
             }
         }
     }
