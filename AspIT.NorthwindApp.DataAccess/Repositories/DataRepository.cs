@@ -87,12 +87,11 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
                 throw new ArgumentOutOfRangeException();
             }
             string entityName = typeof(TEntity).Name;
+            (DataSet, int) result = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {entityName}ID={id}");
 
-            DataSet result = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {entityName}ID={id}");
-
-            if (result.Tables.Count == 0)
+            if (result.Item2  <= 0)
             {
-                throw new ArgumentException("No rows were deleted. Employee with that id not found");
+                throw new ArgumentException($"No rows were deleted. {entityName} with that id not found");
             }
         }
     }
