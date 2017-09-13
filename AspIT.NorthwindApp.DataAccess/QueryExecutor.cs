@@ -48,7 +48,7 @@ namespace AspIT.NorthwindApp.DataAccess
         /// Executes a sql query
         /// </summary>
         /// <param name="sqlQuery">The sql query to execute</param>
-        /// <returns>A dataset as a result from the sql query</returns>
+        /// <returns>A dataset as a result from the sql query, and how many rows were affected</returns>
         /// <exception cref="InvalidOperationException">Thrown when can't open a connection without specifying a data source or server. or the connection is already open.</exception>
         /// <exception cref="SqlException">Thrown when a connection-level error occurred while opening the connection.</exception>
         public DataSet Execute(string sqlQuery)
@@ -58,8 +58,9 @@ namespace AspIT.NorthwindApp.DataAccess
                 connection.Open();
                 using (SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, connection))
                 {
+                    sqlAdapter.AcceptChangesDuringFill = true;
                     DataSet dataSet = new DataSet();
-                    sqlAdapter.Fill(dataSet);
+                    int rowsAffected = sqlAdapter.Fill(dataSet);
                     return dataSet;
                 }
             }
