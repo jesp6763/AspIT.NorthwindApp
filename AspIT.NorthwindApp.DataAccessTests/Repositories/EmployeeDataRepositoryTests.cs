@@ -70,7 +70,7 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories.Tests
         public void DeleteSuccess()
         {
             EmployeeDataRepository repository = new EmployeeDataRepository();
-            repository.Delete(1);
+            repository.Delete(2011);
         }
 
         [TestMethod]
