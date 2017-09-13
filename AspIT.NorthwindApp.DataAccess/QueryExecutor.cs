@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AspIT.NorthwindApp.DataAccess
 {
@@ -60,7 +56,7 @@ namespace AspIT.NorthwindApp.DataAccess
                 {
                     sqlAdapter.AcceptChangesDuringFill = true;
                     DataSet dataSet = new DataSet();
-                    int rowsAffected = sqlAdapter.Fill(dataSet);
+                    sqlAdapter.Fill(dataSet);
                     return dataSet;
                 }
             }
