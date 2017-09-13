@@ -32,7 +32,7 @@ namespace AspIT.NorthwindApp.Gui
         /// <summary>
         /// Gets or sets the error messages
         /// </summary>
-        public static Dictionary<string, string> ErrorMessages { get; set; } = new Dictionary<string, string>();
+        public static Dictionary<string, string> ErrorMessages { get; } = new Dictionary<string, string>();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
