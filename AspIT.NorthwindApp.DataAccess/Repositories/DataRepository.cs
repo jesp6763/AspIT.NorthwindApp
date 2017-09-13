@@ -89,11 +89,6 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
             string entityName = typeof(TEntity).Name;
 
             DataSet result = queryExecutor.Execute($"DELETE FROM {tableName} WHERE {entityName}ID={id}");
-            // TODO: The table is 0 when deleting. Fix this sheit
-            if (!result.HasChanges())
-            {
-                throw new ArgumentException("No deleted rows");
-            }
         }
     }
 }
