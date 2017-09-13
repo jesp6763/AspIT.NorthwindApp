@@ -55,6 +55,7 @@ namespace AspIT.NorthwindApp.DataAccess
                 using (SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, connection))
                 {
                     DataSet dataSet = new DataSet();
+                    //sqlAdapter.Update(dataSet);
                     sqlAdapter.Fill(dataSet);
                     return dataSet;
                 }
