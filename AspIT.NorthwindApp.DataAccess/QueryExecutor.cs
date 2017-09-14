@@ -49,19 +49,25 @@ namespace AspIT.NorthwindApp.DataAccess
         /// <exception cref="SqlException">Thrown when a connection-level error occurred while opening the connection.</exception>
         public QueryResult Execute(string sqlQuery)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            using(SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 DataSet dataSet = new DataSet();
 
-                using (SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection))
+                // if it is a delete query, then only return the rows affected
+                if(sqlQuery.StartsWith("DELETE FROM"))
                 {
-                    int rowsAffected = sqlCommand.ExecuteNonQuery();
-
-                    using (SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlCommand))
+                    using(SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection))
+                    {
+                        return new QueryResult(null, sqlCommand.ExecuteNonQuery());
+                    }
+                }
+                else
+                {
+                    using(SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, connection))
                     {
                         sqlAdapter.Fill(dataSet);
-                        return new QueryResult(dataSet, rowsAffected);
+                        return new QueryResult(dataSet, dataSet.Tables[0].Rows.Count);
                     }
                 }
             }
