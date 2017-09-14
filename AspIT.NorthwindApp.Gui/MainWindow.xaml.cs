@@ -339,6 +339,7 @@ namespace AspIT.NorthwindApp.Gui
             countryTb.Text = string.Empty;
             postalCodeTb.Text = string.Empty;
             homePhoneTb.Text = string.Empty;
+            addBtn.IsEnabled = false;
         }
     }
 }
