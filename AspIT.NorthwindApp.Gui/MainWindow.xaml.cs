@@ -262,9 +262,10 @@ namespace AspIT.NorthwindApp.Gui
             {
                 reportsTo = int.Parse(reportsToTb.Text);
             }
+
             Employee employee = new Employee(comboBox.Text, titleTb.Text, hireDatePicker.SelectedDate.Value, extensionTb.Text, notesTb.Text, reportsTo, firstNameTb.Text, lastNameTb.Text, birthDatePicker.SelectedDate.Value, addressTb.Text, cityTb.Text, regionTb.Text, postalCodeTb.Text, countryTb.Text, new ContactInfo(homePhoneTb.Text));
             employeeRepository.Save(employee);
-            employeeList.Items.Add(employee);
+            employeeList.Items.Add(employeeRepository.GetAll().Last());
         }
 
         private void EmployeeList_MouseDown(object sender, MouseButtonEventArgs e)
@@ -307,8 +308,15 @@ namespace AspIT.NorthwindApp.Gui
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             EmployeeDataRepository repository = new EmployeeDataRepository();
-            repository.Delete((employeeList.SelectedItem as Employee).Id);
-            employeeList.Items.RemoveAt(employeeList.SelectedIndex);
+            try
+            {
+                repository.Delete((employeeList.SelectedItem as Employee).Id);
+                employeeList.Items.RemoveAt(employeeList.SelectedIndex);
+            }
+            catch(Exception exception)
+            {
+                statusValue_Text.Content = exception.Message;
+            }
         }
     }
 }
