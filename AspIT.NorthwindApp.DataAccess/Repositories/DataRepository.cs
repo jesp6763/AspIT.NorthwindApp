@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using AspIT.NorthwindApp.Entities;
 
 namespace AspIT.NorthwindApp.DataAccess.Repositories
@@ -23,8 +21,8 @@ namespace AspIT.NorthwindApp.DataAccess.Repositories
         /// <exception cref="SqlException">Thrown when a connection-level error occurred while opening the connection.</exception>
         protected DataRepository()
         {
-            //queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
-            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Northwind"); // Test db
+            queryExecutor = new QueryExecutor(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind");
+            //queryExecutor = new QueryExecutor(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Northwind"); // Test db
         }
 
         static DataRepository()
