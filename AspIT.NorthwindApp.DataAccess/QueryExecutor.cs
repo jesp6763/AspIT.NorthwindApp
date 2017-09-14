@@ -67,7 +67,7 @@ namespace AspIT.NorthwindApp.DataAccess
                     using(SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, connection))
                     {
                         sqlAdapter.Fill(dataSet);
-                        return new QueryResult(dataSet, dataSet.Tables[0].Rows.Count);
+                        return new QueryResult(dataSet, dataSet.Tables.Count == 0 ? 0 : dataSet.Tables[0].Rows.Count);
                     }
                 }
             }

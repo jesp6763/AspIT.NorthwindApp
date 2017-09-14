@@ -142,118 +142,6 @@ namespace AspIT.NorthwindApp.Gui
             Validate("ReportsTo", reportsToTb);
         }
 
-        /// <summary>
-        /// Validates all inputs
-        /// </summary>
-        private void ValidateAll()
-        {
-            Validate("FirstName", firstNameTb);
-            Validate("LastName", lastNameTb);
-            Validate("Address", addressTb);
-            Validate("City", cityTb);
-            Validate("Region", regionTb);
-            Validate("PostalCode", postalCodeTb);
-            Validate("Country", countryTb);
-            Validate("Phone", homePhoneTb);
-            Validate("Title", titleTb);
-            Validate("Extension", extensionTb);
-            Validate("ReportsTo", reportsToTb);
-        }
-
-        /// <summary>
-        /// Validates the text with the specified method.
-        /// </summary>
-        /// <param name="validationMethod">The validation method: FirstName, LastName, City, Region, PostalCode, Country, Title, Extension, and Phone</param>
-        /// <param name="textBox">The textbox to validate</param>
-        private void Validate(string validationMethod, TextBox textBox)
-        {
-            (bool, string) result = (false, string.Empty);
-            switch (validationMethod)
-            {
-                case "FirstName":
-                    result = Person.IsValidName(textBox.Text);
-                    break;
-                case "LastName":
-                    result = Person.IsValidName(textBox.Text);
-                    break;
-                case "Address":
-                    result = Person.IsValidAddress(textBox.Text);
-                    break;
-                case "City":
-                    result = Person.IsValidCity(textBox.Text);
-                    break;
-                case "Region":
-                    result = Person.IsValidRegion(textBox.Text);
-                    break;
-                case "PostalCode":
-                    result = Person.IsValidPostalCode(textBox.Text);
-                    break;
-                case "Country":
-                    result = Person.IsValidCountry(textBox.Text);
-                    break;
-                case "Title":
-                    result = Employee.IsValidTitle(textBox.Text);
-                    break;
-                case "Extension":
-                    result = Employee.IsValidExtension(textBox.Text);
-                    break;
-                case "ReportsTo":
-                    result = Employee.IsValidReportsTo(textBox.Text);
-                    break;
-                case "Phone":
-                    result = ContactInfo.IsValidPhone(textBox.Text);
-                    break;
-            }
-
-            if (!result.Item1)
-            {
-                textBox.Style = Resources["ErrorBox"] as Style;
-
-                if (!ErrorMessages.ContainsKey(validationMethod))
-                {
-                    ErrorMessages.Add(validationMethod, result.Item2);
-                }
-                else
-                {
-                    ErrorMessages[validationMethod] = result.Item2;
-                }
-            }
-            else
-            {
-                textBox.Style = null;
-                if (ErrorMessages.ContainsKey(validationMethod))
-                {
-                    ErrorMessages.Remove(validationMethod);
-                }
-            }
-
-            if (ErrorMessages.Count == 0)
-            {
-                statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
-                statusValue_Text.Content = "Klar";
-
-                if (employeeList.SelectedIndex > -1)
-                {
-                    addBtn.IsEnabled = false;
-                    editBtn.IsEnabled = true;
-                    deleteBtn.IsEnabled = true;
-                }
-                else
-                {
-                    addBtn.IsEnabled = true;
-                    editBtn.IsEnabled = false;
-                    deleteBtn.IsEnabled = false;
-                }
-            }
-            else
-            {
-                statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
-                statusValue_Text.Content = ErrorMessages[ErrorMessages.Keys.ElementAt(0)];
-                addBtn.IsEnabled = false;
-                editBtn.IsEnabled = false;
-            }
-        }
-
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             EmployeeDataRepository employeeRepository = new EmployeeDataRepository();
@@ -265,6 +153,7 @@ namespace AspIT.NorthwindApp.Gui
 
             Employee employee = new Employee(comboBox.Text, titleTb.Text, hireDatePicker.SelectedDate.Value, extensionTb.Text, notesTb.Text, reportsTo, firstNameTb.Text, lastNameTb.Text, birthDatePicker.SelectedDate.Value, addressTb.Text, cityTb.Text, regionTb.Text, postalCodeTb.Text, countryTb.Text, new ContactInfo(homePhoneTb.Text));
             employeeRepository.Save(employee);
+            ClearInformation();
             employeeList.Items.Add(employeeRepository.GetAll().Last());
         }
 
@@ -317,6 +206,139 @@ namespace AspIT.NorthwindApp.Gui
             {
                 statusValue_Text.Content = exception.Message;
             }
+        }
+
+        /// <summary>
+        /// Validates all inputs
+        /// </summary>
+        private void ValidateAll()
+        {
+            Validate("FirstName", firstNameTb);
+            Validate("LastName", lastNameTb);
+            Validate("Address", addressTb);
+            Validate("City", cityTb);
+            Validate("Region", regionTb);
+            Validate("PostalCode", postalCodeTb);
+            Validate("Country", countryTb);
+            Validate("Phone", homePhoneTb);
+            Validate("Title", titleTb);
+            Validate("Extension", extensionTb);
+            Validate("ReportsTo", reportsToTb);
+        }
+
+        /// <summary>
+        /// Validates the text with the specified method.
+        /// </summary>
+        /// <param name="validationMethod">The validation method: FirstName, LastName, City, Region, PostalCode, Country, Title, Extension, and Phone</param>
+        /// <param name="textBox">The textbox to validate</param>
+        private void Validate(string validationMethod, TextBox textBox)
+        {
+            (bool, string) result = (false, string.Empty);
+            switch(validationMethod)
+            {
+                case "FirstName":
+                    result = Person.IsValidName(textBox.Text);
+                    break;
+                case "LastName":
+                    result = Person.IsValidName(textBox.Text);
+                    break;
+                case "Address":
+                    result = Person.IsValidAddress(textBox.Text);
+                    break;
+                case "City":
+                    result = Person.IsValidCity(textBox.Text);
+                    break;
+                case "Region":
+                    result = Person.IsValidRegion(textBox.Text);
+                    break;
+                case "PostalCode":
+                    result = Person.IsValidPostalCode(textBox.Text);
+                    break;
+                case "Country":
+                    result = Person.IsValidCountry(textBox.Text);
+                    break;
+                case "Title":
+                    result = Employee.IsValidTitle(textBox.Text);
+                    break;
+                case "Extension":
+                    result = Employee.IsValidExtension(textBox.Text);
+                    break;
+                case "ReportsTo":
+                    result = Employee.IsValidReportsTo(textBox.Text);
+                    break;
+                case "Phone":
+                    result = ContactInfo.IsValidPhone(textBox.Text);
+                    break;
+            }
+
+            if(!result.Item1)
+            {
+                textBox.Style = Resources["ErrorBox"] as Style;
+
+                if(!ErrorMessages.ContainsKey(validationMethod))
+                {
+                    ErrorMessages.Add(validationMethod, result.Item2);
+                }
+                else
+                {
+                    ErrorMessages[validationMethod] = result.Item2;
+                }
+            }
+            else
+            {
+                textBox.Style = null;
+                if(ErrorMessages.ContainsKey(validationMethod))
+                {
+                    ErrorMessages.Remove(validationMethod);
+                }
+            }
+
+            if(ErrorMessages.Count == 0)
+            {
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(65, 105, 225));
+                statusValue_Text.Content = "Klar";
+
+                if(employeeList.SelectedIndex > -1)
+                {
+                    addBtn.IsEnabled = false;
+                    editBtn.IsEnabled = true;
+                    deleteBtn.IsEnabled = true;
+                }
+                else
+                {
+                    addBtn.IsEnabled = true;
+                    editBtn.IsEnabled = false;
+                    deleteBtn.IsEnabled = false;
+                }
+            }
+            else
+            {
+                statusBar.Background = new SolidColorBrush(Color.FromRgb(225, 65, 65));
+                statusValue_Text.Content = ErrorMessages[ErrorMessages.Keys.ElementAt(0)];
+                addBtn.IsEnabled = false;
+                editBtn.IsEnabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Clears all textboxes and pickers in the information boxes
+        /// </summary>
+        private void ClearInformation()
+        {
+            firstNameTb.Text = string.Empty;
+            lastNameTb.Text = string.Empty;
+            titleTb.Text = string.Empty;
+            comboBox.SelectedIndex = 0;
+            extensionTb.Text = string.Empty;
+            hireDatePicker.SelectedDate = DateTime.Today;
+            birthDatePicker.SelectedDate = DateTime.Today;
+            notesTb.Text = string.Empty;
+            addressTb.Text = string.Empty;
+            cityTb.Text = string.Empty;
+            regionTb.Text = string.Empty;
+            countryTb.Text = string.Empty;
+            postalCodeTb.Text = string.Empty;
+            homePhoneTb.Text = string.Empty;
         }
     }
 }
