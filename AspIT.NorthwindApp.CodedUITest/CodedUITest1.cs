@@ -29,10 +29,9 @@ namespace AspIT.NorthwindApp.CodedUITest
             this.UIMap.EditEmployeeTest1();
             this.UIMap.EditEmployeeTest2();
             this.UIMap.EditEmployeeTest3();
-            this.UIMap.DeleteEmployeeTest1();
             this.UIMap.AddEmployeeTest1();
-
-
+            this.UIMap.DeleteEmployeeTest1();
+            this.UIMap.AddEmployeeTest2();
         }
 
         #region Additional test attributes

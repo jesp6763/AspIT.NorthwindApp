@@ -351,6 +351,172 @@
       <WorkItemId>0</WorkItemId>
       <MarkerRegionType>Action</MarkerRegionType>
     </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIComboBoxComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="54" Y="9" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <MouseAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIComboBoxComboBox">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="80" Y="7" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIFirstNameTbEdit">
+      <ParameterName />
+      <Value Encoded="false">Jole</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIFirstNameTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UILastNameTbEdit">
+      <ParameterName />
+      <Value Encoded="false">Smack</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIBirthDatePickerDatePicker">
+      <ParameterName />
+      <Value Encoded="false">11-Sep-1984</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="150" Y="223" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIAddressTbEdit">
+      <ParameterName />
+      <Value Encoded="false">Crayon. 21street</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <MouseAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIAddressTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="46" Y="10" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICityTbEdit">
+      <ParameterName />
+      <Value Encoded="false">Melon City</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICityTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIRegionTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIPostalCodeTbEdit">
+      <ParameterName />
+      <Value Encoded="false">8219</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIPostalCodeTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICountryTbEdit">
+      <ParameterName />
+      <Value Encoded="false">Ma land</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICountryTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIHomePhoneTbEdit">
+      <ParameterName />
+      <Value Encoded="false">2891828283838281838</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIHomePhoneTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIHomePhoneTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="77" Y="20" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>DoubleClick</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UITitleTbEdit">
+      <ParameterName />
+      <Value Encoded="false">Melon Representive</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIHireDatePickerDatePicker">
+      <ParameterName />
+      <Value Encoded="false">05-Jul-2017</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SetValueAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIExtensionTbEdit">
+      <ParameterName />
+      <Value Encoded="false">818</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIExtensionTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <SendKeysAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIReportsToTbEdit">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Text Encoded="false">{Tab}</Text>
+    </SendKeysAction>
+    <MouseAction UIObjectName="UIMap.UIEmployeeOverwatchWindow.UITilføjButton">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="29" Y="16" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="Adds an employee from scratch" MarkerInformation="AddEmployeeTest2">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
   </ExecuteActions>
   <CleanupActions />
   <OnErrorActions />

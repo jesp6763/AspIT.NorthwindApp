@@ -231,6 +231,106 @@ namespace AspIT.NorthwindApp.CodedUITest
             Mouse.Click(uITilføjButton, new Point(16, 16));
         }
         
+        /// <summary>
+        /// Adds an employee from scratch
+        /// </summary>
+        public void AddEmployeeTest2()
+        {
+            #region Variable Declarations
+            WpfComboBox uIComboBoxComboBox = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIComboBoxComboBox;
+            WpfEdit uIFirstNameTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIFirstNameTbEdit;
+            WpfEdit uILastNameTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UILastNameTbEdit;
+            WpfDatePicker uIBirthDatePickerDatePicker = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIBirthDatePickerDatePicker;
+            WpfGroup uIPersonligeoplysningeGroup = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup;
+            WpfEdit uIAddressTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIAddressTbEdit;
+            WpfEdit uICityTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICityTbEdit;
+            WpfEdit uIRegionTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIRegionTbEdit;
+            WpfEdit uIPostalCodeTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIPostalCodeTbEdit;
+            WpfEdit uICountryTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UICountryTbEdit;
+            WpfEdit uIHomePhoneTbEdit = this.UIEmployeeOverwatchWindow.UIPersonligeoplysningeGroup.UIHomePhoneTbEdit;
+            WpfEdit uITitleTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UITitleTbEdit;
+            WpfDatePicker uIHireDatePickerDatePicker = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIHireDatePickerDatePicker;
+            WpfEdit uIExtensionTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIExtensionTbEdit;
+            WpfEdit uIReportsToTbEdit = this.UIEmployeeOverwatchWindow.UIAndreoplysningerGroup.UIReportsToTbEdit;
+            WpfButton uITilføjButton = this.UIEmployeeOverwatchWindow.UITilføjButton;
+            #endregion
+
+            // Click 'comboBox' combo box
+            Mouse.Click(uIComboBoxComboBox, new Point(54, 9));
+
+            // Click 'comboBox' combo box
+            Mouse.Click(uIComboBoxComboBox, new Point(80, 7));
+
+            // Type 'Jole' in 'firstNameTb' text box
+            uIFirstNameTbEdit.Text = this.AddEmployeeTest2Params.UIFirstNameTbEditText;
+
+            // Type '{Tab}' in 'firstNameTb' text box
+            Keyboard.SendKeys(uIFirstNameTbEdit, this.AddEmployeeTest2Params.UIFirstNameTbEditSendKeys, ModifierKeys.None);
+
+            // Type 'Smack' in 'lastNameTb' text box
+            uILastNameTbEdit.Text = this.AddEmployeeTest2Params.UILastNameTbEditText;
+
+            // Select '11-Sep-1984' in 'birthDatePicker' date picker
+            uIBirthDatePickerDatePicker.DateAsString = this.AddEmployeeTest2Params.UIBirthDatePickerDatePickerDateAsString;
+
+            // Click 'Personlige oplysninger' group
+            Mouse.Click(uIPersonligeoplysningeGroup, new Point(150, 223));
+
+            // Type 'Crayon. 21street' in 'addressTb' text box
+            uIAddressTbEdit.Text = this.AddEmployeeTest2Params.UIAddressTbEditText;
+
+            // Click 'addressTb' text box
+            Mouse.Click(uIAddressTbEdit, new Point(46, 10));
+
+            // Type 'Melon City' in 'cityTb' text box
+            uICityTbEdit.Text = this.AddEmployeeTest2Params.UICityTbEditText;
+
+            // Type '{Tab}' in 'cityTb' text box
+            Keyboard.SendKeys(uICityTbEdit, this.AddEmployeeTest2Params.UICityTbEditSendKeys, ModifierKeys.None);
+
+            // Type '{Tab}' in 'regionTb' text box
+            Keyboard.SendKeys(uIRegionTbEdit, this.AddEmployeeTest2Params.UIRegionTbEditSendKeys, ModifierKeys.None);
+
+            // Type '8219' in 'postalCodeTb' text box
+            uIPostalCodeTbEdit.Text = this.AddEmployeeTest2Params.UIPostalCodeTbEditText;
+
+            // Type '{Tab}' in 'postalCodeTb' text box
+            Keyboard.SendKeys(uIPostalCodeTbEdit, this.AddEmployeeTest2Params.UIPostalCodeTbEditSendKeys, ModifierKeys.None);
+
+            // Type 'Ma land' in 'countryTb' text box
+            uICountryTbEdit.Text = this.AddEmployeeTest2Params.UICountryTbEditText;
+
+            // Type '{Tab}' in 'countryTb' text box
+            Keyboard.SendKeys(uICountryTbEdit, this.AddEmployeeTest2Params.UICountryTbEditSendKeys, ModifierKeys.None);
+
+            // Type '2891828283838281838' in 'homePhoneTb' text box
+            uIHomePhoneTbEdit.Text = this.AddEmployeeTest2Params.UIHomePhoneTbEditText;
+
+            // Type '{Tab}' in 'homePhoneTb' text box
+            Keyboard.SendKeys(uIHomePhoneTbEdit, this.AddEmployeeTest2Params.UIHomePhoneTbEditSendKeys, ModifierKeys.None);
+
+            // Double-Click 'homePhoneTb' text box
+            Mouse.DoubleClick(uIHomePhoneTbEdit, new Point(77, 20));
+
+            // Type 'Melon Representive' in 'titleTb' text box
+            uITitleTbEdit.Text = this.AddEmployeeTest2Params.UITitleTbEditText;
+
+            // Select '05-Jul-2017' in 'hireDatePicker' date picker
+            uIHireDatePickerDatePicker.DateAsString = this.AddEmployeeTest2Params.UIHireDatePickerDatePickerDateAsString;
+
+            // Type '818' in 'extensionTb' text box
+            uIExtensionTbEdit.Text = this.AddEmployeeTest2Params.UIExtensionTbEditText;
+
+            // Type '{Tab}' in 'extensionTb' text box
+            Keyboard.SendKeys(uIExtensionTbEdit, this.AddEmployeeTest2Params.UIExtensionTbEditSendKeys, ModifierKeys.None);
+
+            // Type '{Tab}' in 'reportsToTb' text box
+            Keyboard.SendKeys(uIReportsToTbEdit, this.AddEmployeeTest2Params.UIReportsToTbEditSendKeys, ModifierKeys.None);
+
+            // Click 'Tilføj' button
+            Mouse.Click(uITilføjButton, new Point(29, 16));
+        }
+        
         #region Properties
         public virtual EditEmployeeTest1Params EditEmployeeTest1Params
         {
@@ -280,6 +380,18 @@ namespace AspIT.NorthwindApp.CodedUITest
             }
         }
         
+        public virtual AddEmployeeTest2Params AddEmployeeTest2Params
+        {
+            get
+            {
+                if ((this.mAddEmployeeTest2Params == null))
+                {
+                    this.mAddEmployeeTest2Params = new AddEmployeeTest2Params();
+                }
+                return this.mAddEmployeeTest2Params;
+            }
+        }
+        
         public UIEmployeeOverwatchWindow UIEmployeeOverwatchWindow
         {
             get
@@ -301,6 +413,8 @@ namespace AspIT.NorthwindApp.CodedUITest
         private EditEmployeeTest3Params mEditEmployeeTest3Params;
         
         private AddEmployeeTest1Params mAddEmployeeTest1Params;
+        
+        private AddEmployeeTest2Params mAddEmployeeTest2Params;
         
         private UIEmployeeOverwatchWindow mUIEmployeeOverwatchWindow;
         #endregion
@@ -488,6 +602,111 @@ namespace AspIT.NorthwindApp.CodedUITest
         /// Type '' in 'reportsToTb' text box
         /// </summary>
         public string UIReportsToTbEditText = "";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'reportsToTb' text box
+        /// </summary>
+        public string UIReportsToTbEditSendKeys = "{Tab}";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'AddEmployeeTest2'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class AddEmployeeTest2Params
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Type 'Jole' in 'firstNameTb' text box
+        /// </summary>
+        public string UIFirstNameTbEditText = "Jole";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'firstNameTb' text box
+        /// </summary>
+        public string UIFirstNameTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'Smack' in 'lastNameTb' text box
+        /// </summary>
+        public string UILastNameTbEditText = "Smack";
+        
+        /// <summary>
+        /// Select '11-Sep-1984' in 'birthDatePicker' date picker
+        /// </summary>
+        public string UIBirthDatePickerDatePickerDateAsString = "11-Sep-1984";
+        
+        /// <summary>
+        /// Type 'Crayon. 21street' in 'addressTb' text box
+        /// </summary>
+        public string UIAddressTbEditText = "Crayon. 21street";
+        
+        /// <summary>
+        /// Type 'Melon City' in 'cityTb' text box
+        /// </summary>
+        public string UICityTbEditText = "Melon City";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'cityTb' text box
+        /// </summary>
+        public string UICityTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'regionTb' text box
+        /// </summary>
+        public string UIRegionTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '8219' in 'postalCodeTb' text box
+        /// </summary>
+        public string UIPostalCodeTbEditText = "8219";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'postalCodeTb' text box
+        /// </summary>
+        public string UIPostalCodeTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'Ma land' in 'countryTb' text box
+        /// </summary>
+        public string UICountryTbEditText = "Ma land";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'countryTb' text box
+        /// </summary>
+        public string UICountryTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type '2891828283838281838' in 'homePhoneTb' text box
+        /// </summary>
+        public string UIHomePhoneTbEditText = "2891828283838281838";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'homePhoneTb' text box
+        /// </summary>
+        public string UIHomePhoneTbEditSendKeys = "{Tab}";
+        
+        /// <summary>
+        /// Type 'Melon Representive' in 'titleTb' text box
+        /// </summary>
+        public string UITitleTbEditText = "Melon Representive";
+        
+        /// <summary>
+        /// Select '05-Jul-2017' in 'hireDatePicker' date picker
+        /// </summary>
+        public string UIHireDatePickerDatePickerDateAsString = "05-Jul-2017";
+        
+        /// <summary>
+        /// Type '818' in 'extensionTb' text box
+        /// </summary>
+        public string UIExtensionTbEditText = "818";
+        
+        /// <summary>
+        /// Type '{Tab}' in 'extensionTb' text box
+        /// </summary>
+        public string UIExtensionTbEditSendKeys = "{Tab}";
         
         /// <summary>
         /// Type '{Tab}' in 'reportsToTb' text box
